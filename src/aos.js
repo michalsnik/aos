@@ -10,7 +10,6 @@
    */
   var $aosElements = null;
   var windowHeight = 0;
-  var offset = 120;
   var aosElementsPositions = [];
   var scrollTop = 0;
 
@@ -32,10 +31,9 @@
    */
   var handleScroll = function(){
     scrollTop = $(window).scrollTop();
-    console.log(scrollTop);
 
     $.each(aosElementsPositions, function(i, elPos) {
-      if (scrollTop >= elPos - windowHeight + offset) {
+      if (scrollTop >= elPos - windowHeight) {
         $aosElements.eq(i).addClass('aos-animate');
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
@@ -46,17 +44,30 @@
   /**
    * And maybe here as well
    */
-  var init = function(options){
+  var init = function(settings){
     /* Looking for some guest */
-    $aosElements = $('.aos');
+    $aosElements = $('[aos]');
     windowHeight = $(window).height();
     /* Clearing area to make place for some chicks */
     aosElementsPositions = [];
 
+    /*
+     * Merge user settings with default settings
+     */
+    options = $.extend({}, options, settings);
+
     /* Invite everyone */
     $aosElements.addClass('aos-init').each(function(i, el){
       /* Yeah, dancefloor isn't empty now! */
-      aosElementsPositions.push($(el).offset().top);
+      var elementOffsetTop = $(el).offset().top;
+      var offset = options.offset;
+      var extraOffset = $(el).attr('aos-offset');
+
+      if (extraOffset && !isNaN(extraOffset)) {
+        offset = parseInt(extraOffset);
+      }
+
+      aosElementsPositions.push(elementOffsetTop + offset);
     });
 
     /**

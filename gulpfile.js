@@ -1,6 +1,6 @@
 var gulp        = require('gulp');
 var sass        = require('gulp-sass');
-var pleeease    = require('gulp-pleeease');
+var autoprefixer = require('gulp-autoprefixer');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 var browserSync = require('browser-sync');
@@ -12,11 +12,10 @@ gulp.task('sass', function () {
     gulp.src('src/*.scss')
         .pipe(concat('aos.scss'))
         .pipe(sass({errLogToConsole: true}))
-        .pipe(pleeease({
-            autoprefixer: {
-                browsers: ['last 2 versions']
-            }
-        }))
+        .pipe(autoprefixer({
+                browsers: ['> 1%']
+            })
+        )
         .pipe(gulp.dest('dist'))
         .pipe(reload({stream:true}));
 });
