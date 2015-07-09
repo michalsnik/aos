@@ -23,10 +23,9 @@ $val-lg: 100vw;
 
 
 
-
 /**
  * Fade animations:
- * fade-in
+ * fade
  * fade-up, fade-down, fade-left, fade-right
  * fade-up-right, fade-up-left, fade-down-right, fade-down-left
  */
@@ -76,6 +75,66 @@ $val-lg: 100vw;
   &.aos-animate {transform: translate(0,0);}
 }
 
+/**
+ * Fade animations with zoom in:
+ * fade-zoom-in, fade-up-zoom-in, fade-down-zoom-in, fade-right-zoom-in, fade-left-zoom-in
+ */
+
+[aos='fade-zoom-in'].aos-init {
+  transform: scale(.6);
+  &.aos-animate {transform: scale(1);}
+}
+
+[aos='fade-up-zoom-in'].aos-init {
+  transform: translate(0,$val-sm) scale(.6);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+[aos='fade-down-zoom-in'].aos-init {
+  transform: translate(0,-$val-sm) scale(.6);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+[aos='fade-right-zoom-in'].aos-init {
+  transform: translate(-$val-sm,0) scale(.6);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+[aos='fade-left-zoom-in'].aos-init {
+  transform: translate($val-sm,0) scale(.6);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+/**
+ * Fade animations with zoom out:
+ * fade-zoom-out, fade-up-zoom-out, fade-down-zoom-out, fade-right-zoom-out, fade-left-zoom-out
+ */
+
+[aos='fade-zoom-out'].aos-init {
+  transform: scale(1.2);
+  &.aos-animate {transform: scale(1);}
+}
+
+[aos='fade-up-zoom-out'].aos-init {
+  transform: translate(0,$val-sm) scale(1.2);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+[aos='fade-down-zoom-out'].aos-init {
+  transform: translate(0,-$val-sm) scale(1.2);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+[aos='fade-right-zoom-out'].aos-init {
+  transform: translate(-$val-sm,0) scale(1.2);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
+[aos='fade-left-zoom-out'].aos-init {
+  transform: translate($val-sm,0) scale(1.2);
+  &.aos-animate {transform: translate(0,0) scale(1);}
+}
+
 
 
 
@@ -86,8 +145,10 @@ $val-lg: 100vw;
 
 
 
+
 /**
- * Flip animations
+ * Flip animations:
+ * flip-left, flip-right, flip-up, flip-down
  */
 
 [aos^='flip'].aos-init {
