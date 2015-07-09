@@ -1,0 +1,33 @@
+{
+  "name": "Animate on scroll - AOS",
+  "version": "0.1.1",
+  "homepage": "https://github.com/michalsnik/aos",
+  "authors": [
+    "Michał Sajnóg <michal.sajnog@hotmail.com>"
+  ],
+  "main": "src/js/aos.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "scroll",
+    "css3",
+    "transition",
+    "transform",
+    "mousewheel",
+    "smooth",
+    "wow",
+    "animate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  }
+}
