@@ -4,7 +4,6 @@
  *
  * TODO:
  * - add more easing functions
- * - add delay customization as optional attribute on element
  */
 
 ;(function(window, document, undefined) {
@@ -12,9 +11,11 @@
   /**
    * Private variables
    */
-  var $aosElements = null;
-  var windowHeight = 0;
+  var $aosElements = [];
   var aosElementsPositions = [];
+  var aosElementsDelays = [];
+
+  var windowHeight = 0;
   var scrollTop = 0;
 
   /**
@@ -41,7 +42,7 @@
       if (scrollTop >= elPos - windowHeight) {
         setTimeout(function(){
           $aosElements.eq(i).addClass('aos-animate');
-        }, options.delay);
+        }, (aosElementsDelays[i] || options.delay));
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
@@ -57,6 +58,7 @@
     windowHeight = $(window).height();
     /* Clearing area to make place for some chicks */
     aosElementsPositions = [];
+    aosElementsDelays = [];
 
     /*
      * Merge user settings with default settings
@@ -70,7 +72,8 @@
       var additionalOffset = options.offset;
       var attrs = {
         offset: $(el).attr('aos-offset'),
-        anchor: $(el).attr('aos-anchor')
+        anchor: $(el).attr('aos-anchor'),
+        delay: $(el).attr('aos-delay')
       };
 
       if (attrs.offset && !isNaN(attrs.offset)) {
@@ -80,6 +83,8 @@
       if (attrs.anchor && $(attrs.anchor)) {
         elementOffsetTop = $(attrs.anchor).offset().top
       }
+
+      aosElementsDelays.push(attrs.delay || 0);
 
       aosElementsPositions.push(elementOffsetTop + additionalOffset);
     });
