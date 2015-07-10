@@ -13,7 +13,21 @@ $ease-in-back       : cubic-bezier(0.6, -0.28, 0.735, 0.045);
 $ease-out-back      : cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $ease-in-out-back   : cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
+$ease-in-sine       : cubic-bezier(0.47, 0, 0.745, 0.715);
+$ease-out-sine      : cubic-bezier(0.39, 0.575, 0.565, 1);
+$ease-in-out-sine   : cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
+$ease-in-quad       : cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-out-quad      : cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-quad   : cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+$ease-in-cubic       : cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-out-cubic      : cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-cubic   : cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+$ease-in-quart       : cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-out-quart      : cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-quart   : cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
 
 /**
@@ -27,32 +41,75 @@ $ease-in-out-back   : cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transition-timing-function: $linear;
   }
 
+
   body[aos-easing='ease'] &, &[aos].aos-init[aos-easing='ease']{
     transition-timing-function: $ease;
   }
 
+
   body[aos-easing='ease-in'] &, &[aos].aos-init[aos-easing='ease-in']{
     transition-timing-function: $ease-in;
   }
-
   body[aos-easing='ease-out'] &, &[aos].aos-init[aos-easing='ease-out']{
     transition-timing-function: $ease-out;
   }
-
   body[aos-easing='ease-in-out'] &, &[aos].aos-init[aos-easing='ease-in-out']{
     transition-timing-function: $ease-in-out;
   }
 
+
   body[aos-easing='ease-in-back'] &, &[aos].aos-init[aos-easing='ease-in-back']{
     transition-timing-function: $ease-in-back;
   }
-
   body[aos-easing='ease-out-back'] &, &[aos].aos-init[aos-easing='ease-out-back']{
     transition-timing-function: $ease-out-back;
   }
-
   body[aos-easing='ease-in-out-back'] &, &[aos].aos-init[aos-easing='ease-in-out-back']{
     transition-timing-function: $ease-in-out-back;
+  }
+
+
+  body[aos-easing='ease-in-sine'] &, &[aos].aos-init[aos-easing='ease-in-sine']{
+    transition-timing-function: $ease-in-sine;
+  }
+  body[aos-easing='ease-out-sine'] &, &[aos].aos-init[aos-easing='ease-out-sine']{
+    transition-timing-function: $ease-out-sine;
+  }
+  body[aos-easing='ease-in-out-sine'] &, &[aos].aos-init[aos-easing='ease-in-out-sine']{
+    transition-timing-function: $ease-in-out-sine;
+  }
+
+
+  body[aos-easing='ease-in-quad'] &, &[aos].aos-init[aos-easing='ease-in-quad']{
+    transition-timing-function: $ease-in-quad;
+  }
+  body[aos-easing='ease-out-quad'] &, &[aos].aos-init[aos-easing='ease-out-quad']{
+    transition-timing-function: $ease-out-quad;
+  }
+  body[aos-easing='ease-in-out-quad'] &, &[aos].aos-init[aos-easing='ease-in-out-quad']{
+    transition-timing-function: $ease-in-out-quad;
+  }
+
+
+  body[aos-easing='ease-in-cubic'] &, &[aos].aos-init[aos-easing='ease-in-cubic']{
+    transition-timing-function: $ease-in-cubic;
+  }
+  body[aos-easing='ease-out-cubic'] &, &[aos].aos-init[aos-easing='ease-out-cubic']{
+    transition-timing-function: $ease-out-cubic;
+  }
+  body[aos-easing='ease-in-out-cubic'] &, &[aos].aos-init[aos-easing='ease-in-out-cubic']{
+    transition-timing-function: $ease-in-out-cubic;
+  }
+
+
+  body[aos-easing='ease-in-quart'] &, &[aos].aos-init[aos-easing='ease-in-quart']{
+    transition-timing-function: $ease-in-quart;
+  }
+  body[aos-easing='ease-out-quart'] &, &[aos].aos-init[aos-easing='ease-out-quart']{
+    transition-timing-function: $ease-out-quart;
+  }
+  body[aos-easing='ease-in-out-quart'] &, &[aos].aos-init[aos-easing='ease-in-out-quart']{
+    transition-timing-function: $ease-in-out-quart;
   }
 
 }

@@ -29,6 +29,42 @@ body[aos-easing='ease-out-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[ao
 body[aos-easing='ease-in-out-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-back'] {
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
           transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+body[aos-easing='ease-in-sine'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-sine'] {
+  -webkit-transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+          transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715); }
+body[aos-easing='ease-out-sine'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-sine'] {
+  -webkit-transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+          transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
+body[aos-easing='ease-in-out-sine'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-sine'] {
+  -webkit-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95); }
+body[aos-easing='ease-in-quad'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-quad'] {
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+          transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+body[aos-easing='ease-out-quad'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-quad'] {
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+body[aos-easing='ease-in-out-quad'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-quad'] {
+  -webkit-transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+body[aos-easing='ease-in-cubic'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-cubic'] {
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+          transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+body[aos-easing='ease-out-cubic'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-cubic'] {
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+body[aos-easing='ease-in-out-cubic'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-cubic'] {
+  -webkit-transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+body[aos-easing='ease-in-quart'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-quart'] {
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+          transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+body[aos-easing='ease-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-quart'] {
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-quart'] {
+  -webkit-transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
 
 /*
  * Default variables

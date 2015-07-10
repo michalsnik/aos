@@ -39,13 +39,9 @@
 
     $.each(aosElementsPositions, function(i, elPos) {
       if (scrollTop >= elPos - windowHeight) {
-        if(options.delay){
-          setTimeout(function(){
-            $aosElements.eq(i).addClass('aos-animate');
-          }, options.delay);
-        }else{
+        setTimeout(function(){
           $aosElements.eq(i).addClass('aos-animate');
-        }
+        }, options.delay);
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
