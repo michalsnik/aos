@@ -3,12 +3,10 @@
  */
 
 $duration: .6s;
-$easing: ease;
 
 $val-sm: 50px;
 $val-md: 80px;
 $val-lg: 100vw;
-
 
 
 
@@ -17,7 +15,9 @@ $val-lg: 100vw;
  */
 
 [aos].aos-init {
-  transition: all $duration $easing;
+  transition-property: all;
+  transition-duration: $duration;
+  transition-timing-function: $ease;
 }
 
 

@@ -1,3 +1,35 @@
+/**
+ * Easing functions
+ */
+/**
+ * Easings implementations
+ * Default timing function: 'ease'
+ */
+body[aos-easing='linear'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='linear'] {
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+          transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75); }
+body[aos-easing='ease'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease'] {
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); }
+body[aos-easing='ease-in'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in'] {
+  -webkit-transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+body[aos-easing='ease-out'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out'] {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+body[aos-easing='ease-in-out'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out'] {
+  -webkit-transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+          transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1); }
+body[aos-easing='ease-in-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-back'] {
+  -webkit-transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045); }
+body[aos-easing='ease-out-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-back'] {
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+body[aos-easing='ease-in-out-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-back'] {
+  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
 /*
  * Default variables
  */
@@ -5,8 +37,12 @@
  * Initial settings
  */
 [aos].aos-init {
-  -webkit-transition: all 0.6s ease;
-          transition: all 0.6s ease; }
+  -webkit-transition-property: all;
+          transition-property: all;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+  -webkit-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); }
 
 /**
  * Fade animations:

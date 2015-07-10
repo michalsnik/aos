@@ -3,10 +3,8 @@
  * made to animate elements on scroll in both directions
  *
  * TODO:
- * - add easing customization
- *   (as global setting and as optional attribute on element)
- * - add delay customization
- *   (as global setting and as optional attribute on element)
+ * - add more easing functions
+ * - add delay customization as optional attribute on element
  */
 
 ;(function(window, document, undefined) {
@@ -27,7 +25,8 @@
      * Lonely offset
      * Mayby one day there he'll find some friends
      */
-    offset: 120
+    offset: 120,
+    delay: 0
   };
 
   /**
@@ -40,7 +39,13 @@
 
     $.each(aosElementsPositions, function(i, elPos) {
       if (scrollTop >= elPos - windowHeight) {
-        $aosElements.eq(i).addClass('aos-animate');
+        if(options.delay){
+          setTimeout(function(){
+            $aosElements.eq(i).addClass('aos-animate');
+          }, options.delay);
+        }else{
+          $aosElements.eq(i).addClass('aos-animate');
+        }
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
