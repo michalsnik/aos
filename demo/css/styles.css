@@ -137,7 +137,6 @@ body
     background: #051a24;
 }.aos-all
 {
-    overflow: hidden;
     width: 1000px;
     max-width: 98%;
     margin: 100vh auto 0 auto;

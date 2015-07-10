@@ -3,10 +3,6 @@
  * made to animate elements on scroll in both directions
  *
  * TODO:
- * - add anchor option to elements,
- *   (as optional attribute)
- *   to check offset of anchor element
- *   instead of actual element, to trigger animation
  * - add easing customization
  *   (as global setting and as optional attribute on element)
  * - add delay customization
@@ -70,14 +66,21 @@
     $aosElements.addClass('aos-init').each(function(i, el){
       /* Yeah, dancefloor isn't empty now! */
       var elementOffsetTop = $(el).offset().top;
-      var offset = options.offset;
-      var extraOffset = $(el).attr('aos-offset');
+      var additionalOffset = options.offset;
+      var attrs = {
+        offset: $(el).attr('aos-offset'),
+        anchor: $(el).attr('aos-anchor')
+      };
 
-      if (extraOffset && !isNaN(extraOffset)) {
-        offset = parseInt(extraOffset);
+      if (attrs.offset && !isNaN(attrs.offset)) {
+        additionalOffset = parseInt(attrs.offset);
       }
 
-      aosElementsPositions.push(elementOffsetTop + offset);
+      if (attrs.anchor && $(attrs.anchor)) {
+        elementOffsetTop = $(attrs.anchor).offset().top
+      }
+
+      aosElementsPositions.push(elementOffsetTop + additionalOffset);
     });
 
     /**
