@@ -10,7 +10,7 @@
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
-	<body aos-easing="ease-in-out-cubic">
+	<body>
 		<div id="transcroller-body" class="aos-all">
 			<div class="aos-item" aos="fade-right-zoom-out" aos-anchor=".aos-item:eq(4)">
 				<div class="aos-item__inner colored-1"><h3>Lorem ipsum</h3></div>
@@ -145,7 +145,9 @@
 
 		<script>
 		$(function(){
-			AOS.init();
+			AOS.init({
+				easing: 'ease-in-out-back'
+			});
 		});
 		</script>
 	</body>

@@ -27,7 +27,8 @@
      * Mayby one day there he'll find some friends
      */
     offset: 120,
-    delay: 0
+    delay: 0,
+    easing: 'ease'
   };
 
   /**
@@ -64,6 +65,8 @@
      * Merge user settings with default settings
      */
     options = $.extend({}, options, settings);
+
+    $('body').attr('aos-easing', options.easing);
 
     /* Invite everyone */
     $aosElements.addClass('aos-init').each(function(i, el){
