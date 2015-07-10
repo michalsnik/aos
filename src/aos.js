@@ -1,6 +1,16 @@
 /*
- * AOS (Animate on scroll ) - wowjs alternative
- * made to animate elements on scroll
+ * AOS (Animate on scroll) - wowjs alternative
+ * made to animate elements on scroll in both directions
+ *
+ * TODO:
+ * - add anchor option to elements,
+ *   (as optional attribute)
+ *   to check offset of anchor element
+ *   instead of actual element, to trigger animation
+ * - add easing customization
+ *   (as global setting and as optional attribute on element)
+ * - add delay customization
+ *   (as global setting and as optional attribute on element)
  */
 
 ;(function(window, document, undefined) {
