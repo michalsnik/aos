@@ -21,7 +21,8 @@
   var options = {
     offset: 120,
     delay: 0,
-    easing: 'ease'
+    easing: 'ease',
+    duration: 400
   };
 
   /**
@@ -128,6 +129,7 @@
     options = $.extend({}, options, settings);
 
     $('body').attr('aos-easing', options.easing);
+    $('body').attr('aos-duration', options.duration);
 
     $(document).on('ready', function(){
       generate();

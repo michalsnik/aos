@@ -2,22 +2,23 @@
  * Default variables
  */
 
-$duration: .6s;
-
 $val-sm: 50px;
 $val-md: 80px;
 $val-lg: 100vw;
 
 
 
+
 /**
- * Initial settings
+ * Duration loop
  */
 
-[aos] {
-  transition-property: all;
-  transition-duration: $duration;
-  transition-timing-function: $ease;
+[aos]{
+  @for $i from 1 through 60 {
+    body[aos-duration='#{$i*50}'] &, &[aos][aos-duration='#{$i*50}']{
+      transition-duration: #{$i*50}ms;
+    }
+  }
 }
 
 
@@ -31,7 +32,7 @@ $val-lg: 100vw;
  */
 
 [aos^='fade'] {
-  opacity: 0;
+  opacity: 0; transition-property: all;
   &.aos-animate {opacity: 1;}
 }
 

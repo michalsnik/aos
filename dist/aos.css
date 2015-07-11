@@ -5,64 +5,64 @@
  * Easings implementations
  * Default timing function: 'ease'
  */
-body[aos-easing='linear'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='linear'] {
+body[aos-easing='linear'] [aos], [aos][aos][aos-easing='linear'] {
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75); }
-body[aos-easing='ease'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease'] {
+body[aos-easing='ease'] [aos], [aos][aos][aos-easing='ease'] {
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
           transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); }
-body[aos-easing='ease-in'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in'] {
+body[aos-easing='ease-in'] [aos], [aos][aos][aos-easing='ease-in'] {
   -webkit-transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
           transition-timing-function: cubic-bezier(0.42, 0, 1, 1); }
-body[aos-easing='ease-out'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out'] {
+body[aos-easing='ease-out'] [aos], [aos][aos][aos-easing='ease-out'] {
   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
           transition-timing-function: cubic-bezier(0, 0, 0.58, 1); }
-body[aos-easing='ease-in-out'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out'] {
+body[aos-easing='ease-in-out'] [aos], [aos][aos][aos-easing='ease-in-out'] {
   -webkit-transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
           transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1); }
-body[aos-easing='ease-in-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-back'] {
+body[aos-easing='ease-in-back'] [aos], [aos][aos][aos-easing='ease-in-back'] {
   -webkit-transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
           transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045); }
-body[aos-easing='ease-out-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-back'] {
+body[aos-easing='ease-out-back'] [aos], [aos][aos][aos-easing='ease-out-back'] {
   -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
           transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-body[aos-easing='ease-in-out-back'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-back'] {
+body[aos-easing='ease-in-out-back'] [aos], [aos][aos][aos-easing='ease-in-out-back'] {
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
           transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-body[aos-easing='ease-in-sine'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-sine'] {
+body[aos-easing='ease-in-sine'] [aos], [aos][aos][aos-easing='ease-in-sine'] {
   -webkit-transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
           transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715); }
-body[aos-easing='ease-out-sine'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-sine'] {
+body[aos-easing='ease-out-sine'] [aos], [aos][aos][aos-easing='ease-out-sine'] {
   -webkit-transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
           transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); }
-body[aos-easing='ease-in-out-sine'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-sine'] {
+body[aos-easing='ease-in-out-sine'] [aos], [aos][aos][aos-easing='ease-in-out-sine'] {
   -webkit-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
           transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95); }
-body[aos-easing='ease-in-quad'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-quad'] {
+body[aos-easing='ease-in-quad'] [aos], [aos][aos][aos-easing='ease-in-quad'] {
   -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
           transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-body[aos-easing='ease-out-quad'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-quad'] {
+body[aos-easing='ease-out-quad'] [aos], [aos][aos][aos-easing='ease-out-quad'] {
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
           transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-body[aos-easing='ease-in-out-quad'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-quad'] {
+body[aos-easing='ease-in-out-quad'] [aos], [aos][aos][aos-easing='ease-in-out-quad'] {
   -webkit-transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
           transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-body[aos-easing='ease-in-cubic'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-cubic'] {
+body[aos-easing='ease-in-cubic'] [aos], [aos][aos][aos-easing='ease-in-cubic'] {
   -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
           transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-body[aos-easing='ease-out-cubic'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-cubic'] {
+body[aos-easing='ease-out-cubic'] [aos], [aos][aos][aos-easing='ease-out-cubic'] {
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
           transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-body[aos-easing='ease-in-out-cubic'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-cubic'] {
+body[aos-easing='ease-in-out-cubic'] [aos], [aos][aos][aos-easing='ease-in-out-cubic'] {
   -webkit-transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
           transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-body[aos-easing='ease-in-quart'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-quart'] {
+body[aos-easing='ease-in-quart'] [aos], [aos][aos][aos-easing='ease-in-quart'] {
   -webkit-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
           transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-body[aos-easing='ease-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-out-quart'] {
+body[aos-easing='ease-out-quart'] [aos], [aos][aos][aos-easing='ease-out-quart'] {
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
           transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-init[aos-easing='ease-in-out-quart'] {
+body[aos-easing='ease-in-out-quart'] [aos], [aos][aos][aos-easing='ease-in-out-quart'] {
   -webkit-transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
           transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
 
@@ -70,15 +70,188 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
  * Default variables
  */
 /**
- * Initial settings
+ * Duration loop
  */
-[aos] {
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.6s;
-          transition-duration: 0.6s;
-  -webkit-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-          transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); }
+body[aos-duration='50'] [aos], [aos][aos][aos-duration='50'] {
+  -webkit-transition-duration: 50ms;
+          transition-duration: 50ms; }
+body[aos-duration='100'] [aos], [aos][aos][aos-duration='100'] {
+  -webkit-transition-duration: 100ms;
+          transition-duration: 100ms; }
+body[aos-duration='150'] [aos], [aos][aos][aos-duration='150'] {
+  -webkit-transition-duration: 150ms;
+          transition-duration: 150ms; }
+body[aos-duration='200'] [aos], [aos][aos][aos-duration='200'] {
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms; }
+body[aos-duration='250'] [aos], [aos][aos][aos-duration='250'] {
+  -webkit-transition-duration: 250ms;
+          transition-duration: 250ms; }
+body[aos-duration='300'] [aos], [aos][aos][aos-duration='300'] {
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms; }
+body[aos-duration='350'] [aos], [aos][aos][aos-duration='350'] {
+  -webkit-transition-duration: 350ms;
+          transition-duration: 350ms; }
+body[aos-duration='400'] [aos], [aos][aos][aos-duration='400'] {
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms; }
+body[aos-duration='450'] [aos], [aos][aos][aos-duration='450'] {
+  -webkit-transition-duration: 450ms;
+          transition-duration: 450ms; }
+body[aos-duration='500'] [aos], [aos][aos][aos-duration='500'] {
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms; }
+body[aos-duration='550'] [aos], [aos][aos][aos-duration='550'] {
+  -webkit-transition-duration: 550ms;
+          transition-duration: 550ms; }
+body[aos-duration='600'] [aos], [aos][aos][aos-duration='600'] {
+  -webkit-transition-duration: 600ms;
+          transition-duration: 600ms; }
+body[aos-duration='650'] [aos], [aos][aos][aos-duration='650'] {
+  -webkit-transition-duration: 650ms;
+          transition-duration: 650ms; }
+body[aos-duration='700'] [aos], [aos][aos][aos-duration='700'] {
+  -webkit-transition-duration: 700ms;
+          transition-duration: 700ms; }
+body[aos-duration='750'] [aos], [aos][aos][aos-duration='750'] {
+  -webkit-transition-duration: 750ms;
+          transition-duration: 750ms; }
+body[aos-duration='800'] [aos], [aos][aos][aos-duration='800'] {
+  -webkit-transition-duration: 800ms;
+          transition-duration: 800ms; }
+body[aos-duration='850'] [aos], [aos][aos][aos-duration='850'] {
+  -webkit-transition-duration: 850ms;
+          transition-duration: 850ms; }
+body[aos-duration='900'] [aos], [aos][aos][aos-duration='900'] {
+  -webkit-transition-duration: 900ms;
+          transition-duration: 900ms; }
+body[aos-duration='950'] [aos], [aos][aos][aos-duration='950'] {
+  -webkit-transition-duration: 950ms;
+          transition-duration: 950ms; }
+body[aos-duration='1000'] [aos], [aos][aos][aos-duration='1000'] {
+  -webkit-transition-duration: 1000ms;
+          transition-duration: 1000ms; }
+body[aos-duration='1050'] [aos], [aos][aos][aos-duration='1050'] {
+  -webkit-transition-duration: 1050ms;
+          transition-duration: 1050ms; }
+body[aos-duration='1100'] [aos], [aos][aos][aos-duration='1100'] {
+  -webkit-transition-duration: 1100ms;
+          transition-duration: 1100ms; }
+body[aos-duration='1150'] [aos], [aos][aos][aos-duration='1150'] {
+  -webkit-transition-duration: 1150ms;
+          transition-duration: 1150ms; }
+body[aos-duration='1200'] [aos], [aos][aos][aos-duration='1200'] {
+  -webkit-transition-duration: 1200ms;
+          transition-duration: 1200ms; }
+body[aos-duration='1250'] [aos], [aos][aos][aos-duration='1250'] {
+  -webkit-transition-duration: 1250ms;
+          transition-duration: 1250ms; }
+body[aos-duration='1300'] [aos], [aos][aos][aos-duration='1300'] {
+  -webkit-transition-duration: 1300ms;
+          transition-duration: 1300ms; }
+body[aos-duration='1350'] [aos], [aos][aos][aos-duration='1350'] {
+  -webkit-transition-duration: 1350ms;
+          transition-duration: 1350ms; }
+body[aos-duration='1400'] [aos], [aos][aos][aos-duration='1400'] {
+  -webkit-transition-duration: 1400ms;
+          transition-duration: 1400ms; }
+body[aos-duration='1450'] [aos], [aos][aos][aos-duration='1450'] {
+  -webkit-transition-duration: 1450ms;
+          transition-duration: 1450ms; }
+body[aos-duration='1500'] [aos], [aos][aos][aos-duration='1500'] {
+  -webkit-transition-duration: 1500ms;
+          transition-duration: 1500ms; }
+body[aos-duration='1550'] [aos], [aos][aos][aos-duration='1550'] {
+  -webkit-transition-duration: 1550ms;
+          transition-duration: 1550ms; }
+body[aos-duration='1600'] [aos], [aos][aos][aos-duration='1600'] {
+  -webkit-transition-duration: 1600ms;
+          transition-duration: 1600ms; }
+body[aos-duration='1650'] [aos], [aos][aos][aos-duration='1650'] {
+  -webkit-transition-duration: 1650ms;
+          transition-duration: 1650ms; }
+body[aos-duration='1700'] [aos], [aos][aos][aos-duration='1700'] {
+  -webkit-transition-duration: 1700ms;
+          transition-duration: 1700ms; }
+body[aos-duration='1750'] [aos], [aos][aos][aos-duration='1750'] {
+  -webkit-transition-duration: 1750ms;
+          transition-duration: 1750ms; }
+body[aos-duration='1800'] [aos], [aos][aos][aos-duration='1800'] {
+  -webkit-transition-duration: 1800ms;
+          transition-duration: 1800ms; }
+body[aos-duration='1850'] [aos], [aos][aos][aos-duration='1850'] {
+  -webkit-transition-duration: 1850ms;
+          transition-duration: 1850ms; }
+body[aos-duration='1900'] [aos], [aos][aos][aos-duration='1900'] {
+  -webkit-transition-duration: 1900ms;
+          transition-duration: 1900ms; }
+body[aos-duration='1950'] [aos], [aos][aos][aos-duration='1950'] {
+  -webkit-transition-duration: 1950ms;
+          transition-duration: 1950ms; }
+body[aos-duration='2000'] [aos], [aos][aos][aos-duration='2000'] {
+  -webkit-transition-duration: 2000ms;
+          transition-duration: 2000ms; }
+body[aos-duration='2050'] [aos], [aos][aos][aos-duration='2050'] {
+  -webkit-transition-duration: 2050ms;
+          transition-duration: 2050ms; }
+body[aos-duration='2100'] [aos], [aos][aos][aos-duration='2100'] {
+  -webkit-transition-duration: 2100ms;
+          transition-duration: 2100ms; }
+body[aos-duration='2150'] [aos], [aos][aos][aos-duration='2150'] {
+  -webkit-transition-duration: 2150ms;
+          transition-duration: 2150ms; }
+body[aos-duration='2200'] [aos], [aos][aos][aos-duration='2200'] {
+  -webkit-transition-duration: 2200ms;
+          transition-duration: 2200ms; }
+body[aos-duration='2250'] [aos], [aos][aos][aos-duration='2250'] {
+  -webkit-transition-duration: 2250ms;
+          transition-duration: 2250ms; }
+body[aos-duration='2300'] [aos], [aos][aos][aos-duration='2300'] {
+  -webkit-transition-duration: 2300ms;
+          transition-duration: 2300ms; }
+body[aos-duration='2350'] [aos], [aos][aos][aos-duration='2350'] {
+  -webkit-transition-duration: 2350ms;
+          transition-duration: 2350ms; }
+body[aos-duration='2400'] [aos], [aos][aos][aos-duration='2400'] {
+  -webkit-transition-duration: 2400ms;
+          transition-duration: 2400ms; }
+body[aos-duration='2450'] [aos], [aos][aos][aos-duration='2450'] {
+  -webkit-transition-duration: 2450ms;
+          transition-duration: 2450ms; }
+body[aos-duration='2500'] [aos], [aos][aos][aos-duration='2500'] {
+  -webkit-transition-duration: 2500ms;
+          transition-duration: 2500ms; }
+body[aos-duration='2550'] [aos], [aos][aos][aos-duration='2550'] {
+  -webkit-transition-duration: 2550ms;
+          transition-duration: 2550ms; }
+body[aos-duration='2600'] [aos], [aos][aos][aos-duration='2600'] {
+  -webkit-transition-duration: 2600ms;
+          transition-duration: 2600ms; }
+body[aos-duration='2650'] [aos], [aos][aos][aos-duration='2650'] {
+  -webkit-transition-duration: 2650ms;
+          transition-duration: 2650ms; }
+body[aos-duration='2700'] [aos], [aos][aos][aos-duration='2700'] {
+  -webkit-transition-duration: 2700ms;
+          transition-duration: 2700ms; }
+body[aos-duration='2750'] [aos], [aos][aos][aos-duration='2750'] {
+  -webkit-transition-duration: 2750ms;
+          transition-duration: 2750ms; }
+body[aos-duration='2800'] [aos], [aos][aos][aos-duration='2800'] {
+  -webkit-transition-duration: 2800ms;
+          transition-duration: 2800ms; }
+body[aos-duration='2850'] [aos], [aos][aos][aos-duration='2850'] {
+  -webkit-transition-duration: 2850ms;
+          transition-duration: 2850ms; }
+body[aos-duration='2900'] [aos], [aos][aos][aos-duration='2900'] {
+  -webkit-transition-duration: 2900ms;
+          transition-duration: 2900ms; }
+body[aos-duration='2950'] [aos], [aos][aos][aos-duration='2950'] {
+  -webkit-transition-duration: 2950ms;
+          transition-duration: 2950ms; }
+body[aos-duration='3000'] [aos], [aos][aos][aos-duration='3000'] {
+  -webkit-transition-duration: 3000ms;
+          transition-duration: 3000ms; }
 
 /**
  * Fade animations:
@@ -87,7 +260,9 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
  * fade-up-right, fade-up-left, fade-down-right, fade-down-left
  */
 [aos^='fade'] {
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transition-property: all;
+          transition-property: all; }
   [aos^='fade'].aos-animate {
     opacity: 1; }
 

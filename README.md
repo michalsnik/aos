@@ -165,7 +165,7 @@ Head into `/demo` in your browser folder to test your code in real environment.
 ## TODO
 
 * [x] ~~Expanding API with refresh function~~
-* [ ] Duration customization with global and individual settings
+* [x] ~~Duration customization with global and individual settings~~
 * [ ] Handle asynchronously loaded elements
 * [ ] Watch nodes to recalculate offsets if their position changed
 * [ ] Anchor placement option - to choose which place of element in vieport should trigger animation

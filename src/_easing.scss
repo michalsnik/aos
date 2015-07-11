@@ -35,80 +35,80 @@ $ease-in-out-quart   : cubic-bezier(0.455, 0.03, 0.515, 0.955);
  * Default timing function: 'ease'
  */
 
-[aos].aos-init {
+[aos] {
 
-  body[aos-easing='linear'] &, &[aos].aos-init[aos-easing='linear']{
+  body[aos-easing='linear'] &, &[aos][aos-easing='linear']{
     transition-timing-function: $linear;
   }
 
 
-  body[aos-easing='ease'] &, &[aos].aos-init[aos-easing='ease']{
+  body[aos-easing='ease'] &, &[aos][aos-easing='ease']{
     transition-timing-function: $ease;
   }
 
 
-  body[aos-easing='ease-in'] &, &[aos].aos-init[aos-easing='ease-in']{
+  body[aos-easing='ease-in'] &, &[aos][aos-easing='ease-in']{
     transition-timing-function: $ease-in;
   }
-  body[aos-easing='ease-out'] &, &[aos].aos-init[aos-easing='ease-out']{
+  body[aos-easing='ease-out'] &, &[aos][aos-easing='ease-out']{
     transition-timing-function: $ease-out;
   }
-  body[aos-easing='ease-in-out'] &, &[aos].aos-init[aos-easing='ease-in-out']{
+  body[aos-easing='ease-in-out'] &, &[aos][aos-easing='ease-in-out']{
     transition-timing-function: $ease-in-out;
   }
 
 
-  body[aos-easing='ease-in-back'] &, &[aos].aos-init[aos-easing='ease-in-back']{
+  body[aos-easing='ease-in-back'] &, &[aos][aos-easing='ease-in-back']{
     transition-timing-function: $ease-in-back;
   }
-  body[aos-easing='ease-out-back'] &, &[aos].aos-init[aos-easing='ease-out-back']{
+  body[aos-easing='ease-out-back'] &, &[aos][aos-easing='ease-out-back']{
     transition-timing-function: $ease-out-back;
   }
-  body[aos-easing='ease-in-out-back'] &, &[aos].aos-init[aos-easing='ease-in-out-back']{
+  body[aos-easing='ease-in-out-back'] &, &[aos][aos-easing='ease-in-out-back']{
     transition-timing-function: $ease-in-out-back;
   }
 
 
-  body[aos-easing='ease-in-sine'] &, &[aos].aos-init[aos-easing='ease-in-sine']{
+  body[aos-easing='ease-in-sine'] &, &[aos][aos-easing='ease-in-sine']{
     transition-timing-function: $ease-in-sine;
   }
-  body[aos-easing='ease-out-sine'] &, &[aos].aos-init[aos-easing='ease-out-sine']{
+  body[aos-easing='ease-out-sine'] &, &[aos][aos-easing='ease-out-sine']{
     transition-timing-function: $ease-out-sine;
   }
-  body[aos-easing='ease-in-out-sine'] &, &[aos].aos-init[aos-easing='ease-in-out-sine']{
+  body[aos-easing='ease-in-out-sine'] &, &[aos][aos-easing='ease-in-out-sine']{
     transition-timing-function: $ease-in-out-sine;
   }
 
 
-  body[aos-easing='ease-in-quad'] &, &[aos].aos-init[aos-easing='ease-in-quad']{
+  body[aos-easing='ease-in-quad'] &, &[aos][aos-easing='ease-in-quad']{
     transition-timing-function: $ease-in-quad;
   }
-  body[aos-easing='ease-out-quad'] &, &[aos].aos-init[aos-easing='ease-out-quad']{
+  body[aos-easing='ease-out-quad'] &, &[aos][aos-easing='ease-out-quad']{
     transition-timing-function: $ease-out-quad;
   }
-  body[aos-easing='ease-in-out-quad'] &, &[aos].aos-init[aos-easing='ease-in-out-quad']{
+  body[aos-easing='ease-in-out-quad'] &, &[aos][aos-easing='ease-in-out-quad']{
     transition-timing-function: $ease-in-out-quad;
   }
 
 
-  body[aos-easing='ease-in-cubic'] &, &[aos].aos-init[aos-easing='ease-in-cubic']{
+  body[aos-easing='ease-in-cubic'] &, &[aos][aos-easing='ease-in-cubic']{
     transition-timing-function: $ease-in-cubic;
   }
-  body[aos-easing='ease-out-cubic'] &, &[aos].aos-init[aos-easing='ease-out-cubic']{
+  body[aos-easing='ease-out-cubic'] &, &[aos][aos-easing='ease-out-cubic']{
     transition-timing-function: $ease-out-cubic;
   }
-  body[aos-easing='ease-in-out-cubic'] &, &[aos].aos-init[aos-easing='ease-in-out-cubic']{
+  body[aos-easing='ease-in-out-cubic'] &, &[aos][aos-easing='ease-in-out-cubic']{
     transition-timing-function: $ease-in-out-cubic;
   }
 
 
-  body[aos-easing='ease-in-quart'] &, &[aos].aos-init[aos-easing='ease-in-quart']{
+  body[aos-easing='ease-in-quart'] &, &[aos][aos-easing='ease-in-quart']{
     transition-timing-function: $ease-in-quart;
   }
-  body[aos-easing='ease-out-quart'] &, &[aos].aos-init[aos-easing='ease-out-quart']{
+  body[aos-easing='ease-out-quart'] &, &[aos][aos-easing='ease-out-quart']{
     transition-timing-function: $ease-out-quart;
   }
-  body[aos-easing='ease-in-out-quart'] &, &[aos].aos-init[aos-easing='ease-in-out-quart']{
+  body[aos-easing='ease-in-out-quart'] &, &[aos][aos-easing='ease-in-out-quart']{
     transition-timing-function: $ease-in-out-quart;
   }
 
