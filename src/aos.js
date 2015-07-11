@@ -1,9 +1,6 @@
-/*
+/**
  * AOS (Animate on scroll) - wowjs alternative
  * made to animate elements on scroll in both directions
- *
- * TODO:
- * - add more easing functions
  */
 
 ;(function(window, document, undefined) {
@@ -22,13 +19,63 @@
    * Default options
    */
   var options = {
-    /*
-     * Lonely offset
-     * Mayby one day there he'll find some friends
-     */
     offset: 120,
     delay: 0,
     easing: 'ease'
+  };
+
+  /**
+   * Get offset of DOM element Helper
+   * including these with translation properly as well
+   *
+   * @param  {Node} el [DOM element]
+   * @return {Object} [top and left offset]
+   */
+  getOffset = function (el) {
+    var _x = 0;
+    var _y = 0;
+
+    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+        _x += el.offsetLeft;
+        _y += el.offsetTop;
+        el = el.offsetParent;
+    }
+
+    return {
+      top: _y,
+      left: _x
+    };
+  }
+
+  /**
+   * Calculate offset
+   * basing on element's settings like:
+   * - anchor
+   * - offset
+   *
+   * @param  {Node} el [Dom element]
+   * @return {Integer} [Final offset that will be used to trigger animation in good position]
+   */
+  var calculateOffset = function(el){
+    var $el = $(el);
+    var elementOffsetTop = 0;
+    var additionalOffset = options.offset;
+    var attrs = {
+      offset: $(el).attr('aos-offset'),
+      anchor: $(el).attr('aos-anchor')
+    };
+
+    if (attrs.offset && !isNaN(attrs.offset)) {
+      additionalOffset = parseInt(attrs.offset);
+    }
+
+    if (attrs.anchor && $(attrs.anchor)) {
+      $el = $(attrs.anchor);
+    }
+
+    elementOffsetTop = getOffset($el.get(0)).top;
+
+    return elementOffsetTop + additionalOffset;
   };
 
   /**
@@ -51,66 +98,53 @@
   };
 
   /**
-   * And maybe here as well
+   * Generate arrays with elements
+   * and offsets
    */
-  var init = function(settings){
-    /* Looking for some guest */
+  var generate = function() {
+    /* Clearing variables */
     $aosElements = $('[aos]');
-    windowHeight = $(window).height();
-    /* Clearing area to make place for some chicks */
     aosElementsPositions = [];
     aosElementsDelays = [];
 
-    /*
-     * Merge user settings with default settings
-     */
+    windowHeight = $(window).height();
+
+    $aosElements.addClass('aos-init').each(function(i, el){
+      aosElementsDelays.push($(el).attr('aos-delay') || 0);
+      aosElementsPositions.push(calculateOffset(el));
+    });
+  };
+
+  /**
+   * Initializing AOS
+   * - Create options merging defaults with user defined options
+   * - Set attributes on <body> as global setting - css relies on it
+   * - Attach preparing elements to document ready event,
+   *   window resize and orientation change
+   * - Attach function that handle scroll and everything connected to it
+   *   to window scroll event and fire once document is ready to set initial state
+   */
+  var init = function(settings){
     options = $.extend({}, options, settings);
 
     $('body').attr('aos-easing', options.easing);
 
-    /* Invite everyone */
-    $aosElements.addClass('aos-init').each(function(i, el){
-      /* Yeah, dancefloor isn't empty now! */
-      var elementOffsetTop = $(el).offset().top;
-      var additionalOffset = options.offset;
-      var attrs = {
-        offset: $(el).attr('aos-offset'),
-        anchor: $(el).attr('aos-anchor'),
-        delay: $(el).attr('aos-delay')
-      };
-
-      if (attrs.offset && !isNaN(attrs.offset)) {
-        additionalOffset = parseInt(attrs.offset);
-      }
-
-      if (attrs.anchor && $(attrs.anchor)) {
-        elementOffsetTop = $(attrs.anchor).offset().top
-      }
-
-      aosElementsDelays.push(attrs.delay || 0);
-
-      aosElementsPositions.push(elementOffsetTop + additionalOffset);
+    $(document).on('ready', function(){
+      generate();
+      handleScroll();
     });
 
-    /**
-     * Start the real party
-     * PARTY HARD
-     */
-    handleScroll();
-
-    /*
-     * Let them keep dancing, they're having fun
-     * seriously
-     */
-    $(window).on('scroll', _debounce(handleScroll, 15, true));
-
+    $(window)
+      .on('resize orientationchange', _debounce(generate, 50, true))
+      .on('scroll', _debounce(handleScroll, 15, true));
   };
 
   /**
    * Public API
    */
   var AOS = {
-    init: init
+    init: init,
+    refresh: generate
   };
 
   /**
@@ -127,7 +161,7 @@
     window.AOS = AOS;
   }
 
-  /*
+  /**
    * Underscore helpers
    * Don't touch it
    */
@@ -135,35 +169,35 @@
       return new Date().getTime();
   };
   var _debounce = function(func, wait, immediate) {
-      var timeout, args, context, timestamp, result;
+    var timeout, args, context, timestamp, result;
 
-      var later = function() {
-        var last = _now() - timestamp;
+    var later = function() {
+      var last = _now() - timestamp;
 
-        if (last < wait && last > 0) {
-          timeout = setTimeout(later, wait - last);
-        } else {
-          timeout = null;
-          if (!immediate) {
-            result = func.apply(context, args);
-            if (!timeout) context = args = null;
-          }
-        }
-      };
-
-      return function() {
-        context = this;
-        args = arguments;
-        timestamp = _now();
-        var callNow = immediate && !timeout;
-        if (!timeout) timeout = setTimeout(later, wait);
-        if (callNow) {
+      if (last < wait && last > 0) {
+        timeout = setTimeout(later, wait - last);
+      } else {
+        timeout = null;
+        if (!immediate) {
           result = func.apply(context, args);
-          context = args = null;
+          if (!timeout) context = args = null;
         }
+      }
+    };
 
-        return result;
-      };
+    return function() {
+      context = this;
+      args = arguments;
+      timestamp = _now();
+      var callNow = immediate && !timeout;
+      if (!timeout) timeout = setTimeout(later, wait);
+      if (callNow) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+
+      return result;
+    };
   };
 
 })(window, document);

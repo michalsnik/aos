@@ -28,19 +28,9 @@ If you scroll back to top, element will animate to it's previous state and is re
 
 ### Init AOS
 
-The best way to init AOS is to put:
-
-```javascript
-  AOS.init();
-```
-
-in document ready statement, like this:
-
 ```javascript
   <script>
-    $(function(){
-      AOS.init();
-    });
+    AOS.init();
   </script>
 ```
 
@@ -84,12 +74,10 @@ To do this, pass options object to `init()` function, like so:
 
 ```javascript
   <script>
-    $(function(){
-      AOS.init({
-        offset: 200,
-        delay: 100,
-        easing: 'ease-in-sine'
-      });
+    AOS.init({
+      offset: 200,
+      delay: 100,
+      easing: 'ease-in-sine'
     });
   </script>
 ```
@@ -176,7 +164,8 @@ Head into `/demo` in your browser folder to test your code in real environment.
 
 ## TODO
 
-* Expanding API with refresh function
 * Duration customization with global and individual settings
 * Handle asynchronously loaded elements
 * Watch nodes to recalculate offsets if their position changed
+* Anchor placement option - to choose which place of element in vieport should trigger animation
+  i.e. top, bottom, center, center-top, center-bottom

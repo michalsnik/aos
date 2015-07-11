@@ -72,7 +72,7 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
 /**
  * Initial settings
  */
-[aos].aos-init {
+[aos] {
   -webkit-transition-property: all;
           transition-property: all;
   -webkit-transition-duration: 0.6s;
@@ -86,79 +86,79 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
  * fade-up, fade-down, fade-left, fade-right
  * fade-up-right, fade-up-left, fade-down-right, fade-down-left
  */
-[aos^='fade'].aos-init {
+[aos^='fade'] {
   opacity: 0; }
-  [aos^='fade'].aos-init.aos-animate {
+  [aos^='fade'].aos-animate {
     opacity: 1; }
 
-[aos='fade-up'].aos-init {
+[aos='fade-up'] {
   -webkit-transform: translate(0, 50px);
       -ms-transform: translate(0, 50px);
           transform: translate(0, 50px); }
-  [aos='fade-up'].aos-init.aos-animate {
+  [aos='fade-up'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-down'].aos-init {
+[aos='fade-down'] {
   -webkit-transform: translate(0, -50px);
       -ms-transform: translate(0, -50px);
           transform: translate(0, -50px); }
-  [aos='fade-down'].aos-init.aos-animate {
+  [aos='fade-down'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-right'].aos-init {
+[aos='fade-right'] {
   -webkit-transform: translate(-50px, 0);
       -ms-transform: translate(-50px, 0);
           transform: translate(-50px, 0); }
-  [aos='fade-right'].aos-init.aos-animate {
+  [aos='fade-right'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-left'].aos-init {
+[aos='fade-left'] {
   -webkit-transform: translate(50px, 0);
       -ms-transform: translate(50px, 0);
           transform: translate(50px, 0); }
-  [aos='fade-left'].aos-init.aos-animate {
+  [aos='fade-left'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-up-right'].aos-init {
+[aos='fade-up-right'] {
   -webkit-transform: translate(-50px, 50px);
       -ms-transform: translate(-50px, 50px);
           transform: translate(-50px, 50px); }
-  [aos='fade-up-right'].aos-init.aos-animate {
+  [aos='fade-up-right'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-up-left'].aos-init {
+[aos='fade-up-left'] {
   -webkit-transform: translate(50px, 50px);
       -ms-transform: translate(50px, 50px);
           transform: translate(50px, 50px); }
-  [aos='fade-up-left'].aos-init.aos-animate {
+  [aos='fade-up-left'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-down-right'].aos-init {
+[aos='fade-down-right'] {
   -webkit-transform: translate(-50px, -50px);
       -ms-transform: translate(-50px, -50px);
           transform: translate(-50px, -50px); }
-  [aos='fade-down-right'].aos-init.aos-animate {
+  [aos='fade-down-right'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
 
-[aos='fade-down-left'].aos-init {
+[aos='fade-down-left'] {
   -webkit-transform: translate(50px, -50px);
       -ms-transform: translate(50px, -50px);
           transform: translate(50px, -50px); }
-  [aos='fade-down-left'].aos-init.aos-animate {
+  [aos='fade-down-left'].aos-animate {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0); }
@@ -167,47 +167,47 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
  * Fade animations with zoom in:
  * fade-zoom-in, fade-up-zoom-in, fade-down-zoom-in, fade-right-zoom-in, fade-left-zoom-in
  */
-[aos='fade-zoom-in'].aos-init {
+[aos='fade-zoom-in'] {
   -webkit-transform: scale(.6);
       -ms-transform: scale(.6);
           transform: scale(.6); }
-  [aos='fade-zoom-in'].aos-init.aos-animate {
+  [aos='fade-zoom-in'].aos-animate {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1); }
 
-[aos='fade-up-zoom-in'].aos-init {
+[aos='fade-up-zoom-in'] {
   -webkit-transform: translate(0, 50px) scale(.6);
       -ms-transform: translate(0, 50px) scale(.6);
           transform: translate(0, 50px) scale(.6); }
-  [aos='fade-up-zoom-in'].aos-init.aos-animate {
+  [aos='fade-up-zoom-in'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-down-zoom-in'].aos-init {
+[aos='fade-down-zoom-in'] {
   -webkit-transform: translate(0, -50px) scale(.6);
       -ms-transform: translate(0, -50px) scale(.6);
           transform: translate(0, -50px) scale(.6); }
-  [aos='fade-down-zoom-in'].aos-init.aos-animate {
+  [aos='fade-down-zoom-in'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-right-zoom-in'].aos-init {
+[aos='fade-right-zoom-in'] {
   -webkit-transform: translate(-50px, 0) scale(.6);
       -ms-transform: translate(-50px, 0) scale(.6);
           transform: translate(-50px, 0) scale(.6); }
-  [aos='fade-right-zoom-in'].aos-init.aos-animate {
+  [aos='fade-right-zoom-in'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-left-zoom-in'].aos-init {
+[aos='fade-left-zoom-in'] {
   -webkit-transform: translate(50px, 0) scale(.6);
       -ms-transform: translate(50px, 0) scale(.6);
           transform: translate(50px, 0) scale(.6); }
-  [aos='fade-left-zoom-in'].aos-init.aos-animate {
+  [aos='fade-left-zoom-in'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
@@ -216,47 +216,47 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
  * Fade animations with zoom out:
  * fade-zoom-out, fade-up-zoom-out, fade-down-zoom-out, fade-right-zoom-out, fade-left-zoom-out
  */
-[aos='fade-zoom-out'].aos-init {
+[aos='fade-zoom-out'] {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2); }
-  [aos='fade-zoom-out'].aos-init.aos-animate {
+  [aos='fade-zoom-out'].aos-animate {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1); }
 
-[aos='fade-up-zoom-out'].aos-init {
+[aos='fade-up-zoom-out'] {
   -webkit-transform: translate(0, 50px) scale(1.2);
       -ms-transform: translate(0, 50px) scale(1.2);
           transform: translate(0, 50px) scale(1.2); }
-  [aos='fade-up-zoom-out'].aos-init.aos-animate {
+  [aos='fade-up-zoom-out'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-down-zoom-out'].aos-init {
+[aos='fade-down-zoom-out'] {
   -webkit-transform: translate(0, -50px) scale(1.2);
       -ms-transform: translate(0, -50px) scale(1.2);
           transform: translate(0, -50px) scale(1.2); }
-  [aos='fade-down-zoom-out'].aos-init.aos-animate {
+  [aos='fade-down-zoom-out'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-right-zoom-out'].aos-init {
+[aos='fade-right-zoom-out'] {
   -webkit-transform: translate(-50px, 0) scale(1.2);
       -ms-transform: translate(-50px, 0) scale(1.2);
           transform: translate(-50px, 0) scale(1.2); }
-  [aos='fade-right-zoom-out'].aos-init.aos-animate {
+  [aos='fade-right-zoom-out'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-left-zoom-out'].aos-init {
+[aos='fade-left-zoom-out'] {
   -webkit-transform: translate(50px, 0) scale(1.2);
       -ms-transform: translate(50px, 0) scale(1.2);
           transform: translate(50px, 0) scale(1.2); }
-  [aos='fade-left-zoom-out'].aos-init.aos-animate {
+  [aos='fade-left-zoom-out'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
@@ -268,34 +268,34 @@ body[aos-easing='ease-in-out-quart'] [aos].aos-init, [aos].aos-init[aos].aos-ini
  * Flip animations:
  * flip-left, flip-right, flip-up, flip-down
  */
-[aos^='flip'].aos-init {
+[aos^='flip'] {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
 
-[aos='flip-left'].aos-init {
+[aos='flip-left'] {
   -webkit-transform: perspective(2500px) rotateY(-100deg);
           transform: perspective(2500px) rotateY(-100deg); }
-  [aos='flip-left'].aos-init.aos-animate {
+  [aos='flip-left'].aos-animate {
     -webkit-transform: perspective(2500px) rotateY(0);
             transform: perspective(2500px) rotateY(0); }
 
-[aos='flip-right'].aos-init {
+[aos='flip-right'] {
   -webkit-transform: perspective(2500px) rotateY(100deg);
           transform: perspective(2500px) rotateY(100deg); }
-  [aos='flip-right'].aos-init.aos-animate {
+  [aos='flip-right'].aos-animate {
     -webkit-transform: perspective(2500px) rotateY(0);
             transform: perspective(2500px) rotateY(0); }
 
-[aos='flip-up'].aos-init {
+[aos='flip-up'] {
   -webkit-transform: perspective(2500px) rotateX(-100deg);
           transform: perspective(2500px) rotateX(-100deg); }
-  [aos='flip-up'].aos-init.aos-animate {
+  [aos='flip-up'].aos-animate {
     -webkit-transform: perspective(2500px) rotateX(0);
             transform: perspective(2500px) rotateX(0); }
 
-[aos='flip-down'].aos-init {
+[aos='flip-down'] {
   -webkit-transform: perspective(2500px) rotateX(100deg);
           transform: perspective(2500px) rotateX(100deg); }
-  [aos='flip-down'].aos-init.aos-animate {
+  [aos='flip-down'].aos-animate {
     -webkit-transform: perspective(2500px) rotateX(0);
             transform: perspective(2500px) rotateX(0); }

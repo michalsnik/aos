@@ -14,7 +14,7 @@ $val-lg: 100vw;
  * Initial settings
  */
 
-[aos].aos-init {
+[aos] {
   transition-property: all;
   transition-duration: $duration;
   transition-timing-function: $ease;
@@ -30,47 +30,47 @@ $val-lg: 100vw;
  * fade-up-right, fade-up-left, fade-down-right, fade-down-left
  */
 
-[aos^='fade'].aos-init {
+[aos^='fade'] {
   opacity: 0;
   &.aos-animate {opacity: 1;}
 }
 
-[aos='fade-up'].aos-init {
+[aos='fade-up'] {
   transform: translate(0,$val-sm);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-down'].aos-init {
+[aos='fade-down'] {
   transform: translate(0,-$val-sm);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-right'].aos-init {
+[aos='fade-right'] {
   transform: translate(-$val-sm,0);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-left'].aos-init {
+[aos='fade-left'] {
   transform: translate($val-sm,0);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-up-right'].aos-init {
+[aos='fade-up-right'] {
   transform: translate(-$val-sm,$val-sm);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-up-left'].aos-init {
+[aos='fade-up-left'] {
   transform: translate($val-sm,$val-sm);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-down-right'].aos-init {
+[aos='fade-down-right'] {
   transform: translate(-$val-sm,-$val-sm);
   &.aos-animate {transform: translate(0,0);}
 }
 
-[aos='fade-down-left'].aos-init {
+[aos='fade-down-left'] {
   transform: translate($val-sm,-$val-sm);
   &.aos-animate {transform: translate(0,0);}
 }
@@ -80,27 +80,27 @@ $val-lg: 100vw;
  * fade-zoom-in, fade-up-zoom-in, fade-down-zoom-in, fade-right-zoom-in, fade-left-zoom-in
  */
 
-[aos='fade-zoom-in'].aos-init {
+[aos='fade-zoom-in'] {
   transform: scale(.6);
   &.aos-animate {transform: scale(1);}
 }
 
-[aos='fade-up-zoom-in'].aos-init {
+[aos='fade-up-zoom-in'] {
   transform: translate(0,$val-sm) scale(.6);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
 
-[aos='fade-down-zoom-in'].aos-init {
+[aos='fade-down-zoom-in'] {
   transform: translate(0,-$val-sm) scale(.6);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
 
-[aos='fade-right-zoom-in'].aos-init {
+[aos='fade-right-zoom-in'] {
   transform: translate(-$val-sm,0) scale(.6);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
 
-[aos='fade-left-zoom-in'].aos-init {
+[aos='fade-left-zoom-in'] {
   transform: translate($val-sm,0) scale(.6);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
@@ -110,27 +110,27 @@ $val-lg: 100vw;
  * fade-zoom-out, fade-up-zoom-out, fade-down-zoom-out, fade-right-zoom-out, fade-left-zoom-out
  */
 
-[aos='fade-zoom-out'].aos-init {
+[aos='fade-zoom-out'] {
   transform: scale(1.2);
   &.aos-animate {transform: scale(1);}
 }
 
-[aos='fade-up-zoom-out'].aos-init {
+[aos='fade-up-zoom-out'] {
   transform: translate(0,$val-sm) scale(1.2);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
 
-[aos='fade-down-zoom-out'].aos-init {
+[aos='fade-down-zoom-out'] {
   transform: translate(0,-$val-sm) scale(1.2);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
 
-[aos='fade-right-zoom-out'].aos-init {
+[aos='fade-right-zoom-out'] {
   transform: translate(-$val-sm,0) scale(1.2);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
 
-[aos='fade-left-zoom-out'].aos-init {
+[aos='fade-left-zoom-out'] {
   transform: translate($val-sm,0) scale(1.2);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
@@ -151,26 +151,26 @@ $val-lg: 100vw;
  * flip-left, flip-right, flip-up, flip-down
  */
 
-[aos^='flip'].aos-init {
+[aos^='flip'] {
   backface-visibility: hidden;
 }
 
-[aos='flip-left'].aos-init {
+[aos='flip-left'] {
   transform: perspective(2500px) rotateY(-100deg);
   &.aos-animate {transform: perspective(2500px) rotateY(0);}
 }
 
-[aos='flip-right'].aos-init {
+[aos='flip-right'] {
   transform: perspective(2500px) rotateY(100deg);
   &.aos-animate {transform: perspective(2500px) rotateY(0);}
 }
 
-[aos='flip-up'].aos-init {
+[aos='flip-up'] {
   transform: perspective(2500px) rotateX(-100deg);
   &.aos-animate {transform: perspective(2500px) rotateX(0);}
 }
 
-[aos='flip-down'].aos-init {
+[aos='flip-down'] {
   transform: perspective(2500px) rotateX(100deg);
   &.aos-animate {transform: perspective(2500px) rotateX(0);}
 }
