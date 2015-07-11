@@ -51,16 +51,31 @@ If you scroll back to top, element will animate to it's previous state and is re
 ### Advanced settings
 
 | Attribute | Description | Example value | Default value |
-|-----------|-------------|---------------|---------|
-| `aos-offset` | Change offset to trigger animations sooner or later (px) | 200 | 120 |
-| `aos-easing` | Choose timing function to ease elements in different ways | ease-in-sine | ease |
-| `aos-anchor` | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
-| `aos-delay` | Delay animation (ms) | 300 | 0 |
+|---------------------------|-------------|---------------|---------|
+| *`aos-offset`* | Change offset to trigger animations sooner or later (px) | 200 | 120 |
+| *`aos-duration`* | *Duration of animation (ms) | 600 | 400 |
+| *`aos-easing`* | Choose timing function to ease elements in different ways | ease-in-sine | ease |
+| *`aos-delay`* | Delay animation (ms) | 300 | 0 |
+| *`aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
 
-Examples:
+*Duration accept values from 50 to 3000, with step 50ms, it's because duration of animation is handled by css, and to not make css longer than it is already I created implementations only in this range. I think this should be good for almost all cases.
+
+If not, you may write simple CSS on your page that will add another duration option value available, for example:
+
+```css
+  body[aos-duration='4000'] [aos], [aos][aos][aos-duration='4000']{
+    transition-duration: 4000ms;
+  }
+```
+
+This code will add 4000ms duration available for you to set on AOS elements, or to set as global duration while initializing AOS script.
+
+Notice that double `[aos][aos]` - it's not a mistake, it is a trick, to make individual settings more important than global, without need to write ugly "!important" there :)
+
+####Examples:
 
 ```html
-  <div aos="fade-zoom-in" aos-offset="200" aos-easing="ease-in-sine">
+  <div aos="fade-zoom-in" aos-offset="200" aos-easing="ease-in-sine" aos-duration="600">
 ```
 ```html
   <div aos="flip-left" aos-delay="100" aos-anchor=".example-selector">
@@ -76,8 +91,9 @@ To do this, pass options object to `init()` function, like so:
   <script>
     AOS.init({
       offset: 200,
+      duration: 600
+      easing: 'ease-in-sine',
       delay: 100,
-      easing: 'ease-in-sine'
     });
   </script>
 ```
