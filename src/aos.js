@@ -89,9 +89,9 @@
 
     for(var i = 0; i < aosElementsPositions.length; i++) {
       if (scrollTop >= aosElementsPositions[i] - windowHeight) {
-        // setTimeout(function(){
+        setTimeout(function(){
           $aosElements.eq(i).addClass('aos-animate');
-        // }, (aosElementsDelays[i] || options.delay));
+        }, (aosElementsDelays[i] || options.delay));
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
