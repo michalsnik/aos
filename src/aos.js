@@ -87,15 +87,13 @@
   var handleScroll = function(){
     scrollTop = window.scrollY;
 
-    for(var i = 0; i < aosElementsPositions.length; i++) {
-      if (scrollTop >= aosElementsPositions[i] - windowHeight) {
-        setTimeout(function(){
+    $.each(aosElementsPositions, function(i, elPos){
+      if (scrollTop >= elPos - windowHeight) {
           $aosElements.eq(i).addClass('aos-animate');
-        }(i), (aosElementsDelays[i] || options.delay));
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
-    }
+    });
   };
 
   /**
@@ -130,6 +128,7 @@
 
     $('body').attr('aos-easing', options.easing);
     $('body').attr('aos-duration', options.duration);
+    $('body').attr('aos-delay', options.delay);
 
     $(document).on('ready', function(){
       generate();

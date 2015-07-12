@@ -70,7 +70,7 @@ body[aos-easing='ease-in-out-quart'] [aos], [aos][aos][aos-easing='ease-in-out-q
  * Default variables
  */
 /**
- * Duration loop
+ * Duration
  */
 body[aos-duration='50'] [aos], [aos][aos][aos-duration='50'] {
   -webkit-transition-duration: 50ms;
@@ -252,6 +252,370 @@ body[aos-duration='2950'] [aos], [aos][aos][aos-duration='2950'] {
 body[aos-duration='3000'] [aos], [aos][aos][aos-duration='3000'] {
   -webkit-transition-duration: 3000ms;
           transition-duration: 3000ms; }
+
+/**
+ * Delay
+ */
+body[aos-delay='50'] [aos], [aos][aos][aos-delay='50'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='50'] [aos].aos-animate, [aos][aos][aos-delay='50'].aos-animate {
+    -webkit-transition-delay: 50ms;
+            transition-delay: 50ms; }
+body[aos-delay='100'] [aos], [aos][aos][aos-delay='100'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='100'] [aos].aos-animate, [aos][aos][aos-delay='100'].aos-animate {
+    -webkit-transition-delay: 100ms;
+            transition-delay: 100ms; }
+body[aos-delay='150'] [aos], [aos][aos][aos-delay='150'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='150'] [aos].aos-animate, [aos][aos][aos-delay='150'].aos-animate {
+    -webkit-transition-delay: 150ms;
+            transition-delay: 150ms; }
+body[aos-delay='200'] [aos], [aos][aos][aos-delay='200'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='200'] [aos].aos-animate, [aos][aos][aos-delay='200'].aos-animate {
+    -webkit-transition-delay: 200ms;
+            transition-delay: 200ms; }
+body[aos-delay='250'] [aos], [aos][aos][aos-delay='250'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='250'] [aos].aos-animate, [aos][aos][aos-delay='250'].aos-animate {
+    -webkit-transition-delay: 250ms;
+            transition-delay: 250ms; }
+body[aos-delay='300'] [aos], [aos][aos][aos-delay='300'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='300'] [aos].aos-animate, [aos][aos][aos-delay='300'].aos-animate {
+    -webkit-transition-delay: 300ms;
+            transition-delay: 300ms; }
+body[aos-delay='350'] [aos], [aos][aos][aos-delay='350'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='350'] [aos].aos-animate, [aos][aos][aos-delay='350'].aos-animate {
+    -webkit-transition-delay: 350ms;
+            transition-delay: 350ms; }
+body[aos-delay='400'] [aos], [aos][aos][aos-delay='400'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='400'] [aos].aos-animate, [aos][aos][aos-delay='400'].aos-animate {
+    -webkit-transition-delay: 400ms;
+            transition-delay: 400ms; }
+body[aos-delay='450'] [aos], [aos][aos][aos-delay='450'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='450'] [aos].aos-animate, [aos][aos][aos-delay='450'].aos-animate {
+    -webkit-transition-delay: 450ms;
+            transition-delay: 450ms; }
+body[aos-delay='500'] [aos], [aos][aos][aos-delay='500'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='500'] [aos].aos-animate, [aos][aos][aos-delay='500'].aos-animate {
+    -webkit-transition-delay: 500ms;
+            transition-delay: 500ms; }
+body[aos-delay='550'] [aos], [aos][aos][aos-delay='550'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='550'] [aos].aos-animate, [aos][aos][aos-delay='550'].aos-animate {
+    -webkit-transition-delay: 550ms;
+            transition-delay: 550ms; }
+body[aos-delay='600'] [aos], [aos][aos][aos-delay='600'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='600'] [aos].aos-animate, [aos][aos][aos-delay='600'].aos-animate {
+    -webkit-transition-delay: 600ms;
+            transition-delay: 600ms; }
+body[aos-delay='650'] [aos], [aos][aos][aos-delay='650'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='650'] [aos].aos-animate, [aos][aos][aos-delay='650'].aos-animate {
+    -webkit-transition-delay: 650ms;
+            transition-delay: 650ms; }
+body[aos-delay='700'] [aos], [aos][aos][aos-delay='700'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='700'] [aos].aos-animate, [aos][aos][aos-delay='700'].aos-animate {
+    -webkit-transition-delay: 700ms;
+            transition-delay: 700ms; }
+body[aos-delay='750'] [aos], [aos][aos][aos-delay='750'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='750'] [aos].aos-animate, [aos][aos][aos-delay='750'].aos-animate {
+    -webkit-transition-delay: 750ms;
+            transition-delay: 750ms; }
+body[aos-delay='800'] [aos], [aos][aos][aos-delay='800'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='800'] [aos].aos-animate, [aos][aos][aos-delay='800'].aos-animate {
+    -webkit-transition-delay: 800ms;
+            transition-delay: 800ms; }
+body[aos-delay='850'] [aos], [aos][aos][aos-delay='850'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='850'] [aos].aos-animate, [aos][aos][aos-delay='850'].aos-animate {
+    -webkit-transition-delay: 850ms;
+            transition-delay: 850ms; }
+body[aos-delay='900'] [aos], [aos][aos][aos-delay='900'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='900'] [aos].aos-animate, [aos][aos][aos-delay='900'].aos-animate {
+    -webkit-transition-delay: 900ms;
+            transition-delay: 900ms; }
+body[aos-delay='950'] [aos], [aos][aos][aos-delay='950'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='950'] [aos].aos-animate, [aos][aos][aos-delay='950'].aos-animate {
+    -webkit-transition-delay: 950ms;
+            transition-delay: 950ms; }
+body[aos-delay='1000'] [aos], [aos][aos][aos-delay='1000'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1000'] [aos].aos-animate, [aos][aos][aos-delay='1000'].aos-animate {
+    -webkit-transition-delay: 1000ms;
+            transition-delay: 1000ms; }
+body[aos-delay='1050'] [aos], [aos][aos][aos-delay='1050'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1050'] [aos].aos-animate, [aos][aos][aos-delay='1050'].aos-animate {
+    -webkit-transition-delay: 1050ms;
+            transition-delay: 1050ms; }
+body[aos-delay='1100'] [aos], [aos][aos][aos-delay='1100'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1100'] [aos].aos-animate, [aos][aos][aos-delay='1100'].aos-animate {
+    -webkit-transition-delay: 1100ms;
+            transition-delay: 1100ms; }
+body[aos-delay='1150'] [aos], [aos][aos][aos-delay='1150'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1150'] [aos].aos-animate, [aos][aos][aos-delay='1150'].aos-animate {
+    -webkit-transition-delay: 1150ms;
+            transition-delay: 1150ms; }
+body[aos-delay='1200'] [aos], [aos][aos][aos-delay='1200'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1200'] [aos].aos-animate, [aos][aos][aos-delay='1200'].aos-animate {
+    -webkit-transition-delay: 1200ms;
+            transition-delay: 1200ms; }
+body[aos-delay='1250'] [aos], [aos][aos][aos-delay='1250'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1250'] [aos].aos-animate, [aos][aos][aos-delay='1250'].aos-animate {
+    -webkit-transition-delay: 1250ms;
+            transition-delay: 1250ms; }
+body[aos-delay='1300'] [aos], [aos][aos][aos-delay='1300'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1300'] [aos].aos-animate, [aos][aos][aos-delay='1300'].aos-animate {
+    -webkit-transition-delay: 1300ms;
+            transition-delay: 1300ms; }
+body[aos-delay='1350'] [aos], [aos][aos][aos-delay='1350'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1350'] [aos].aos-animate, [aos][aos][aos-delay='1350'].aos-animate {
+    -webkit-transition-delay: 1350ms;
+            transition-delay: 1350ms; }
+body[aos-delay='1400'] [aos], [aos][aos][aos-delay='1400'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1400'] [aos].aos-animate, [aos][aos][aos-delay='1400'].aos-animate {
+    -webkit-transition-delay: 1400ms;
+            transition-delay: 1400ms; }
+body[aos-delay='1450'] [aos], [aos][aos][aos-delay='1450'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1450'] [aos].aos-animate, [aos][aos][aos-delay='1450'].aos-animate {
+    -webkit-transition-delay: 1450ms;
+            transition-delay: 1450ms; }
+body[aos-delay='1500'] [aos], [aos][aos][aos-delay='1500'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1500'] [aos].aos-animate, [aos][aos][aos-delay='1500'].aos-animate {
+    -webkit-transition-delay: 1500ms;
+            transition-delay: 1500ms; }
+body[aos-delay='1550'] [aos], [aos][aos][aos-delay='1550'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1550'] [aos].aos-animate, [aos][aos][aos-delay='1550'].aos-animate {
+    -webkit-transition-delay: 1550ms;
+            transition-delay: 1550ms; }
+body[aos-delay='1600'] [aos], [aos][aos][aos-delay='1600'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1600'] [aos].aos-animate, [aos][aos][aos-delay='1600'].aos-animate {
+    -webkit-transition-delay: 1600ms;
+            transition-delay: 1600ms; }
+body[aos-delay='1650'] [aos], [aos][aos][aos-delay='1650'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1650'] [aos].aos-animate, [aos][aos][aos-delay='1650'].aos-animate {
+    -webkit-transition-delay: 1650ms;
+            transition-delay: 1650ms; }
+body[aos-delay='1700'] [aos], [aos][aos][aos-delay='1700'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1700'] [aos].aos-animate, [aos][aos][aos-delay='1700'].aos-animate {
+    -webkit-transition-delay: 1700ms;
+            transition-delay: 1700ms; }
+body[aos-delay='1750'] [aos], [aos][aos][aos-delay='1750'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1750'] [aos].aos-animate, [aos][aos][aos-delay='1750'].aos-animate {
+    -webkit-transition-delay: 1750ms;
+            transition-delay: 1750ms; }
+body[aos-delay='1800'] [aos], [aos][aos][aos-delay='1800'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1800'] [aos].aos-animate, [aos][aos][aos-delay='1800'].aos-animate {
+    -webkit-transition-delay: 1800ms;
+            transition-delay: 1800ms; }
+body[aos-delay='1850'] [aos], [aos][aos][aos-delay='1850'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1850'] [aos].aos-animate, [aos][aos][aos-delay='1850'].aos-animate {
+    -webkit-transition-delay: 1850ms;
+            transition-delay: 1850ms; }
+body[aos-delay='1900'] [aos], [aos][aos][aos-delay='1900'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1900'] [aos].aos-animate, [aos][aos][aos-delay='1900'].aos-animate {
+    -webkit-transition-delay: 1900ms;
+            transition-delay: 1900ms; }
+body[aos-delay='1950'] [aos], [aos][aos][aos-delay='1950'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='1950'] [aos].aos-animate, [aos][aos][aos-delay='1950'].aos-animate {
+    -webkit-transition-delay: 1950ms;
+            transition-delay: 1950ms; }
+body[aos-delay='2000'] [aos], [aos][aos][aos-delay='2000'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2000'] [aos].aos-animate, [aos][aos][aos-delay='2000'].aos-animate {
+    -webkit-transition-delay: 2000ms;
+            transition-delay: 2000ms; }
+body[aos-delay='2050'] [aos], [aos][aos][aos-delay='2050'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2050'] [aos].aos-animate, [aos][aos][aos-delay='2050'].aos-animate {
+    -webkit-transition-delay: 2050ms;
+            transition-delay: 2050ms; }
+body[aos-delay='2100'] [aos], [aos][aos][aos-delay='2100'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2100'] [aos].aos-animate, [aos][aos][aos-delay='2100'].aos-animate {
+    -webkit-transition-delay: 2100ms;
+            transition-delay: 2100ms; }
+body[aos-delay='2150'] [aos], [aos][aos][aos-delay='2150'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2150'] [aos].aos-animate, [aos][aos][aos-delay='2150'].aos-animate {
+    -webkit-transition-delay: 2150ms;
+            transition-delay: 2150ms; }
+body[aos-delay='2200'] [aos], [aos][aos][aos-delay='2200'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2200'] [aos].aos-animate, [aos][aos][aos-delay='2200'].aos-animate {
+    -webkit-transition-delay: 2200ms;
+            transition-delay: 2200ms; }
+body[aos-delay='2250'] [aos], [aos][aos][aos-delay='2250'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2250'] [aos].aos-animate, [aos][aos][aos-delay='2250'].aos-animate {
+    -webkit-transition-delay: 2250ms;
+            transition-delay: 2250ms; }
+body[aos-delay='2300'] [aos], [aos][aos][aos-delay='2300'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2300'] [aos].aos-animate, [aos][aos][aos-delay='2300'].aos-animate {
+    -webkit-transition-delay: 2300ms;
+            transition-delay: 2300ms; }
+body[aos-delay='2350'] [aos], [aos][aos][aos-delay='2350'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2350'] [aos].aos-animate, [aos][aos][aos-delay='2350'].aos-animate {
+    -webkit-transition-delay: 2350ms;
+            transition-delay: 2350ms; }
+body[aos-delay='2400'] [aos], [aos][aos][aos-delay='2400'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2400'] [aos].aos-animate, [aos][aos][aos-delay='2400'].aos-animate {
+    -webkit-transition-delay: 2400ms;
+            transition-delay: 2400ms; }
+body[aos-delay='2450'] [aos], [aos][aos][aos-delay='2450'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2450'] [aos].aos-animate, [aos][aos][aos-delay='2450'].aos-animate {
+    -webkit-transition-delay: 2450ms;
+            transition-delay: 2450ms; }
+body[aos-delay='2500'] [aos], [aos][aos][aos-delay='2500'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2500'] [aos].aos-animate, [aos][aos][aos-delay='2500'].aos-animate {
+    -webkit-transition-delay: 2500ms;
+            transition-delay: 2500ms; }
+body[aos-delay='2550'] [aos], [aos][aos][aos-delay='2550'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2550'] [aos].aos-animate, [aos][aos][aos-delay='2550'].aos-animate {
+    -webkit-transition-delay: 2550ms;
+            transition-delay: 2550ms; }
+body[aos-delay='2600'] [aos], [aos][aos][aos-delay='2600'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2600'] [aos].aos-animate, [aos][aos][aos-delay='2600'].aos-animate {
+    -webkit-transition-delay: 2600ms;
+            transition-delay: 2600ms; }
+body[aos-delay='2650'] [aos], [aos][aos][aos-delay='2650'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2650'] [aos].aos-animate, [aos][aos][aos-delay='2650'].aos-animate {
+    -webkit-transition-delay: 2650ms;
+            transition-delay: 2650ms; }
+body[aos-delay='2700'] [aos], [aos][aos][aos-delay='2700'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2700'] [aos].aos-animate, [aos][aos][aos-delay='2700'].aos-animate {
+    -webkit-transition-delay: 2700ms;
+            transition-delay: 2700ms; }
+body[aos-delay='2750'] [aos], [aos][aos][aos-delay='2750'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2750'] [aos].aos-animate, [aos][aos][aos-delay='2750'].aos-animate {
+    -webkit-transition-delay: 2750ms;
+            transition-delay: 2750ms; }
+body[aos-delay='2800'] [aos], [aos][aos][aos-delay='2800'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2800'] [aos].aos-animate, [aos][aos][aos-delay='2800'].aos-animate {
+    -webkit-transition-delay: 2800ms;
+            transition-delay: 2800ms; }
+body[aos-delay='2850'] [aos], [aos][aos][aos-delay='2850'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2850'] [aos].aos-animate, [aos][aos][aos-delay='2850'].aos-animate {
+    -webkit-transition-delay: 2850ms;
+            transition-delay: 2850ms; }
+body[aos-delay='2900'] [aos], [aos][aos][aos-delay='2900'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2900'] [aos].aos-animate, [aos][aos][aos-delay='2900'].aos-animate {
+    -webkit-transition-delay: 2900ms;
+            transition-delay: 2900ms; }
+body[aos-delay='2950'] [aos], [aos][aos][aos-delay='2950'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='2950'] [aos].aos-animate, [aos][aos][aos-delay='2950'].aos-animate {
+    -webkit-transition-delay: 2950ms;
+            transition-delay: 2950ms; }
+body[aos-delay='3000'] [aos], [aos][aos][aos-delay='3000'] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0; }
+  body[aos-delay='3000'] [aos].aos-animate, [aos][aos][aos-delay='3000'].aos-animate {
+    -webkit-transition-delay: 3000ms;
+            transition-delay: 3000ms; }
 
 /**
  * Fade animations:
