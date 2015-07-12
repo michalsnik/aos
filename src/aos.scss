@@ -48,8 +48,10 @@ $val-lg: 100vw;
  */
 
 [aos^='fade'] {
-  opacity: 0; transition-property: all;
-  &.aos-animate {opacity: 1;}
+  &{
+    opacity: 0; transition-property: all;
+    &.aos-animate {opacity: 1;}
+  }
 }
 
 [aos='fade-up'] {

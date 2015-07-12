@@ -89,7 +89,7 @@
 
     $.each(aosElementsPositions, function(i, elPos){
       if (scrollTop >= elPos - windowHeight) {
-          $aosElements.eq(i).addClass('aos-animate');
+        $aosElements.eq(i).addClass('aos-animate');
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
