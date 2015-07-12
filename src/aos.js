@@ -91,7 +91,7 @@
       if (scrollTop >= aosElementsPositions[i] - windowHeight) {
         setTimeout(function(){
           $aosElements.eq(i).addClass('aos-animate');
-        }, (aosElementsDelays[i] || options.delay));
+        }(i), (aosElementsDelays[i] || options.delay));
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
       }
