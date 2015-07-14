@@ -93,9 +93,15 @@ $val-lg: 100vw;
 }
 
 /**
- * Fade animations with zoom in:
- * fade-zoom-in, fade-up-zoom-in, fade-down-zoom-in, fade-right-zoom-in, fade-left-zoom-in
+ * Zoom animations:
+ * zoom-in, zoom-in-up, zoom-in-down, zoom-in-left, zoom-in-right
+ * zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
  */
+
+[aos^='zoom'][aos^='zoom'] {
+  opacity: 0; transition-property: all;
+  &.aos-animate {opacity: 1;}
+}
 
 [aos='zoom-in'] {
   transform: scale(.6);
@@ -121,11 +127,6 @@ $val-lg: 100vw;
   transform: translate($val-sm,0) scale(.6);
   &.aos-animate {transform: translate(0,0) scale(1);}
 }
-
-/**
- * Fade animations with zoom out:
- * fade-zoom-out, fade-up-zoom-out, fade-down-zoom-out, fade-right-zoom-out, fade-left-zoom-out
- */
 
 [aos='zoom-out'] {
   transform: scale(1.2);

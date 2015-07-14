@@ -703,9 +703,17 @@ body[aos-delay='3000'] [aos], [aos][aos][aos-delay='3000'] {
             transform: translate(0, 0); }
 
 /**
- * Fade animations with zoom in:
- * fade-zoom-in, fade-up-zoom-in, fade-down-zoom-in, fade-right-zoom-in, fade-left-zoom-in
+ * Zoom animations:
+ * zoom-in, zoom-in-up, zoom-in-down, zoom-in-left, zoom-in-right
+ * zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
  */
+[aos^='zoom'][aos^='zoom'] {
+  opacity: 0;
+  -webkit-transition-property: all;
+          transition-property: all; }
+  [aos^='zoom'][aos^='zoom'].aos-animate {
+    opacity: 1; }
+
 [aos='zoom-in'] {
   -webkit-transform: scale(.6);
       -ms-transform: scale(.6);
@@ -751,10 +759,6 @@ body[aos-delay='3000'] [aos], [aos][aos][aos-delay='3000'] {
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-/**
- * Fade animations with zoom out:
- * fade-zoom-out, fade-up-zoom-out, fade-down-zoom-out, fade-right-zoom-out, fade-left-zoom-out
- */
 [aos='zoom-out'] {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
