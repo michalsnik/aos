@@ -4,17 +4,15 @@
 		<meta charset="utf-8">
 		<title>AOS - Animate on scroll library</title>
 		<meta name="viewport" content="width=device-width">
-		<!-- <link rel="stylesheet" href="http://localhost:3002/dist/aos.css" /> -->
 		<link rel="stylesheet" href="https://rawgit.com/michalsnik/aos/master/dist/aos.css" />
+		<!-- <link rel="stylesheet" href="http://localhost:3002/dist/aos.css" /> -->
+
 		<link rel="stylesheet" href="dist/css/styles.css" />
 	</head>
 	<body>
 
 		<div class="backgrounds overlay">
-			<div class="background" aos="fade-in" aos-duration="1500" aos-anchor=".hero" style="background-image: url('img/bg1.jpg');"></div>
-			<!-- <div class="background" aos="fade-in" aos-duration="600" aos-anchor=".section--info" style="background-color: #FFF;"></div> -->
-			<div class="background" aos="fade-in" aos-duration="1500" aos-anchor=".section--code" style="background-image: url('img/bg2.jpg');"></div>
-			<!-- <div class="background" aos="fade-in" aos-anchor=".section--more" style="background-color: #222222;"></div> -->
+			<div class="background" aos="fade-in" aos-duration="1500" aos-anchor=".section--hero" style="background-image: url('img/bg2.jpg');"></div>
 		</div>
 
 		<header class="hero">
@@ -36,29 +34,29 @@
 		<section class="section section--code">
 			<div class="container">
 				<h2 class="section-title">Fade</h2>
-				<div class="code code--left" aos="fade-up">
-
+				<div class="code code--small code--left" aos="fade-up">
+					<pre><code class="html">&lt;div aos="fade-up">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-down">
-
+				<div class="code code--small code--right" aos="fade-down">
+					<pre><code>&lt;div aos="fade-down">&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="fade-right">
-
+				<div class="code code--small code--left" aos="fade-right">
+					<pre><code>&lt;div aos="fade-right">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-left">
-
+				<div class="code code--small code--right" aos="fade-left">
+					<pre><code>&lt;div aos="fade-left">&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="fade-up-right">
-
+				<div class="code code--small code--left" aos="fade-up-right">
+					<pre><code>&lt;div aos="fade-up-right">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-up-left">
-
+				<div class="code code--small code--right" aos="fade-up-left">
+					<pre><code>&lt;div aos="fade-up-left">&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="fade-down-right">
-
+				<div class="code code--small code--left" aos="fade-down-right">
+					<pre><code>&lt;div aos="fade-down-right">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-down-left">
-
+				<div class="code code--small code--right" aos="fade-down-left">
+					<pre><code>&lt;div aos="fade-down-left">&lt;/div></code></pre>
 				</div>
 			</div>
 		</section>
@@ -66,17 +64,20 @@
 		<section class="section section--code">
 			<div class="container">
 				<h2 class="section-title">Fade with zoom in</h2>
-				<div class="code code--left" aos="fade-zoom-in">
-
+				<div class="code code--small code--left" aos="fade-zoom-in">
+					<pre><code>&lt;div aos="fade-zoom-in">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-down-zoom-in">
-
+				<div class="code code--small code--right" aos="fade-up-zoom-in">
+					<pre><code>&lt;div aos="fade-up-zoom-in">&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="fade-right-zoom-in">
-
+				<div class="code code--small code--left" aos="fade-down-zoom-in">
+					<pre><code>&lt;div aos="fade-down-zoom-in">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-left-zoom-in">
-
+				<div class="code code--small code--right" aos="fade-left-zoom-in">
+					<pre><code>&lt;div aos="fade-left-zoom-in">&lt;/div></code></pre>
+				</div>
+				<div class="code code--small code--left" aos="fade-right-zoom-in">
+					<pre><code>&lt;div aos="fade-right-zoom-in">&lt;/div></code></pre>
 				</div>
 			</div>
 		</section>
@@ -84,17 +85,17 @@
 		<section class="section section--code">
 			<div class="container">
 				<h2 class="section-title">Flip</h2>
-				<div class="code code--left" aos="flip-left">
-
+				<div class="code code--small code--left" aos="flip-left">
+					<pre><code>&lt;div aos="flip-left">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="flip-right">
-
+				<div class="code code--small code--right" aos="flip-right">
+					<pre><code>&lt;div aos="flip-right">&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="flip-up">
-
+				<div class="code code--small code--left" aos="flip-up">
+					<pre><code>&lt;div aos="flip-up">&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="flip-down">
-
+				<div class="code code--small code--right" aos="flip-down">
+					<pre><code>&lt;div aos="flip-down">&lt;/div></code></pre>
 				</div>
 			</div>
 		</section>
@@ -102,23 +103,23 @@
 		<section class="section section--code">
 			<div class="container">
 				<h2 class="section-title">Different settings examples</h2>
-				<div class="code code--left" aos="fade-up">
-
+				<div class="code code--left" aos="fade-up" aos-duration="3000">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-duration="3000">&#13;&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-down">
-
+				<div class="code code--right" aos="fade-down" aos-easing="linear" aos-duration="1500">
+					<pre><code>&lt;div aos="fade-down"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-easing="linear"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-duration="1500">&#13;&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="fade-right">
-
+				<div id="example-anchor" class="code code--left" aos="fade-right" aos-offset="300" aos-easing="ease-in-sine">
+					<pre><code>&lt;div aos="fade-right"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-offset="300"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-easing="ease-in-sine">&#13;&lt;/div></code></pre>
 				</div>
-				<div class="code code--right" aos="fade-left">
-
+				<div class="code code--right" aos="fade-left" aos-anchor="#example-anchor" aos-offset="500" aos-duration="500">
+					<pre><code>&lt;div aos="fade-left"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor="#example-anchor"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-offset="500"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-duration="500">&#13;&lt;/div></code></pre>
 				</div>
-				<div class="code code--left" aos="fade-zoom-in">
-
+				<div class="code code--left" aos="fade-zoom-in" aos-easing="ease-in-back" aos-delay="300" aos-offset="0">
+					<pre><code>&lt;div aos="fade-zoom-in"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-easing="ease-in-back"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-delay="300"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-offset="0">&#13;&lt;/div></code></pre>
 				</div>
-				<div class="code code--right">
-
+				<div class="code code--right" aos="flip-left" aos-easing="ease-out-cubic" aos-duration="2000">
+					<pre><code>&lt;div aos="flip-left"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-easing="ease-out-cubic"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-duration="2000">&#13;&lt;/div></code></pre>
 				</div>
 			</div>
 		</section>
@@ -136,15 +137,18 @@
 		</footer>
 
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<!-- // <script src="http://localhost:3002/dist/aos.js"></script> -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
 		<script src="https://rawgit.com/michalsnik/aos/master/dist/aos.js"></script>
-		<script src="dist/js/scripts.js"></script>
+		<!-- // <script src="http://localhost:3002/dist/aos.js"></script> -->
+		<!-- // <script src="dist/js/scripts.js"></script> -->
 
 		<script>
 			AOS.init({
 				easing: 'ease-out-back',
 				duration: 1000
 			});
+
+			hljs.initHighlightingOnLoad();
 		</script>
 	</body>
 </html>

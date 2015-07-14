@@ -2,6 +2,7 @@ body {
     font-family: Helvetica,Tahoma;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 *,
@@ -105,6 +106,19 @@ a {
     background: #FFF;
     border-radius: 2px;
     margin: 12vh 0;
+    padding: 10px;
+    pre, code {
+        height: 100%; margin: 0;
+    }
+    code {
+        padding: 20px 0 0 20px;
+    }
+
+    &--small {
+        code {padding-top: 75px;}
+    }
+
+    // color: #222;
 
     &--left {
         float: left;
