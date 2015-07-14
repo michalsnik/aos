@@ -2,7 +2,7 @@
  * Default variables
  */
 
-$val-sm: 50px;
+$val-sm: 100px;
 $val-md: 80px;
 $val-lg: 100vw;
 
@@ -47,11 +47,9 @@ $val-lg: 100vw;
  * fade-up-right, fade-up-left, fade-down-right, fade-down-left
  */
 
-[aos^='fade'] {
-  &{
-    opacity: 0; transition-property: all;
-    &.aos-animate {opacity: 1;}
-  }
+[aos^='fade'][aos^='fade'] {
+  opacity: 0; transition-property: all;
+  &.aos-animate {opacity: 1;}
 }
 
 [aos='fade-up'] {
