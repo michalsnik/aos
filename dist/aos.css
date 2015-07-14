@@ -706,47 +706,47 @@ body[aos-delay='3000'] [aos], [aos][aos][aos-delay='3000'] {
  * Fade animations with zoom in:
  * fade-zoom-in, fade-up-zoom-in, fade-down-zoom-in, fade-right-zoom-in, fade-left-zoom-in
  */
-[aos='fade-zoom-in'] {
+[aos='zoom-in'] {
   -webkit-transform: scale(.6);
       -ms-transform: scale(.6);
           transform: scale(.6); }
-  [aos='fade-zoom-in'].aos-animate {
+  [aos='zoom-in'].aos-animate {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1); }
 
-[aos='fade-up-zoom-in'] {
+[aos='zoom-in-up'] {
   -webkit-transform: translate(0, 100px) scale(.6);
       -ms-transform: translate(0, 100px) scale(.6);
           transform: translate(0, 100px) scale(.6); }
-  [aos='fade-up-zoom-in'].aos-animate {
+  [aos='zoom-in-up'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-down-zoom-in'] {
+[aos='zoom-in-down'] {
   -webkit-transform: translate(0, -100px) scale(.6);
       -ms-transform: translate(0, -100px) scale(.6);
           transform: translate(0, -100px) scale(.6); }
-  [aos='fade-down-zoom-in'].aos-animate {
+  [aos='zoom-in-down'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-right-zoom-in'] {
+[aos='zoom-in-right'] {
   -webkit-transform: translate(-100px, 0) scale(.6);
       -ms-transform: translate(-100px, 0) scale(.6);
           transform: translate(-100px, 0) scale(.6); }
-  [aos='fade-right-zoom-in'].aos-animate {
+  [aos='zoom-in-right'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-left-zoom-in'] {
+[aos='zoom-in-left'] {
   -webkit-transform: translate(100px, 0) scale(.6);
       -ms-transform: translate(100px, 0) scale(.6);
           transform: translate(100px, 0) scale(.6); }
-  [aos='fade-left-zoom-in'].aos-animate {
+  [aos='zoom-in-left'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
@@ -755,47 +755,47 @@ body[aos-delay='3000'] [aos], [aos][aos][aos-delay='3000'] {
  * Fade animations with zoom out:
  * fade-zoom-out, fade-up-zoom-out, fade-down-zoom-out, fade-right-zoom-out, fade-left-zoom-out
  */
-[aos='fade-zoom-out'] {
+[aos='zoom-out'] {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2); }
-  [aos='fade-zoom-out'].aos-animate {
+  [aos='zoom-out'].aos-animate {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1); }
 
-[aos='fade-up-zoom-out'] {
+[aos='zoom-out-up'] {
   -webkit-transform: translate(0, 100px) scale(1.2);
       -ms-transform: translate(0, 100px) scale(1.2);
           transform: translate(0, 100px) scale(1.2); }
-  [aos='fade-up-zoom-out'].aos-animate {
+  [aos='zoom-out-up'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-down-zoom-out'] {
+[aos='zoom-out-down'] {
   -webkit-transform: translate(0, -100px) scale(1.2);
       -ms-transform: translate(0, -100px) scale(1.2);
           transform: translate(0, -100px) scale(1.2); }
-  [aos='fade-down-zoom-out'].aos-animate {
+  [aos='zoom-out-down'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-right-zoom-out'] {
+[aos='zoom-out-right'] {
   -webkit-transform: translate(-100px, 0) scale(1.2);
       -ms-transform: translate(-100px, 0) scale(1.2);
           transform: translate(-100px, 0) scale(1.2); }
-  [aos='fade-right-zoom-out'].aos-animate {
+  [aos='zoom-out-right'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
 
-[aos='fade-left-zoom-out'] {
+[aos='zoom-out-left'] {
   -webkit-transform: translate(100px, 0) scale(1.2);
       -ms-transform: translate(100px, 0) scale(1.2);
           transform: translate(100px, 0) scale(1.2); }
-  [aos='fade-left-zoom-out'].aos-animate {
+  [aos='zoom-out-left'].aos-animate {
     -webkit-transform: translate(0, 0) scale(1);
         -ms-transform: translate(0, 0) scale(1);
             transform: translate(0, 0) scale(1); }
