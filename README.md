@@ -112,25 +112,23 @@ There are serveral predefined animations you can use already:
     * fade-down-right
     * fade-down-left
 
-  * Fade animations with zoom in:
-    * fade-zoom-in
-    * fade-up-zoom-in
-    * fade-down-zoom-in
-    * fade-left-zoom-in
-    * fade-right-zoom-in
-
-  * Fade animations with zoom out:
-    * fade-zoom-out
-    * fade-up-zoom-out
-    * fade-down-zoom-out
-    * fade-left-zoom-out
-    * fade-right-zoom-out
-
   * Flip animations:
     * flip-up
     * flip-down
     * flip-left
     * flip-right
+
+  * Zoom animations:
+    * zoom-in
+    * zoom-in-up
+    * zoom-in-down
+    * zoom-in-left
+    * zoom-in-right
+    * zoom-out
+    * zoom-out-up
+    * zoom-out-down
+    * zoom-out-left
+    * zoom-out-right
 
 
 ### Easing functions:
