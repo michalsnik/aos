@@ -15,6 +15,8 @@
   var windowHeight = 0;
   var scrollTop = 0;
 
+  var initialized = false;
+
   /**
    * Default options
    */
@@ -106,6 +108,8 @@
     aosElementsPositions = [];
     aosElementsDelays = [];
 
+    initialized = true;
+
     windowHeight = $(window).height();
 
     $aosElements.addClass('aos-init').each(function(i, el){
@@ -138,7 +142,34 @@
     $(window)
       .on('resize orientationchange', _debounce(generate, 50, true))
       .on('scroll', _debounce(handleScroll, 15, true));
+
+    /**
+     * Watch if nodes are removed
+     * If so refresh plugin data
+     */
+    document.addEventListener('DOMNodeRemoved', function (event) {
+      if ($(event.target).is('[aos]')) {
+        setTimeout(function(){
+          generate();
+          handleScroll();
+        }, 50);
+      }
+    });
+
+    /**
+     * Observe [aos] elements
+     * If something is loaded by AJAX
+     * it'll refresh plugin data automatically
+     */
+    observe('[aos]', function(element){
+      if (initialized) {
+        generate();
+        handleScroll();
+      }
+    });
+
   };
+
 
   /**
    * Public API
@@ -202,3 +233,57 @@
   };
 
 })(window, document);
+
+/**
+ * Observer implementation
+ */
+(function(win){
+    'use strict';
+
+    var listeners = [],
+    doc = win.document,
+    MutationObserver = win.MutationObserver || win.WebKitMutationObserver,
+    observer;
+
+    function ready(selector, fn){
+        // Store the selector and callback to be monitored
+        listeners.push({
+            selector: selector,
+            fn: fn
+        });
+        if(!observer){
+            // Watch for changes in the document
+            observer = new MutationObserver(check);
+            observer.observe(doc.documentElement, {
+                childList: true,
+                subtree: true,
+                removedNodes: true,
+            });
+        }
+        // Check if the element is currently in the DOM
+        check();
+    }
+
+    function check(){
+        // Check the DOM for elements matching a stored selector
+        for(var i = 0, len = listeners.length, listener, elements; i < len; i++){
+            listener = listeners[i];
+            // Query for elements matching the specified selector
+            elements = doc.querySelectorAll(listener.selector);
+            for(var j = 0, jLen = elements.length, element; j < jLen; j++){
+                element = elements[j];
+                // Make sure the callback isn't invoked with the
+                // same element more than once
+                if(!element.ready){
+                    element.ready = true;
+                    // Invoke the callback with the element
+                    listener.fn.call(element, element);
+                }
+            }
+        }
+    }
+
+    // Expose `ready`
+    win.observe = ready;
+
+})(this);

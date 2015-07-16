@@ -180,7 +180,7 @@ Head into `/demo` in your browser folder to test your code in real environment.
 
 * [x] ~~Expanding API with refresh function~~
 * [x] ~~Duration customization with global and individual settings~~
-* [ ] Handle asynchronously loaded elements
+* [x] ~~Handle asynchronously loaded elements
 * [ ] Watch nodes to recalculate offsets if their position changed
 * [ ] Anchor placement option - to choose which place of element in vieport should trigger animation
   i.e. top, bottom, center, center-top, center-bottom
