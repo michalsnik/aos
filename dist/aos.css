@@ -807,6 +807,42 @@ body[aos-delay='3000'] [aos], [aos][aos][aos-delay='3000'] {
 /**
  * Slide animations
  */
+[aos='slide-up'] {
+  -webkit-transform: translate(0, 100%);
+      -ms-transform: translate(0, 100%);
+          transform: translate(0, 100%); }
+  [aos='slide-up'].aos-animate {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+[aos='slide-down'] {
+  -webkit-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+          transform: translate(0, -100%); }
+  [aos='slide-down'].aos-animate {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+[aos='slide-right'] {
+  -webkit-transform: translate(-100%, 0);
+      -ms-transform: translate(-100%, 0);
+          transform: translate(-100%, 0); }
+  [aos='slide-right'].aos-animate {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+[aos='slide-left'] {
+  -webkit-transform: translate(100%, 0);
+      -ms-transform: translate(100%, 0);
+          transform: translate(100%, 0); }
+  [aos='slide-left'].aos-animate {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
 /**
  * Flip animations:
  * flip-left, flip-right, flip-up, flip-down

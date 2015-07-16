@@ -161,6 +161,26 @@ $val-lg: 100vw;
  */
 
 
+[aos='slide-up'] {
+  transform: translate(0,100%);
+  &.aos-animate {transform: translate(0,0);}
+}
+
+[aos='slide-down'] {
+  transform: translate(0,-100%);
+  &.aos-animate {transform: translate(0,0);}
+}
+
+[aos='slide-right'] {
+  transform: translate(-100%,0);
+  &.aos-animate {transform: translate(0,0);}
+}
+
+[aos='slide-left'] {
+  transform: translate(100%,0);
+  &.aos-animate {transform: translate(0,0);}
+}
+
 
 
 
