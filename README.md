@@ -118,6 +118,12 @@ There are serveral predefined animations you can use already:
     * flip-left
     * flip-right
 
+  * Slide animations:
+    * slide-up
+    * slide-down
+    * slide-left
+    * slide-right
+
   * Zoom animations:
     * zoom-in
     * zoom-in-up
