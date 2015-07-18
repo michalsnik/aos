@@ -7,6 +7,9 @@ You may say it's like WOWJS, yeah - you're right, effect is similar to WOWJS, bu
 AOS allows you to animate elements as you scroll down, and up.
 If you scroll back to top, element will animate to it's previous state and is ready to animate again if you scroll down.
 
+### DEMO
+[Click here](http://michalsnik.github.io/aos/)
+
 ## Requirements
 
 * Jquery >= 1.8.3
