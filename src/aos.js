@@ -62,10 +62,11 @@
   var calculateOffset = function(el){
     var $el = $(el);
     var elementOffsetTop = 0;
-    var additionalOffset = options.offset;
+    var additionalOffset = 0;
     var attrs = {
       offset: $(el).attr('aos-offset'),
-      anchor: $(el).attr('aos-anchor')
+      anchor: $(el).attr('aos-anchor'),
+      anchorPlacement: $(el).attr('aos-anchor-placement')
     };
 
     if (attrs.offset && !isNaN(attrs.offset)) {
@@ -78,7 +79,42 @@
 
     elementOffsetTop = getOffset($el.get(0)).top;
 
-    return elementOffsetTop + additionalOffset;
+    switch (attrs.anchorPlacement) {
+      case 'top-bottom':
+        // Default offset
+      break;
+      case 'center-bottom':
+        elementOffsetTop += $(el).outerHeight()/2;
+      break;
+      case 'bottom-bottom':
+        elementOffsetTop += $(el).outerHeight();
+      break;
+      case 'top-center':
+        elementOffsetTop += windowHeight/2;
+      break;
+      case 'bottom-center':
+        elementOffsetTop += windowHeight/2 + $(el).outerHeight();
+      break;
+      case 'center-center':
+        elementOffsetTop += windowHeight/2 + $(el).outerHeight()/2;
+      break;
+      case 'top-top':
+        elementOffsetTop += windowHeight;
+      break;
+      case 'bottom-top':
+        elementOffsetTop += $(el).outerHeight() + windowHeight;
+      break;
+      case 'center-top':
+        elementOffsetTop += $(el).outerHeight()/2 + windowHeight;
+      break;
+      // Default top-bottom with additional offset from global settings
+      default:
+        elementOffsetTop += additionalOffset || options.offset;
+      break;
+    }
+
+
+    return elementOffsetTop;
   };
 
   /**
@@ -90,7 +126,7 @@
     scrollTop = window.scrollY;
 
     $.each(aosElementsPositions, function(i, elPos){
-      if (scrollTop >= elPos - windowHeight) {
+      if (scrollTop > elPos - windowHeight) {
         $aosElements.eq(i).addClass('aos-animate');
       } else {
         $aosElements.eq(i).removeClass('aos-animate');
@@ -116,6 +152,7 @@
       aosElementsDelays.push($(el).attr('aos-delay') || 0);
       aosElementsPositions.push(calculateOffset(el));
     });
+
   };
 
   /**
