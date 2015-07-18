@@ -107,14 +107,13 @@
       case 'center-top':
         elementOffsetTop += $(el).outerHeight()/2 + windowHeight;
       break;
-      // Default top-bottom with additional offset from global settings
-      default:
-        elementOffsetTop += additionalOffset || options.offset;
-      break;
     }
 
+    if(!attrs.anchorPlacement && isNaN(attrs.offset)) {
+      additionalOffset = options.offset;
+    }
 
-    return elementOffsetTop;
+    return elementOffsetTop + additionalOffset;
   };
 
   /**
