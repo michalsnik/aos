@@ -3,6 +3,7 @@ var sass        = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
+var minifyCss   = require('gulp-minify-css');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 
@@ -16,6 +17,7 @@ gulp.task('sass', function () {
                 browsers: ['> 1%']
             })
         )
+        .pipe(minifyCss())
         .pipe(gulp.dest('dist'))
         .pipe(reload({stream:true}));
 });
