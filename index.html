@@ -12,17 +12,21 @@
 	<body>
 
 		<div class="backgrounds overlay">
-			<div class="background" aos="fade-in" aos-duration="1500" aos-anchor=".section--hero" style="background-image: url('img/bg2.jpg');"></div>
+			<div class="background" aos="fade-in" aos-duration="1500" aos-anchor=".section--hero" style="background-image: url('img/bg.jpg');"></div>
 		</div>
 
 		<header class="hero">
 			<div class="hero-center">
-				<h1 class="hero__logo" aos="fade-zoom-in">AOS</h1>
+				<h1 class="hero__logo" aos="zoom-in">AOS</h1>
 				<h2 class="hero__text" aos="fade-up" aos-delay="400">Animate On Scroll <span>Library</span></h2>
 			</div>
 			<span class="hero__scroll" aos="fade-down" aos-delay="800">
-				Scroll down
+				Scroll down <br>
+				<i class="chevron bottom"></i>
 			</span>
+			<a href="http://github.com/michalsnik/aos" target="_blank" class="octocat" aos="zoom-out" aos-delay="1500">
+				<img src="img/github_octocat.png" alt="">
+			</a>
 		</header>
 
 		<!-- <section class="section section--info">
@@ -140,6 +144,33 @@
 			</div>
 		</section>
 
+		<section class="section section--code">
+			<div class="container">
+				<h2 class="section-title">Anchor placement</h2>
+
+				<div class="code code--wider code--left" aos="fade-up" aos-anchor-placement="top-bottom">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor-placement="top-bottom">&#13;&lt;/div></code></pre>
+				</div>
+				<div class="code code--wider code--right" aos="fade-up" aos-anchor-placement="center-bottom">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor-placement="center-bottom">&#13;&lt;/div></code></pre>
+				</div>
+				<div class="code code--wider code--left" aos="fade-up" aos-anchor-placement="bottom-bottom">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor-placement="bottom-bottom">&#13;&lt;/div></code></pre>
+				</div>
+
+				<div class="code code--wider code--right" aos="fade-up" aos-anchor-placement="top-center">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor-placement="top-center">&#13;&lt;/div></code></pre>
+				</div>
+				<div class="code code--wider code--left" aos="fade-up" aos-anchor-placement="center-center">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor-placement="center-center">&#13;&lt;/div></code></pre>
+				</div>
+				<div class="code code--wider code--right" aos="fade-up" aos-anchor-placement="bottom-center">
+					<pre><code>&lt;div aos="fade-up"&#13;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aos-anchor-placement="bottom-center">&#13;&lt;/div></code></pre>
+				</div>
+
+			</div>
+		</section>
+
 		<section class="section section--more">
 			<div class="container">
 
@@ -154,6 +185,7 @@
 
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+
 		<script src="https://rawgit.com/michalsnik/aos/master/dist/aos.js"></script>
 		<!-- // <script src="http://localhost:3002/dist/aos.js"></script> -->
 		<!-- // <script src="dist/js/scripts.js"></script> -->
@@ -165,6 +197,12 @@
 			});
 
 			hljs.initHighlightingOnLoad();
+
+			$('.hero__scroll').on('click', function(e) {
+				$('html, body').animate({
+					scrollTop: $(window).height()
+				}, 1200);
+			});
 		</script>
 	</body>
 </html>

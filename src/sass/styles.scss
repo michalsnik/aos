@@ -74,10 +74,66 @@ a {
 
 .hero__scroll {
     position: absolute;
-    bottom: 120px;
+    bottom: 60px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    padding-bottom: 40px;
     left: 0;
     right: 0;
     text-transform: uppercase;
+    .chevron {
+        margin-top: 20px;
+        display: block;
+        animation: pulse 2s infinite;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.octocat {
+    position: absolute; top: 20px; right: 20px; width: 80px;
+    img {
+        display: block; width: 100%;
+    }
+}
+
+.chevron::before {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 20px;
+}
+
+.chevron.right:before {
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.chevron.left:before {
+    left: 0.25em;
+    transform: rotate(-135deg);
 }
 
 /**
@@ -126,5 +182,10 @@ a {
 
     &--right {
         float: right;
+    }
+
+    &--wider {
+        width: 60%;
+        code {padding-top: 60px;}
     }
 }
