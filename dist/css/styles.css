@@ -104,11 +104,15 @@ a {
 .hero-center {
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 0;
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%); }
+
+.hero__logo {
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.5); }
 
 .hero__text {
   font-weight: normal;
@@ -129,7 +133,8 @@ a {
     margin-top: 20px;
     display: block;
     -webkit-animation: pulse 2s infinite;
-            animation: pulse 2s infinite; }
+            animation: pulse 2s infinite;
+    color: #FF4081; }
 
 @-webkit-keyframes pulse {
   0% {
@@ -201,7 +206,8 @@ a {
  * Sections
  */
 .section {
-  width: 100%; }
+  width: 100%;
+  float: left; }
 
 .section-title {
   text-align: center;
@@ -242,3 +248,56 @@ a {
     width: 60%; }
     .code--wider code {
       padding-top: 60px; }
+
+.section--more {
+  color: #FFF;
+  background: #0E0F34;
+  padding: 20px 0 40px 0; }
+
+.section-group {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px 0; }
+  .section-group h3 {
+    margin: 0 0 20px 0;
+    text-transform: uppercase; }
+  .section-group h4 {
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.6); }
+  .section-group code {
+    padding: 20px;
+    font-size: 1.2em; }
+  .section-group .btn {
+    margin-right: 20px; }
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #FF4081;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  overflow: hidden; }
+  .btn:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #FF4081;
+    -webkit-transition: -webkit-transform 0.2s ease;
+            transition: transform 0.2s ease;
+    z-index: 0;
+    opacity: 0; }
+  .btn span {
+    position: relative;
+    z-index: 5; }
+  .btn:hover {
+    color: #FFF; }
+    .btn:hover:before {
+      -webkit-transform: scaleX(200);
+          -ms-transform: scaleX(200);
+              transform: scaleX(200);
+      opacity: 1; }

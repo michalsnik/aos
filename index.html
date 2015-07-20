@@ -18,9 +18,9 @@
 		<header class="hero">
 			<div class="hero-center">
 				<h1 class="hero__logo" aos="zoom-in">AOS</h1>
-				<h2 class="hero__text" aos="fade-up" aos-delay="400">Animate On Scroll <span>Library</span></h2>
+				<h2 class="hero__text" aos="fade-up" aos-easing="ease" aos-delay="400">Animate On Scroll <span>Library</span></h2>
 			</div>
-			<span class="hero__scroll" aos="fade-down" aos-delay="800">
+			<span class="hero__scroll" aos="fade-up" aos-easing="ease" aos-delay="800">
 				Scroll down <br>
 				<i class="chevron bottom"></i>
 			</span>
@@ -28,12 +28,6 @@
 				<img src="img/github_octocat.png" alt="">
 			</a>
 		</header>
-
-		<!-- <section class="section section--info">
-			<div class="container">
-
-			</div>
-		</section> -->
 
 		<section class="section section--code">
 			<div class="container">
@@ -173,6 +167,27 @@
 
 		<section class="section section--more">
 			<div class="container">
+				<div class="section-group">
+					<h3>Get it</h3>
+
+					<a href="https://github.com/michalsnik/aos/archive/0.3.0.zip" class="btn"><span>Download</span></a>
+					<a href="https://github.com/michalsnik/aos" target="_blank" class="btn"><span>View on github</span></a>
+				</div>
+
+				<div class="section-group">
+					<h3>Install using bower</h3>
+
+					<pre><code>bower install jquery-aos --save</code></pre>
+				</div>
+
+				<div class="section-group">
+					<h3>CDN sources</h3>
+					<h4>CSS</h4>
+					<pre><code>&lt;link href="https://cdn.rawgit.com/michalsnik/aos/0.3.0/dist/aos.css"></code></pre>
+
+					<h4>JS</h4>
+					<pre><code>&lt;script src="https://cdn.rawgit.com/michalsnik/aos/0.3.0/dist/aos.js"></code></pre>
+				</div>
 
 			</div>
 		</section>
@@ -188,7 +203,6 @@
 
 		<script src="https://rawgit.com/michalsnik/aos/master/dist/aos.js"></script>
 		<!-- // <script src="http://localhost:3002/dist/aos.js"></script> -->
-		<!-- // <script src="dist/js/scripts.js"></script> -->
 
 		<script>
 			AOS.init({

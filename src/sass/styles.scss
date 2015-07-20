@@ -60,12 +60,12 @@ a {
 .hero-center {
     width: 100%;
     position: absolute;
-    top: 50%; left: 0;
+    top: 40%; left: 0;
     transform: translate(0, -50%);
 }
 
 .hero__logo {
-
+    font-size: 60px; color: rgba(0,0,0,0.5);
 }
 
 .hero__text {
@@ -87,6 +87,7 @@ a {
         margin-top: 20px;
         display: block;
         animation: pulse 2s infinite;
+        color: $accent-color;
     }
 }
 
@@ -140,7 +141,7 @@ a {
  * Sections
  */
 .section {
-    width: 100%;
+    width: 100%; float: left;
 }
 
 .section-title{
@@ -174,8 +175,6 @@ a {
         code {padding-top: 75px;}
     }
 
-    // color: #222;
-
     &--left {
         float: left;
     }
@@ -187,5 +186,42 @@ a {
     &--wider {
         width: 60%;
         code {padding-top: 60px;}
+    }
+}
+
+.section--more {
+    color: #FFF; background: #0E0F34; padding: 20px 0 40px 0;
+}
+
+.section-group {
+    border-bottom: 1px solid rgba(255,255,255,0.2); padding: 30px 0;
+
+    h3 {
+        margin: 0 0 20px 0; text-transform: uppercase;
+    }
+    h4 {
+        font-weight: normal; color: rgba(255,255,255,0.6);
+    }
+
+    code {
+        padding: 20px; font-size: 1.2em;
+    }
+
+    .btn {
+        margin-right: 20px;
+    }
+}
+
+.btn {
+    padding: 10px 20px; border: 1px solid $accent-color; display: inline-block; position: relative; transition: all 0.2s ease; overflow: hidden;
+    &:before {
+        content: ''; position: absolute; left: 0; right: 0; width: 1px; top: 0; bottom: 0; margin: auto; background: $accent-color; transition: transform 0.2s ease; z-index: 0; opacity: 0;
+    }
+
+    span {position: relative; z-index: 5;}
+
+    &:hover {
+        color: #FFF;
+        &:before {transform: scaleX(200); opacity: 1;}
     }
 }
