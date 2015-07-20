@@ -91,6 +91,21 @@ Down below you can find list of all anchor-placement options.
 ```html
   <div aos="fade-up" aos-anchor-placement="top-center">
 ```
+####API
+
+AOS object is exposed as global variable, for now there are only two methods available:
+
+  * init
+  * refresh
+
+Running:
+```javascript
+  AOS.refresh();
+```
+will trigger recalculating offsets of elements.
+It could be handy in older browsers which don't support mutation observer.
+
+AOS is watching for DOM changes and if there are any new elements loaded asynchronously or something was removed from DOM script calls refresh automatically. In older browsers or `internet exploder` you might need to call `AOS.refresh()` by yourself.
 
 ### Animations
 
@@ -204,6 +219,10 @@ gulp
 Now you're ready to roll.
 
 Head into `/demo` in your browser folder to test your code in real environment.
+
+## Questions
+
+If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
 
 ## TODO
 
