@@ -102,10 +102,9 @@ Running:
 ```javascript
   AOS.refresh();
 ```
-will trigger recalculating offsets of elements.
+will recalculate all offsets and positions of elements.
 It could be handy in older browsers which don't support mutation observer.
-
-AOS is watching for DOM changes and if there are any new elements loaded asynchronously or something was removed from DOM script calls refresh automatically. In older browsers or `internet exploder` you might need to call `AOS.refresh()` by yourself.
+By default AOS is watching for DOM changes and if there are any new elements loaded asynchronously or when something is removed from DOM it calls refresh automatically. In older browsers like IE you might need to call `AOS.refresh()` by yourself.
 
 ### Animations
 
