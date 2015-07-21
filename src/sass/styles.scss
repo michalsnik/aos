@@ -21,7 +21,7 @@ a {
  */
 .backgrounds {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     transform: translateZ(0);
     z-index: -1;
@@ -154,6 +154,7 @@ a {
     width: 970px;
     margin: 0 auto;
     max-width: 90%;
+    transform: translateZ(1000px);
 }
 
 .code {
