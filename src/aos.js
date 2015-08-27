@@ -44,7 +44,8 @@
     delay: 0,
     easing: 'ease',
     duration: 400,
-    disable: null
+    disable: null,
+    once: false
   };
 
   /**
@@ -148,7 +149,9 @@
       if (scrollTop > elPos - windowHeight) {
         $aosElements.eq(i).addClass('aos-animate');
       } else {
-        $aosElements.eq(i).removeClass('aos-animate');
+        if(!options.once) {
+          $aosElements.eq(i).removeClass('aos-animate');
+        }
       }
     });
   };

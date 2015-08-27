@@ -106,6 +106,66 @@ will recalculate all offsets and positions of elements.
 It could be handy in older browsers which don't support mutation observer.
 By default AOS is watching for DOM changes and if there are any new elements loaded asynchronously or when something is removed from DOM it calls refresh automatically. In older browsers like IE you might need to call `AOS.refresh()` by yourself.
 
+### Global settings
+
+If you don't want to change setting for each element separately, you can change it globally.
+
+To do this, pass options object to `init()` function, like so:
+
+```javascript
+  <script>
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
+  </script>
+```
+
+#### Additional configuration
+
+##### Disabling AOS
+
+If you want to disable AOS on certain device or under any statement you can set `disable` option. Like so:
+
+```javascript
+  <script>
+    AOS.init({
+      disable: 'mobile'
+    });
+  </script>
+```
+
+There are several options that you can use to fit AOS perfectly into your project, you can pass one of three device types:
+`mobile` (phones and tablets), `phone` or `tablet`. This will disable AOS on those certains devices. But if you want make your own condition, simple type your statement instead of device type name:
+
+```javascript
+  disable: window.innerWidth < 1024
+```
+
+There is also posibility to pass a `function`, which should at the end return `true` or `false`:
+
+```javascript
+  disable: function () {
+    var maxWidth = 1024;
+    return window.innerWidth < maxWidth;
+  }
+```
+
+##### Animate once
+
+If you dont want to animate elements back as you scroll to top, and then again when you scroll down second time - you can pass option `once` to prevent this behavior, and animate elements on your page only once:
+
+```javascript
+  <script>
+    AOS.init({
+      once: true
+    });
+  </script>
+```
+
+
 ### Animations
 
 There are serveral predefined animations you can use already:
@@ -181,51 +241,6 @@ You can choose one of these timing function to animate elements nicely:
   * ease-in-quart
   * ease-out-quart
   * ease-in-out-quart
-
-### Global settings
-
-If you don't want to change setting for each element separately, you can change it globally.
-
-To do this, pass options object to `init()` function, like so:
-
-```javascript
-  <script>
-    AOS.init({
-      offset: 200,
-      duration: 600,
-      easing: 'ease-in-sine',
-      delay: 100,
-    });
-  </script>
-```
-
-#### Additional configuration
-
-If you want to disable AOS on certain device or under any statement you can set `disable` option. Like so:
-
-```javascript
-  <script>
-    AOS.init({
-      disable: 'mobile'
-    });
-  </script>
-```
-
-There are several options that you can use to fit AOS perfectly into your project, you can pass one of three device types:
-`mobile` (phones and tablets), `phone` or `tablet`. This will disable AOS on those certains devices. But if you want make your own condition, simple type your statement instead of device type name:
-
-```javascript
-  disable: window.innerWidth < 1024
-```
-
-There is also posibility to pass a `function`, which should at the end return `true` or `false`:
-
-```javascript
-  disable: function () {
-    var maxWidth = 1024;
-    return window.innerWidth < maxWidth;
-  }
-```
 
 ## Contribution
 
