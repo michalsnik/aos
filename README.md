@@ -192,7 +192,7 @@ To do this, pass options object to `init()` function, like so:
   <script>
     AOS.init({
       offset: 200,
-      duration: 600
+      duration: 600,
       easing: 'ease-in-sine',
       delay: 100,
     });
