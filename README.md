@@ -212,7 +212,7 @@ If you want to disable AOS on certain device or under any statement you can set 
 ```
 
 There are several options that you can use to fit AOS perfectly into your project, you can pass one of three device types:
-`mobile` (phones and tablets), `phone` or `tablet`. This will disable AOS on those certains devices. But if you want make your own condition, simple type your statement insted of device type name:
+`mobile` (phones and tablets), `phone` or `tablet`. This will disable AOS on those certains devices. But if you want make your own condition, simple type your statement instead of device type name:
 
 ```javascript
   disable: window.innerWidth < 1024
