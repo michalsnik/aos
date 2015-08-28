@@ -54,7 +54,7 @@ You can download AOS [directly](https://github.com/michalsnik/aos/archive/master
 
   Script will trigger "animation_name" animation on this element, if you scroll to it.
 
-  Down below is a list of all available animations for now :)
+  [Down below](https://github.com/michalsnik/aos#animations) is a list of all available animations for now :)
 
 ### Advanced settings
 
