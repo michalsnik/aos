@@ -1,6 +1,6 @@
 {
-  "name": "jquery-aos",
-  "version": "0.1.0",
+  "name": "aos",
+  "version": "0.4.1",
   "homepage": "git://github.com/michalsnik/aos.git",
   "authors": [
     "Michał Sajnóg <michal.sajnog@hotmail.com>"
@@ -30,7 +30,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
   ],
   "dependencies": {}
 }
