@@ -241,7 +241,8 @@
      * If so refresh plugin data
      */
     document.addEventListener('DOMNodeRemoved', function (event) {
-      if (event.target.hasAttribute('aos')) {
+      var el = event.target;
+      if (el && el.nodeType === 1 && el.hasAttribute && event.target.hasAttribute('aos')) {
         setTimeout(function(){
           generate();
           handleScroll();
