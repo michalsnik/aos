@@ -25,6 +25,17 @@
   };
 
   /**
+   * Extend one object
+   * with properties from another
+   */
+  var _extend = function (a, b) {
+    for(var key in b) {
+      if(b.hasOwnProperty(key)) a[key] = b[key];
+    }
+    return a;
+  }
+
+  /**
    * Private variables
    */
   var $aosElements = [];
@@ -81,52 +92,52 @@
    * @return {Integer} [Final offset that will be used to trigger animation in good position]
    */
   var calculateOffset = function(el){
-    var $el = $(el);
+    // var $el = $(el);
     var elementOffsetTop = 0;
     var additionalOffset = 0;
     var attrs = {
-      offset: $(el).attr('aos-offset'),
-      anchor: $(el).attr('aos-anchor'),
-      anchorPlacement: $(el).attr('aos-anchor-placement')
+      offset: el.getAttribute('aos-offset'),
+      anchor: el.getAttribute('aos-anchor'),
+      anchorPlacement: el.getAttribute('aos-anchor-placement')
     };
 
     if (attrs.offset && !isNaN(attrs.offset)) {
       additionalOffset = parseInt(attrs.offset);
     }
 
-    if (attrs.anchor && $(attrs.anchor)) {
-      $el = $(attrs.anchor);
+    if (attrs.anchor && document.querySelectorAll(attrs.anchor)) {
+      el = document.querySelectorAll(attrs.anchor)[0];
     }
 
-    elementOffsetTop = getOffset($el.get(0)).top;
+    elementOffsetTop = getOffset(el).top;
 
     switch (attrs.anchorPlacement) {
       case 'top-bottom':
         // Default offset
       break;
       case 'center-bottom':
-        elementOffsetTop += $(el).outerHeight()/2;
+        elementOffsetTop += el.offsetHeight/2;
       break;
       case 'bottom-bottom':
-        elementOffsetTop += $(el).outerHeight();
+        elementOffsetTop += el.offsetHeight;
       break;
       case 'top-center':
         elementOffsetTop += windowHeight/2;
       break;
       case 'bottom-center':
-        elementOffsetTop += windowHeight/2 + $(el).outerHeight();
+        elementOffsetTop += windowHeight/2 + el.offsetHeight;
       break;
       case 'center-center':
-        elementOffsetTop += windowHeight/2 + $(el).outerHeight()/2;
+        elementOffsetTop += windowHeight/2 + el.offsetHeight/2;
       break;
       case 'top-top':
         elementOffsetTop += windowHeight;
       break;
       case 'bottom-top':
-        elementOffsetTop += $(el).outerHeight() + windowHeight;
+        elementOffsetTop += el.offsetHeight + windowHeight;
       break;
       case 'center-top':
-        elementOffsetTop += $(el).outerHeight()/2 + windowHeight;
+        elementOffsetTop += el.offsetHeight/2 + windowHeight;
       break;
     }
 
@@ -145,15 +156,13 @@
   var handleScroll = function(){
     scrollTop = window.scrollY;
 
-    $.each(aosElementsPositions, function(i, elPos){
-      if (scrollTop > elPos - windowHeight) {
-        $aosElements.eq(i).addClass('aos-animate');
-      } else {
-        if(!options.once) {
-          $aosElements.eq(i).removeClass('aos-animate');
-        }
+    for(var i = 0; i < aosElementsPositions.length; i++) {
+      if (scrollTop > aosElementsPositions[i] - windowHeight) {
+        $aosElements[i].classList.add('aos-animate');
+      } else if (!options.once){
+        $aosElements[i].classList.remove('aos-animate');
       }
-    });
+    }
   };
 
   /**
@@ -162,18 +171,23 @@
    */
   var generate = function() {
     /* Clearing variables */
-    $aosElements = $('[aos]');
+
     aosElementsPositions = [];
     aosElementsDelays = [];
 
     initialized = true;
 
-    windowHeight = $(window).height();
+    windowHeight = window.innerHeight;
 
-    $aosElements.addClass('aos-init').each(function(i, el){
-      aosElementsDelays.push($(el).attr('aos-delay') || 0);
+    var el = null;
+
+    for(var i = 0; i < $aosElements.length; i++) {
+      el = $aosElements[i];
+
+      el.classList.add('aos-init');
+      aosElementsDelays.push(el.getAttribute('aos-delay') || 0);
       aosElementsPositions.push(calculateOffset(el));
-    });
+    }
 
   };
 
@@ -187,7 +201,9 @@
    *   to window scroll event and fire once document is ready to set initial state
    */
   var init = function(settings){
-    options = $.extend({}, options, settings);
+    options = _extend(options, settings);
+
+    $aosElements = document.querySelectorAll('[aos]');
 
     if(options.disable) {
       if(
@@ -197,30 +213,35 @@
         (options.disable === 'tablet' && _detect.tablet()) ||
         (typeof options.disable === 'function' && options.disable() === true)
       ) {
-        $('[aos]').removeAttr('aos aos-easing aos-duration aos-delay');
+        $aosElements.forEach(function(el, i) {
+          el.removeAttribute('aos');
+          el.removeAttribute('aos-easing');
+          el.removeAttribute('aos-duration');
+          el.removeAttribute('aos-delay');
+        });
         return false;
       }
     }
 
-    $('body').attr('aos-easing', options.easing);
-    $('body').attr('aos-duration', options.duration);
-    $('body').attr('aos-delay', options.delay);
+    document.querySelector('body').setAttribute('aos-easing', options.easing);
+    document.querySelector('body').setAttribute('aos-duration', options.duration);
+    document.querySelector('body').setAttribute('aos-delay', options.delay);
 
-    $(document).on('ready', function(){
+    document.addEventListener('DOMContentLoaded', function(){
       generate();
       handleScroll();
     });
 
-    $(window)
-      .on('resize orientationchange', _debounce(generate, 50, true))
-      .on('scroll', _debounce(handleScroll, 15, true));
+    window.addEventListener('resize', _debounce(generate, 50, true));
+    window.addEventListener('orientationchange', _debounce(generate, 50, true));
+    window.addEventListener('scroll', _debounce(handleScroll, 15, true));
 
     /**
      * Watch if nodes are removed
      * If so refresh plugin data
      */
     document.addEventListener('DOMNodeRemoved', function (event) {
-      if ($(event.target).is('[aos]')) {
+      if (event.target.hasAttribute('aos')) {
         setTimeout(function(){
           generate();
           handleScroll();

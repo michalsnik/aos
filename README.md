@@ -12,7 +12,7 @@ If you scroll back to top, element will animate to it's previous state and is re
 
 ## Requirements
 
-* Jquery >= 1.8.3
+* None -> from version 0.4.x AOS doesn't rely on jQuery anymore
 
 ## Setup
 
@@ -25,7 +25,6 @@ If you scroll back to top, element will animate to it's previous state and is re
 ### Add scripts
 
 ```html
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="js/aos.js"></script>
 ```
 
