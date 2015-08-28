@@ -16,16 +16,22 @@ If you scroll back to top, element will animate to it's previous state and is re
 
 ## Setup
 
+You can download AOS [directly](https://github.com/michalsnik/aos/archive/master.zip), but I recommend you to use `bower`:
+
+```bash
+  bower install aos --save
+```
+
 ### Link styles
 
 ```html
-  <link rel="stylesheet" href="css/aos.css" />
+  <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
 ```
 
 ### Add scripts
 
 ```html
-  <script src="js/aos.js"></script>
+  <script src="bower_components/aos/dist/aos.js"></script>
 ```
 
 ### Init AOS
