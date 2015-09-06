@@ -154,7 +154,7 @@
    * are right here
    */
   var handleScroll = function(){
-    scrollTop = window.scrollY;
+    scrollTop = window.pageYOffset;
 
     for(var i = 0; i < aosElementsPositions.length; i++) {
       if (scrollTop > aosElementsPositions[i] - windowHeight) {
@@ -352,7 +352,7 @@
             selector: selector,
             fn: fn
         });
-        if(!observer){
+        if(!observer && MutationObserver){
             // Watch for changes in the document
             observer = new MutationObserver(check);
             observer.observe(doc.documentElement, {
