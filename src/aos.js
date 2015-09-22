@@ -33,7 +33,7 @@
       if(b.hasOwnProperty(key)) a[key] = b[key];
     }
     return a;
-  }
+  };
 
   /**
    * Private variables
@@ -80,7 +80,7 @@
       top: _y,
       left: _x
     };
-  }
+  };
 
   /**
    * Calculate offset
@@ -234,7 +234,7 @@
 
     window.addEventListener('resize', _debounce(generate, 50, true));
     window.addEventListener('orientationchange', _debounce(generate, 50, true));
-    window.addEventListener('scroll', _debounce(handleScroll, 15, true));
+    window.addEventListener('scroll', _throttle(handleScroll, 99));
 
     /**
      * Watch if nodes are removed
@@ -330,6 +330,38 @@
     };
   };
 
+  _throttle = function(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options) options = {};
+    var later = function() {
+      previous = options.leading === false ? 0 : _now();
+      timeout = null;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    };
+    return function() {
+      var now = _now();
+      if (!previous && options.leading === false) previous = now;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        previous = now;
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
+    };
+  };
+
 })(window, document);
 
 
@@ -358,7 +390,7 @@
             observer.observe(doc.documentElement, {
                 childList: true,
                 subtree: true,
-                removedNodes: true,
+                removedNodes: true
             });
         }
         // Check if the element is currently in the DOM
