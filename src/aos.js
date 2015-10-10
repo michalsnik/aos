@@ -56,7 +56,8 @@
     easing: 'ease',
     duration: 400,
     disable: null,
-    once: false
+    once: false,
+    initOnTrigger: false
   };
 
   /**
@@ -188,7 +189,14 @@
       aosElementsDelays.push(el.getAttribute('aos-delay') || 0);
       aosElementsPositions.push(calculateOffset(el));
     }
+  };
 
+  /**
+   * Refresh AOS
+   */
+  var refresh = function() {
+    generate();
+    handleScroll();
   };
 
   /**
@@ -213,7 +221,7 @@
         (options.disable === 'tablet' && _detect.tablet()) ||
         (typeof options.disable === 'function' && options.disable() === true)
       ) {
-        $aosElements.forEach(function(el, i) {
+        [].forEach.call($aosElements, function(el, i) {
           el.removeAttribute('aos');
           el.removeAttribute('aos-easing');
           el.removeAttribute('aos-duration');
@@ -227,10 +235,17 @@
     document.querySelector('body').setAttribute('aos-duration', options.duration);
     document.querySelector('body').setAttribute('aos-delay', options.delay);
 
-    document.addEventListener('DOMContentLoaded', function(){
-      generate();
-      handleScroll();
-    });
+    if (!options.initOnTrigger) {
+      document.addEventListener('DOMContentLoaded', function() {
+        generate();
+        handleScroll();
+      });
+    } else {
+      $(document).on('aos_start', function(event) {
+        generate();
+        handleScroll();
+      });
+    }
 
     window.addEventListener('resize', _debounce(generate, 50, true));
     window.addEventListener('orientationchange', _debounce(generate, 50, true));
@@ -255,7 +270,7 @@
      * If something is loaded by AJAX
      * it'll refresh plugin data automatically
      */
-    observe('[aos]', function(element){
+    observe('[aos]', function(element) {
       if (initialized) {
         generate();
         handleScroll();
@@ -269,7 +284,7 @@
    */
   var AOS = {
     init: init,
-    refresh: generate
+    refresh: refresh
   };
 
 
@@ -278,7 +293,7 @@
    * Expose AOS as a global
    * or requre.js module
    */
-  if(typeof define === 'function' && define.amd) {
+  if (typeof define === 'function' && define.amd) {
     define([], function () {
       return AOS;
     });
@@ -330,7 +345,7 @@
     };
   };
 
-  _throttle = function(func, wait, options) {
+  var _throttle = function(func, wait, options) {
     var context, args, result;
     var timeout = null;
     var previous = 0;
@@ -422,7 +437,7 @@
 /**
  * Observer implementation
  */
-(function(win){
+(function(win) {
     'use strict';
 
     var listeners = [],
@@ -430,7 +445,7 @@
     MutationObserver = win.MutationObserver || win.WebKitMutationObserver,
     observer;
 
-    function ready(selector, fn){
+    function ready(selector, fn) {
         // Store the selector and callback to be monitored
         listeners.push({
             selector: selector,
@@ -449,17 +464,17 @@
         check();
     }
 
-    function check(){
+    function check() {
         // Check the DOM for elements matching a stored selector
-        for(var i = 0, len = listeners.length, listener, elements; i < len; i++){
+        for (var i = 0, len = listeners.length, listener, elements; i < len; i++) {
             listener = listeners[i];
             // Query for elements matching the specified selector
             elements = doc.querySelectorAll(listener.selector);
-            for(var j = 0, jLen = elements.length, element; j < jLen; j++){
+            for (var j = 0, jLen = elements.length, element; j < jLen; j++) {
                 element = elements[j];
                 // Make sure the callback isn't invoked with the
                 // same element more than once
-                if(!element.ready){
+                if (!element.ready) {
                     element.ready = true;
                     // Invoke the callback with the element
                     listener.fn.call(element, element);
