@@ -3,8 +3,8 @@
  * This array will be extended later with elements attributes values
  * like 'position'
  */
-var createArrayWithElements = function () {
-  var elements = document.querySelectorAll('[aos]');
+var createArrayWithElements = function (elements) {
+  var elements = elements || document.querySelectorAll('[aos]');
   var finalElements = [];
 
   [].forEach.call(elements, function(el, i) {

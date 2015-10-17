@@ -13,6 +13,7 @@ var buffer          = require('vinyl-buffer');
 var gutil           = require('gulp-util');
 var sourcemaps      = require('gulp-sourcemaps');
 var assign          = require('lodash.assign');
+var mocha           = require('gulp-mocha');
 
 // Browserify & watchify
 
@@ -54,6 +55,14 @@ gulp.task('sass', function () {
         .pipe(reload({stream:true}));
 });
 
+// Mocha
+
+gulp.task('mocha', function() {
+    return gulp.src(['./test/**/*.js'], { read: false })
+        .pipe(mocha({ reporter: 'list' }));
+        //.on('error', gutil.log);
+});
+
 // Static server
 
 gulp.task('browser-sync', function() {
@@ -72,7 +81,8 @@ gulp.task('bs-reload', function () {
 
 // Task for `gulp` command
 
-gulp.task('default',['browser-sync', 'bundle'], function() {
-    gulp.watch('src/sass/*.scss',['sass']);
+gulp.task('default',['browser-sync', 'bundle', 'mocha'], function() {
+    gulp.watch('./src/sass/**/*.scss',['sass']);
     gulp.watch('*.html', ['bs-reload']);
+    gulp.watch(['./src/js/**/*.js', './test/**/*.js'], ['mocha']);
 });

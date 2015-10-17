@@ -8,7 +8,7 @@
  * @return {Integer} [Final offset that will be used to trigger animation in good position]
  */
 
-var getOffset = require('./offset');
+var getOffset = require('./../libs/offset');
 
 var calculateOffset = function(el) {
     var elementOffsetTop = 0;
