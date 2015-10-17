@@ -1,16 +1,48 @@
-var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var concat      = require('gulp-concat');
-var uglify      = require('gulp-uglify');
-var minifyCss   = require('gulp-minify-css');
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+var gulp            = require('gulp');
+var sass            = require('gulp-sass');
+var autoprefixer    = require('gulp-autoprefixer');
+var concat          = require('gulp-concat');
+var uglify          = require('gulp-uglify');
+var minifyCss       = require('gulp-minify-css');
+var browserSync     = require('browser-sync');
+var reload          = browserSync.reload;
+var watchify        = require('watchify');
+var browserify      = require('browserify');
+var source          = require('vinyl-source-stream');
+var buffer          = require('vinyl-buffer');
+var gutil           = require('gulp-util');
+var sourcemaps      = require('gulp-sourcemaps');
+var assign          = require('lodash.assign');
+
+// Browserify & watchify
+
+var browserifyOptions = assign({}, watchify.args, {
+  entries: ['./src/js/aos.js'],
+  debug: true
+});
+var bundle = watchify(browserify(browserifyOptions));
+
+bundle.on('update', makeBundle);
+bundle.on('log', gutil.log);
+
+function makeBundle() {
+  return bundle.bundle()
+    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .pipe(source('aos.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(uglify({preserveComments: 'some'}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist'))
+    .pipe(reload({stream:true}));
+}
+
+gulp.task('bundle', makeBundle);
 
 // Sass
 
 gulp.task('sass', function () {
-    gulp.src('src/*.scss')
+    gulp.src('src/sass/*.scss')
         .pipe(concat('aos.scss'))
         .pipe(sass({errLogToConsole: true}))
         .pipe(autoprefixer({
@@ -18,16 +50,6 @@ gulp.task('sass', function () {
             })
         )
         .pipe(minifyCss())
-        .pipe(gulp.dest('dist'))
-        .pipe(reload({stream:true}));
-});
-
-// Js-concat-uglify
-
-gulp.task('js', function() {
-    gulp.src(['src/*.js'])
-        .pipe(concat('aos.js'))
-        .pipe(uglify({preserveComments: 'some'}))
         .pipe(gulp.dest('dist'))
         .pipe(reload({stream:true}));
 });
@@ -50,8 +72,7 @@ gulp.task('bs-reload', function () {
 
 // Task for `gulp` command
 
-gulp.task('default',['browser-sync'], function() {
-    gulp.watch('src/*.scss',['sass']);
-    gulp.watch('src/*.js',['js']);
-    gulp.watch("*.html", ['bs-reload']);
+gulp.task('default',['browser-sync', 'bundle'], function() {
+    gulp.watch('src/sass/*.scss',['sass']);
+    gulp.watch('*.html', ['bs-reload']);
 });
