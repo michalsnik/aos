@@ -1,3 +1,8 @@
+/**
+ * Generate initial array with elements as objects
+ * This array will be extended later with elements attributes values
+ * like 'position'
+ */
 var createArrayWithElements = function () {
   var elements = document.querySelectorAll('[aos]');
   var finalElements = [];

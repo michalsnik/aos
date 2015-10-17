@@ -44,7 +44,7 @@
     var refresh = function() {
         // Allow refresh only when it was first initialized on startEvent
         if (initialized) {
-            // Fill elements objects in $aosElements with their delays and positions
+            // Extend elements objects in $aosElements with their positions
             $aosElements = prepare($aosElements);
             // Perform scroll event, to refresh view and show/hide elements
             handleScroll($aosElements, options.once);
