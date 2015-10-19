@@ -108,4 +108,6 @@ gulp.task('default', ['watch']);
 
 // Build js/css and run tests once
 
-gulp.task('build', ['bundle', 'sass', 'test']);
+gulp.task('build', ['bundle', 'sass', 'test'], function() {
+    process.exit();
+});
