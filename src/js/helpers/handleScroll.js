@@ -20,7 +20,6 @@ var setState = function (el, top, once) {
 var handleScroll = function ($elements, once) {
     var scrollTop       = window.pageYOffset;
     var windowHeight    = window.innerHeight;
-
     /**
      * Check all registered elements positions
      * and animate them on scroll

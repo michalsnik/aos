@@ -19,6 +19,7 @@ var handleScroll        = require('./helpers/handleScroll');
 var prepare             = require('./helpers/prepare');
 var elements            = require('./helpers/elements');
 
+
 // Plugin scope
 ;(function(window, document, undefined) {
 
@@ -45,13 +46,17 @@ var elements            = require('./helpers/elements');
     /**
      * Refresh AOS
      */
-    var refresh = function() {
+    var refresh = function(initialize) {
         // Allow refresh only when it was first initialized on startEvent
+        if (initialize && initialize === true) initialized = true;
+
         if (initialized) {
             // Extend elements objects in $aosElements with their positions
             $aosElements = prepare($aosElements);
             // Perform scroll event, to refresh view and show/hide elements
             handleScroll($aosElements, options.once);
+
+            return $aosElements;
         }
     };
 
@@ -104,8 +109,7 @@ var elements            = require('./helpers/elements');
          * Listen to options.startEvent and fire first refresh
          */
         document.addEventListener(options.startEvent, function() {
-            initialized = true;
-            refresh();
+            refresh(true);
         });
 
         /**
@@ -137,6 +141,8 @@ var elements            = require('./helpers/elements');
          * it'll refresh plugin automatically
          */
         observe('[aos]', refresh);
+
+        return $aosElements;
     };
 
     /**
