@@ -1,5 +1,7 @@
 // Karma configuration
 // Generated on Mon Oct 19 2015 01:12:15 GMT+0200 (CEST)
+var isTravis = process.env.TRAVIS || false;
+var browsers = isTravis ? [ 'Chrome_travis_ci' ] : ['Chrome'];
 
 module.exports = function(config) {
   config.set({
@@ -22,6 +24,12 @@ module.exports = function(config) {
         included: false,
         served: true
       }
+    ],
+
+    plugins: [
+        'karma-chrome-launcher',
+        'karma-jasmine',
+        'karma-browserify'
     ],
 
 
@@ -60,9 +68,16 @@ module.exports = function(config) {
     autoWatch: true,
 
 
+    customLaunchers: {
+        Chrome_travis_ci: {
+            base: 'Chrome',
+            flags: ['--no-sandbox']
+        }
+    },
+
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: browsers,
 
 
     // Continuous Integration mode
