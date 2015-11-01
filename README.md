@@ -59,6 +59,8 @@ You can download AOS [directly](https://github.com/michalsnik/aos/archive/master
 
 ### Advanced settings
 
+These settings can be set both on certain elements, or as default while initializing script (in options object).
+
 | Attribute | Description | Example value | Default value |
 |---------------------------|-------------|---------------|---------|
 | *`aos-offset`* | Change offset to trigger animations sooner or later (px) | 200 | 120 |
@@ -67,6 +69,7 @@ You can download AOS [directly](https://github.com/michalsnik/aos/archive/master
 | *`aos-delay`* | Delay animation (ms) | 300 | 0 |
 | *`aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
 | *`aos-anchor-placement`* | Anchor placement - which one position of element on the screen should trigger animation | top-center | top-bottom |
+| *`aos-once`* | Choose wheter animation should fire once, or every time you scroll up/down to element | true | false |
 
 *Duration accept values from 50 to 3000, with step 50ms, it's because duration of animation is handled by css, and to not make css longer than it is already I created implementations only in this range. I think this should be good for almost all cases.
 
@@ -131,6 +134,13 @@ To do this, pass options object to `init()` function, like so:
 
 #### Additional configuration
 
+These settings can be set only in options object while initializing AOS.
+
+| Setting | Description | Example value | Default value |
+|---------------------------|-------------|---------------|---------|
+| *`disable`* | Condition when AOS should be disabled | mobile | false |
+| *`startEvent`* | Name of event, on which AOS should be initialized | exampleEvent | DOMContentLoaded |
+
 ##### Disabling AOS
 
 If you want to disable AOS on certain device or under any statement you can set `disable` option. Like so:
@@ -159,14 +169,14 @@ There is also posibility to pass a `function`, which should at the end return `t
   }
 ```
 
-##### Animate once
+##### Start event
 
-If you dont want to animate elements back as you scroll to top, and then again when you scroll down second time - you can pass option `once` to prevent this behavior, and animate elements on your page only once:
+If you don't want to initialize AOS on `DOMContentLoaded` event, you can pass your own event name and trigger it whenever you want. AOS is listening for this event on `document` element.
 
 ```javascript
   <script>
     AOS.init({
-      once: true
+      startEvent: 'someCoolEvent'
     });
   </script>
 ```
@@ -258,7 +268,7 @@ First install all gulp dependencies:
 npm install
 ```
 
-And run gulp, to start localhost with livereload:
+And run gulp, to start localhost with livereload and tests:
 
 ```
 gulp

@@ -1,3 +1,9 @@
+/**
+ * Set or remove aos-animate class
+ * @param {node} el         element
+ * @param {int}  top        scrolled distance
+ * @param {void} once
+ */
 var setState = function (el, top, once) {
     var attrOnce = el.node.getAttribute('aos-once');
 
@@ -9,6 +15,7 @@ var setState = function (el, top, once) {
         }
     }
 };
+
 
 /**
  * Scroll logic - add or remove 'aos-animate' class on scroll
