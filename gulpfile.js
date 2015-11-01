@@ -1,39 +1,21 @@
-var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var concat      = require('gulp-concat');
-var uglify      = require('gulp-uglify');
-var minifyCss   = require('gulp-minify-css');
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+var gulp            = require('gulp');
+var browserSync     = require('browser-sync');
+
+var taskBundle      = require('./gulp/bundle');
+var taskSass        = require('./gulp/sass');
+var taskTest        = require('./gulp/test');
+
+// Browserify & watchify
+gulp.task('bundle', taskBundle);
 
 // Sass
+gulp.task('sass', taskSass);
 
-gulp.task('sass', function () {
-    gulp.src('src/*.scss')
-        .pipe(concat('aos.scss'))
-        .pipe(sass({errLogToConsole: true}))
-        .pipe(autoprefixer({
-                browsers: ['> 1%']
-            })
-        )
-        .pipe(minifyCss())
-        .pipe(gulp.dest('dist'))
-        .pipe(reload({stream:true}));
-});
+// Tests
+gulp.task('test', taskTest);
 
-// Js-concat-uglify
-
-gulp.task('js', function() {
-    gulp.src(['src/*.js'])
-        .pipe(concat('aos.js'))
-        .pipe(uglify({preserveComments: 'some'}))
-        .pipe(gulp.dest('dist'))
-        .pipe(reload({stream:true}));
-});
 
 // Static server
-
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
@@ -42,16 +24,15 @@ gulp.task('browser-sync', function() {
     });
 });
 
-// Reload all browsers
-
-gulp.task('bs-reload', function () {
-    browserSync.reload();
+// Developement task
+gulp.task('watch', ['browser-sync', 'bundle', 'test'], function() {
+    gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
-// Task for `gulp` command
+// Default task
+gulp.task('default', ['watch']);
 
-gulp.task('default',['browser-sync'], function() {
-    gulp.watch('src/*.scss',['sass']);
-    gulp.watch('src/*.js',['js']);
-    gulp.watch("*.html", ['bs-reload']);
+// Build js/css and run tests
+gulp.task('build', ['bundle', 'sass', 'test'], function() {
+    process.exit();
 });
