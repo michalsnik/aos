@@ -10,7 +10,7 @@
 
 var getOffset = require('./../libs/offset');
 
-var calculateOffset = function(el) {
+var calculateOffset = function(el, optionalOffset) {
     var elementOffsetTop = 0;
     var additionalOffset = 0;
     var windowHeight = window.innerHeight;
@@ -60,8 +60,8 @@ var calculateOffset = function(el) {
             break;
     }
 
-    if (!attrs.anchorPlacement && isNaN(attrs.offset)) {
-        additionalOffset = options.offset;
+    if (!attrs.anchorPlacement && !attrs.offset && !isNaN(optionalOffset)) {
+        additionalOffset = optionalOffset;
     }
 
     return elementOffsetTop + additionalOffset;

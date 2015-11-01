@@ -14,7 +14,6 @@ var observe             = require('./libs/observer');
 var classListShim       = require('./libs/classList-shim');
 
 var detect              = require('./helpers/detector');
-var calculateOffset     = require('./helpers/calculateOffset');
 var handleScroll        = require('./helpers/handleScroll');
 var prepare             = require('./helpers/prepare');
 var elements            = require('./helpers/elements');
@@ -52,7 +51,7 @@ var elements            = require('./helpers/elements');
 
         if (initialized) {
             // Extend elements objects in $aosElements with their positions
-            $aosElements = prepare($aosElements);
+            $aosElements = prepare($aosElements, options);
             // Perform scroll event, to refresh view and show/hide elements
             handleScroll($aosElements, options.once);
 
