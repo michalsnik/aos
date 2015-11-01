@@ -1,5 +1,5 @@
 # AOS - Animate on scroll library
-[![Build Status](https://travis-ci.org/michalsnik/aos.svg?branch=master)](https://travis-ci.org/michalsnik/aos)
+[![Build Status](https://travis-ci.org/michalsnik/aos.svg)](https://travis-ci.org/michalsnik/aos)
 
 Small library to animate elements on your page as you scroll.
 
