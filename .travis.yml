@@ -1,0 +1,16 @@
+language: node_js
+sudo: false
+node_js:
+- '0.12'
+
+env:
+  global:
+
+install:
+- npm install -g gulp
+- npm install -g karma
+- npm install
+
+cache:
+  directories:
+  - "$HOME/.nvm"
