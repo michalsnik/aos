@@ -2,9 +2,9 @@ var gulp            = require('gulp');
 var karma           = require('karma').Server;
 
 var isTravis        = process.env.TRAVIS || false;
-var pathToKarmaConf = __dirname.replace('/gulp', '');
+var pathToKarmaConf = __dirname.replace('/gulp', '').replace('\gulp', '');
 
-module.exports =  function(done) {
+module.exports = function(done) {
     new karma({
         configFile: pathToKarmaConf + '/karma.conf.js',
         singleRun: isTravis

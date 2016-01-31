@@ -17,6 +17,7 @@ var detect              = require('./helpers/detector');
 var handleScroll        = require('./helpers/handleScroll');
 var prepare             = require('./helpers/prepare');
 var elements            = require('./helpers/elements');
+var replaceDataAttr      = require('./helpers/replaceDataAttr');
 
 
 // Plugin scope
@@ -70,6 +71,9 @@ var elements            = require('./helpers/elements');
      */
     var init = function(settings) {
         options = _extend(options, settings);
+
+        // Replace [data-aos*] with [aos*] attr, and then remove [data-aos*]
+        replaceDataAttr();
 
         // Create initial array with elements -> to be fullfilled later with prepare()
         $aosElements = elements();
