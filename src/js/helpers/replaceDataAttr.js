@@ -12,11 +12,11 @@ var replaceDataAttr = function () {
 
     var elements = document.querySelectorAll(dataAttrsString);
 
-    [].forEach.call(elements, function(el, i) {
+    [].forEach.call(elements, function (el) {
         var regexDataAttr = /^data\-(.+)$/;
         var attrToRemove = [];
 
-        [].forEach.call(el.attributes, function(attr, index) {
+        [].forEach.call(el.attributes, function (attr) {
             if (regexDataAttr.test(attr.nodeName)) {
                 var dataAttr = attr.nodeName.match(regexDataAttr)[0];
                 var dataAttrBracket = '[' + dataAttr + ']';
