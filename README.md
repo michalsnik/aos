@@ -100,6 +100,15 @@ Down below you can find list of all anchor-placement options.
 ```html
   <div aos="fade-up" aos-anchor-placement="top-center">
 ```
+
+### HTML5 Validation
+
+  If you care about html5 validation use "data-" prefix to all attributes.
+
+```html
+  <div data-aos="animation_name" data-aos-offset="200" data-aos-easing="ease-in-sine">
+```
+
 ####API
 
 AOS object is exposed as global variable, for now there are only two methods available:
