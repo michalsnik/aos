@@ -3,12 +3,7 @@
  */
 var replaceDataAttr = function () {
     var dataAttrs = ['[data-aos]', '[data-aos-offset]', '[data-aos-easing]', '[data-aos-delay]', '[data-aos-anchor]', '[data-aos-anchor-placement]', '[data-aos-once]'];
-    var dataAttrsString = '';
-
-    for (var i = 0; i < dataAttrs.length; i++) {
-        dataAttrsString += dataAttrs[i];
-        if (i < dataAttrs.length - 1) dataAttrsString += ', ';
-    }
+    var dataAttrsString = dataAttrs.join(', ');
 
     var elements = document.querySelectorAll(dataAttrsString);
 
