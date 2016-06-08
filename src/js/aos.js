@@ -118,7 +118,8 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
         /**
          * Refresh plugin on window resize or orientation change
          */
-        window.addEventListener('resize orientationchange', _debounce(refresh, 50, true));
+        window.addEventListener('resize', _debounce(refresh, 50, true));
+        window.addEventListener('orientationchange', _debounce(refresh, 50, true));
 
         /**
          * Handle scroll event to animate elements on scroll
