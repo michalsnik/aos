@@ -291,10 +291,11 @@ Head into `/demo` in your browser folder to test your code in real environment.
 
 If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
 
-## TODO
+## Changelog
 
-* [x] ~~Expanding API with refresh function~~
-* [x] ~~Duration customization with global and individual settings~~
-* [x] ~~Handle asynchronously loaded elements~~
-* [x] ~~Anchor placement option - to choose which place of element in vieport should trigger animation
-  i.e. top, bottom, center, center-top, center-bottom~~
+#### 1.1.0
+- Add compatibility with module systems
+- Improve AOS initializing
+
+#### 1.0.2
+- Fix orientationchange & resize event
