@@ -157,6 +157,6 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
         refresh: refresh
     };
 
-    window.AOS = AOS;
+    module.exports = AOS;
 
 })(window, document);
