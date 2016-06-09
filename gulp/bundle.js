@@ -13,6 +13,7 @@ var reload          = browserSync.reload;
 
 var browserifyOptions = {
     entries: ['./src/js/aos.js'],
+    standalone: 'AOS',
     debug: true
 };
 

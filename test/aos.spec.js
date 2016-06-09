@@ -1,8 +1,7 @@
 require('jasmine-jquery');
-require('../src/js/aos');
 
 var $   = require('jquery');
-var AOS = window.AOS;
+var AOS = require('../src/js/aos');
 
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 

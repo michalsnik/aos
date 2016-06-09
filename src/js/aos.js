@@ -23,7 +23,6 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
 // Plugin scope
 ;(function(window, document, undefined) {
 
-
     /**
      * Private variables
      */
@@ -100,6 +99,7 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
             }
         }
 
+
         /**
          * Set global settings on body, based on options
          * so CSS can use it
@@ -109,11 +109,18 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
         document.querySelector('body').setAttribute('aos-delay', options.delay);
 
         /**
-         * Listen to options.startEvent and fire first refresh
+         * Handle initializing
          */
-        document.addEventListener(options.startEvent, function() {
+        if (options.startEvent === 'DOMContentLoaded' &&
+            ['complete', 'interactive'].indexOf(document.readyState) > -1) {
+            // Initialize AOS if default startEvent was already fired
             refresh(true);
-        });
+        } else {
+            // Listen to options.startEvent and initialize AOS
+            document.addEventListener(options.startEvent, function() {
+                refresh(true);
+            });
+        }
 
         /**
          * Refresh plugin on window resize or orientation change
@@ -157,6 +164,6 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
         refresh: refresh
     };
 
-    window.AOS = AOS;
+    module.exports = AOS;
 
 })(window, document);
