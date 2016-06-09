@@ -296,6 +296,3 @@ If you have any questions, ideas or whatsoever, please let me know in `issues` o
 #### 1.2.0
 - Add compatibility with module systems
 - Improve AOS initializing
-
-#### 1.1.1
-- Fix orientationchange & resize event
