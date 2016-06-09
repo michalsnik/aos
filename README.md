@@ -293,9 +293,9 @@ If you have any questions, ideas or whatsoever, please let me know in `issues` o
 
 ## Changelog
 
-#### 1.1.0
+#### 1.2.0
 - Add compatibility with module systems
 - Improve AOS initializing
 
-#### 1.0.2
+#### 1.1.1
 - Fix orientationchange & resize event
