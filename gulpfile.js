@@ -33,6 +33,6 @@ gulp.task('watch', ['browser-sync', 'bundle', 'test'], function() {
 gulp.task('default', ['watch']);
 
 // Build js/css and run tests
-gulp.task('build', ['bundle', 'sass', 'test'], function() {
+gulp.task('build', ['bundle', 'sass'], function() {
     process.exit();
 });
