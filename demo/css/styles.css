@@ -156,3 +156,9 @@ body
 
     color: #fff;
 }
+
+@media screen and (max-width: 800px) {
+    .aos-item {
+        width: 50%;
+    }
+}
