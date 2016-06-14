@@ -13,9 +13,10 @@ $val-lg: 100vw;
  * Duration
  */
 
-[aos]{
+[data-aos] {
   @for $i from 1 through 60 {
-    body[aos-duration='#{$i*50}'] &, &[aos][aos-duration='#{$i*50}']{
+    body[data-aos-duration='#{$i*50}'] &,
+    &[data-aos][data-aos-duration='#{$i*50}'] {
       transition-duration: #{$i*50}ms;
     }
   }
@@ -25,9 +26,10 @@ $val-lg: 100vw;
  * Delay
  */
 
-[aos]{
+[data-aos] {
   @for $i from 1 through 60 {
-    body[aos-delay='#{$i*50}'] &, &[aos][aos-delay='#{$i*50}']{
+    body[data-aos-delay='#{$i*50}'] &,
+    &[data-aos][data-aos-delay='#{$i*50}'] {
       transition-delay: 0;
 
       &.aos-animate{
@@ -47,49 +49,46 @@ $val-lg: 100vw;
  * fade-up-right, fade-up-left, fade-down-right, fade-down-left
  */
 
-[aos^='fade'][aos^='fade'] {
-  opacity: 0; transition-property: all;
-  &.aos-animate {opacity: 1;}
+[data-aos^='fade'][data-aos^='fade'] {
+  opacity: 0;
+  transition-property: opacity, transform;
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
-[aos='fade-up'] {
-  transform: translate(0,$val-sm);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-up'] {
+  transform: translate(0, $val-sm);
 }
 
-[aos='fade-down'] {
-  transform: translate(0,-$val-sm);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-down'] {
+  transform: translate(0, -$val-sm);
 }
 
-[aos='fade-right'] {
-  transform: translate(-$val-sm,0);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-right'] {
+  transform: translate(-$val-sm, 0);
 }
 
-[aos='fade-left'] {
-  transform: translate($val-sm,0);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-left'] {
+  transform: translate($val-sm, 0);
 }
 
-[aos='fade-up-right'] {
-  transform: translate(-$val-sm,$val-sm);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-up-right'] {
+  transform: translate(-$val-sm, $val-sm);
 }
 
-[aos='fade-up-left'] {
-  transform: translate($val-sm,$val-sm);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-up-left'] {
+  transform: translate($val-sm, $val-sm);
 }
 
-[aos='fade-down-right'] {
-  transform: translate(-$val-sm,-$val-sm);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-down-right'] {
+  transform: translate(-$val-sm, -$val-sm);
 }
 
-[aos='fade-down-left'] {
-  transform: translate($val-sm,-$val-sm);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='fade-down-left'] {
+  transform: translate($val-sm, -$val-sm);
 }
 
 /**
@@ -98,59 +97,54 @@ $val-lg: 100vw;
  * zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
  */
 
-[aos^='zoom'][aos^='zoom'] {
-  opacity: 0; transition-property: all;
-  &.aos-animate {opacity: 1;}
+[data-aos^='zoom'][data-aos^='zoom'] {
+  opacity: 0;
+  transition-property: opacity, transform;
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
 }
 
-[aos='zoom-in'] {
+[data-aos='zoom-in'] {
   transform: scale(.6);
-  &.aos-animate {transform: scale(1);}
 }
 
-[aos='zoom-in-up'] {
-  transform: translate(0,$val-sm) scale(.6);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-in-up'] {
+  transform: translate(0, $val-sm) scale(.6);
 }
 
-[aos='zoom-in-down'] {
-  transform: translate(0,-$val-sm) scale(.6);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-in-down'] {
+  transform: translate(0, -$val-sm) scale(.6);
 }
 
-[aos='zoom-in-right'] {
-  transform: translate(-$val-sm,0) scale(.6);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-in-right'] {
+  transform: translate(-$val-sm, 0) scale(.6);
 }
 
-[aos='zoom-in-left'] {
-  transform: translate($val-sm,0) scale(.6);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-in-left'] {
+  transform: translate($val-sm, 0) scale(.6);
 }
 
-[aos='zoom-out'] {
+[data-aos='zoom-out'] {
   transform: scale(1.2);
-  &.aos-animate {transform: scale(1);}
 }
 
-[aos='zoom-out-up'] {
-  transform: translate(0,$val-sm) scale(1.2);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-out-up'] {
+  transform: translate(0, $val-sm) scale(1.2);
 }
 
-[aos='zoom-out-down'] {
-  transform: translate(0,-$val-sm) scale(1.2);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-out-down'] {
+  transform: translate(0, -$val-sm) scale(1.2);
 }
 
-[aos='zoom-out-right'] {
-  transform: translate(-$val-sm,0) scale(1.2);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-out-right'] {
+  transform: translate(-$val-sm, 0) scale(1.2);
 }
 
-[aos='zoom-out-left'] {
-  transform: translate($val-sm,0) scale(1.2);
-  &.aos-animate {transform: translate(0,0) scale(1);}
+[data-aos='zoom-out-left'] {
+  transform: translate($val-sm, 0) scale(1.2);
 }
 
 
@@ -160,25 +154,28 @@ $val-lg: 100vw;
  * Slide animations
  */
 
+[data-aos^='slide'][data-aos^='slide'] {
+  transition-property: transform;
 
-[aos='slide-up'] {
-  transform: translate(0,100%);
-  &.aos-animate {transform: translate(0,0);}
+  &.aos-animate {
+    transform: translate(0, 0);
+  }
 }
 
-[aos='slide-down'] {
-  transform: translate(0,-100%);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='slide-up'] {
+  transform: translateY(100%);
 }
 
-[aos='slide-right'] {
-  transform: translate(-100%,0);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='slide-down'] {
+  transform: translateY(-100%);
 }
 
-[aos='slide-left'] {
-  transform: translate(100%,0);
-  &.aos-animate {transform: translate(0,0);}
+[data-aos='slide-right'] {
+  transform: translateX(-100%);
+}
+
+[data-aos='slide-left'] {
+  transform: translateX(100%);
 }
 
 
@@ -189,26 +186,27 @@ $val-lg: 100vw;
  * flip-left, flip-right, flip-up, flip-down
  */
 
-[aos^='flip'] {
+[data-aos^='flip'][data-aos^='flip'] {
   backface-visibility: hidden;
+  transition-property: transform;
 }
 
-[aos='flip-left'] {
+[data-aos='flip-left'] {
   transform: perspective(2500px) rotateY(-100deg);
   &.aos-animate {transform: perspective(2500px) rotateY(0);}
 }
 
-[aos='flip-right'] {
+[data-aos='flip-right'] {
   transform: perspective(2500px) rotateY(100deg);
   &.aos-animate {transform: perspective(2500px) rotateY(0);}
 }
 
-[aos='flip-up'] {
+[data-aos='flip-up'] {
   transform: perspective(2500px) rotateX(-100deg);
   &.aos-animate {transform: perspective(2500px) rotateX(0);}
 }
 
-[aos='flip-down'] {
+[data-aos='flip-down'] {
   transform: perspective(2500px) rotateX(100deg);
   &.aos-animate {transform: perspective(2500px) rotateX(0);}
 }

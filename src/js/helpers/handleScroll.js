@@ -5,7 +5,7 @@
  * @param {void} once
  */
 var setState = function (el, top, once) {
-    var attrOnce = el.node.getAttribute('aos-once');
+    var attrOnce = el.node.getAttribute('data-aos-once');
 
     if (top > el.position) {
         el.node.classList.add('aos-animate');

@@ -17,7 +17,6 @@ var detect              = require('./helpers/detector');
 var handleScroll        = require('./helpers/handleScroll');
 var prepare             = require('./helpers/prepare');
 var elements            = require('./helpers/elements');
-var replaceDataAttr      = require('./helpers/replaceDataAttr');
 
 
 // Plugin scope
@@ -71,9 +70,6 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
     var init = function(settings) {
         options = _extend(options, settings);
 
-        // Replace [data-aos*] with [aos*] attr, and then remove [data-aos*]
-        replaceDataAttr();
-
         // Create initial array with elements -> to be fullfilled later with prepare()
         $aosElements = elements();
 
@@ -90,10 +86,10 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
                 (typeof options.disable === 'function' && options.disable() === true)
             ) {
                 [].forEach.call($aosElements, function(el, i) {
-                    el.node.removeAttribute('aos');
-                    el.node.removeAttribute('aos-easing');
-                    el.node.removeAttribute('aos-duration');
-                    el.node.removeAttribute('aos-delay');
+                    el.node.removeAttribute('data-aos');
+                    el.node.removeAttribute('data-aos-easing');
+                    el.node.removeAttribute('data-aos-duration');
+                    el.node.removeAttribute('data-aos-delay');
                 });
                 return false;
             }
@@ -104,9 +100,9 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
          * Set global settings on body, based on options
          * so CSS can use it
          */
-        document.querySelector('body').setAttribute('aos-easing', options.easing);
-        document.querySelector('body').setAttribute('aos-duration', options.duration);
-        document.querySelector('body').setAttribute('aos-delay', options.delay);
+        document.querySelector('body').setAttribute('data-aos-easing', options.easing);
+        document.querySelector('body').setAttribute('data-aos-duration', options.duration);
+        document.querySelector('body').setAttribute('data-aos-delay', options.delay);
 
         /**
          * Handle initializing
@@ -141,7 +137,7 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
          */
         document.addEventListener('DOMNodeRemoved', function(event) {
             var el = event.target;
-            if (el && el.nodeType === 1 && el.hasAttribute && event.target.hasAttribute('aos')) {
+            if (el && el.nodeType === 1 && el.hasAttribute && event.target.hasAttribute('data-aos')) {
                 _debounce(refresh, 50, true)
             }
         });
@@ -151,7 +147,7 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
          * If something is loaded by AJAX
          * it'll refresh plugin automatically
          */
-        observe('[aos]', refresh);
+        observe('[data-aos]', refresh);
 
         return $aosElements;
     };

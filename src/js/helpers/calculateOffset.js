@@ -15,9 +15,9 @@ var calculateOffset = function(el, optionalOffset) {
     var additionalOffset = 0;
     var windowHeight = window.innerHeight;
     var attrs = {
-        offset: el.getAttribute('aos-offset'),
-        anchor: el.getAttribute('aos-anchor'),
-        anchorPlacement: el.getAttribute('aos-anchor-placement')
+        offset: el.getAttribute('data-aos-offset'),
+        anchor: el.getAttribute('data-aos-anchor'),
+        anchorPlacement: el.getAttribute('data-aos-anchor-placement')
     };
 
     if (attrs.offset && !isNaN(attrs.offset)) {

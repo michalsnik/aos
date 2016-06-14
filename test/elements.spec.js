@@ -17,7 +17,7 @@ describe('Elements helper (elements.js) -> ', function() {
 
     it('Should return array with objects that coresponds to elements in aos.fixture.html', function() {
         var aosElements = elements();
-        expect(aosElements.length).toBe($('[aos]').length);
+        expect(aosElements.length).toBe($('[data-aos]').length);
     });
 
     it('Should return array of objects', function() {
@@ -42,7 +42,7 @@ describe('Elements helper (elements.js) -> ', function() {
         var aosElements = elements();
 
         function isNode(obj) {
-            return (typeof obj==="object") && (obj.nodeType===1) && (typeof obj.style === "object") && (typeof obj.ownerDocument ==="object");
+            return (typeof obj === "object") && (obj.nodeType === 1) && (typeof obj.style === "object") && (typeof obj.ownerDocument === "object");
         }
 
         for (var i = 0; i < aosElements.length; i++) {
