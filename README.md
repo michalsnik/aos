@@ -293,6 +293,9 @@ If you have any questions, ideas or whatsoever, please let me know in `issues` o
 
 ## Changelog
 
+#### 1.2.1
+- Add main file to package.json
+
 #### 1.2.0
 - Add compatibility with module systems
 - Improve AOS initializing

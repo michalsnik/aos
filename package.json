@@ -1,9 +1,22 @@
 {
   "name": "aos",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Animate on scroll library",
+  "homepage": "http://michalsnik.github.io/aos/",
   "author": "Michał Sajnóg <michal.sajnog@hotmail.com>",
   "license": "MIT",
+
+  "main": "dist/aos.js",
+
+  "repository": {
+    "type" : "git",
+    "url"  :  "https://github.com/michalsnik/aos.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/michalsnik/aos/issues"
+  },
+
   "devDependencies": {
     "browser-sync": "~2.0.1",
     "browserify": "^13.0.1",
@@ -30,12 +43,14 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0"
   },
+
   "dependencies": {
     "lodash.assign": "^3.2.0",
     "lodash.debounce": "^3.1.1",
     "lodash.foreach": "^3.0.3",
     "lodash.throttle": "^3.0.4"
   },
+
   "scripts": {
     "test": "gulp test"
   }

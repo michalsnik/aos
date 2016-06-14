@@ -1,6 +1,6 @@
 {
   "name": "aos",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "git://github.com/michalsnik/aos.git",
   "authors": [
     "Michał Sajnóg <michal.sajnog@hotmail.com>"
@@ -12,7 +12,8 @@
   "moduleType": [
     "amd",
     "globals",
-    "node"
+    "node",
+    "es6"
   ],
   "keywords": [
     "scroll",
