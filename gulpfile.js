@@ -25,7 +25,7 @@ gulp.task('browser-sync', function() {
 });
 
 // Developement task
-gulp.task('watch', ['browser-sync', 'bundle', 'test'], function() {
+gulp.task('watch', ['browser-sync', 'bundle'], function() {
     gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
