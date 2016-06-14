@@ -17,11 +17,22 @@ If you scroll back to top, element will animate to it's previous state and is re
 
 ## Setup
 
-You can download AOS [directly](https://github.com/michalsnik/aos/archive/master.zip), but I recommend you to use `bower`:
+### Install AOS
 
-```bash
-  bower install aos --save
-```
+- Using `bower`
+    
+    ```bash
+      bower install aos --save
+    ```
+
+- Using `npm`
+    
+    ```bash
+      npm install aos --save
+    ```
+
+- Direct download -> [click here](https://github.com/michalsnik/aos/archive/master.zip)
+
 
 ### Link styles
 
@@ -34,6 +45,8 @@ You can download AOS [directly](https://github.com/michalsnik/aos/archive/master
 ```html
   <script src="bower_components/aos/dist/aos.js"></script>
 ```
+
+AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, Global, Node or ES6 module.
 
 ### Init AOS
 
