@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Oct 19 2015 01:12:15 GMT+0200 (CEST)
 var isTravis = process.env.TRAVIS || false;
-var browsers = isTravis ? [ 'Chrome_travis_ci' ] : ['Chrome'];
+var browsers = isTravis ? ['Chrome_travis_ci'] : ['Chrome'];
 var singleRun = isTravis;
 
 module.exports = function(config) {
@@ -11,8 +11,7 @@ module.exports = function(config) {
     frameworks: ['jasmine-jquery', 'jasmine'],
 
     files: [
-      'test/index.js',
-      {
+      'test/index.js', {
         pattern: 'test/fixtures/**/*.html',
         watched: true,
         included: false,
@@ -21,23 +20,20 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'test/index.js': [ 'webpack' ]
+      'test/index.js': ['webpack']
     },
 
     webpack: {
       devtool: 'inline-source-map',
       module: {
-        loaders: [
-          {
-            test: /\.js?$/,
-            exclude: [/bower_components/, /node_modules/],
-            loader: 'babel'
-          },
-          {
-            test: /\.scss$/,
-            loader: "css-loader?sourceMap!sass-loader"
-          }
-        ]
+        loaders: [{
+          test: /\.js?$/,
+          exclude: [/bower_components/, /node_modules/],
+          loader: 'babel'
+        }, {
+          test: /\.scss$/,
+          loader: "css-loader?sourceMap!sass-loader"
+        }]
       }
     },
 
@@ -52,8 +48,8 @@ module.exports = function(config) {
 
     customLaunchers: {
       Chrome_travis_ci: {
-          base: 'Chrome',
-          flags: ['--no-sandbox']
+        base: 'Chrome',
+        flags: ['--no-sandbox']
       }
     },
 
