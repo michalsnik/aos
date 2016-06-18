@@ -11,7 +11,8 @@ module.exports = function(config) {
     frameworks: ['jasmine-jquery', 'jasmine'],
 
     files: [
-      'test/index.js', {
+      'test/index.js',
+      {
         pattern: 'test/fixtures/**/*.html',
         watched: true,
         included: false,

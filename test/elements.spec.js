@@ -1,15 +1,18 @@
 import $ from 'jquery';
 import elements from '../src/js/helpers/elements';
 
+jasmine.getStyleFixtures().fixturesPath = 'base/dist';
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
 describe('Elements helper (elements.js) -> ', function() {
 
   beforeEach(function() {
+    jasmine.getStyleFixtures().load = 'aos.css';
     jasmine.getFixtures().load('aos.fixture.html');
   });
 
   afterEach(function() {
+    jasmine.getStyleFixtures().cleanUp();
     jasmine.getFixtures().cleanUp();
   });
 

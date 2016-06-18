@@ -3,15 +3,18 @@ import calculateOffset from '../src/js/helpers/calculateOffset';
 
 const delay = 50;
 
+jasmine.getStyleFixtures().fixturesPath = 'base/dist';
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
 describe('Offset -> ', function() {
 
   beforeEach(function() {
+    jasmine.getStyleFixtures().load = 'aos.css';
     jasmine.getFixtures().load('aos.fixture.html');
   });
 
   afterEach(function() {
+    jasmine.getStyleFixtures().cleanUp();
     jasmine.getFixtures().cleanUp();
   });
 
@@ -157,10 +160,12 @@ describe('Offset -> ', function() {
 describe('Offset on element with attr [aos-offset] -> set to "50" ', function() {
 
   beforeEach(function() {
+    jasmine.getStyleFixtures().load = 'aos.css';
     jasmine.getFixtures().load('aos-offset.fixture.html');
   });
 
   afterEach(function() {
+    jasmine.getStyleFixtures().cleanUp();
     jasmine.getFixtures().cleanUp();
   });
 
@@ -196,11 +201,13 @@ describe('Offset on element with attr [aos-offset] -> set to "50" ', function() 
 describe('Offset on element with attr [aos-offset] after AOS init -> set to "50" ', function() {
 
   beforeEach(function() {
+    jasmine.getStyleFixtures().load = 'aos.css';
     jasmine.getFixtures().load('aos-offset.fixture.html');
     $('.aos-item').addClass('aos-init');
   });
 
   afterEach(function() {
+    jasmine.getStyleFixtures().cleanUp();
     jasmine.getFixtures().cleanUp();
   });
 
