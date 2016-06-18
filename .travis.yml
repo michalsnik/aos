@@ -6,7 +6,7 @@ node_js:
 branches:
   only:
     - master
-    - dev
+    - (.+-dev$)|(^dev)
 
 env:
   global:
