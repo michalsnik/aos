@@ -5,161 +5,153 @@
  * *******************************************************
  */
 
+import styles from './../sass/aos.scss';
+
 // Modules & helpers
-var _throttle           = require('lodash.throttle');
-var _debounce           = require('lodash.debounce');
-var _extend             = require('lodash.assign');
+import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 
-var observe             = require('./libs/observer');
-var classListShim       = require('./libs/classList-shim');
+import observe from './libs/observer';
 
-var detect              = require('./helpers/detector');
-var handleScroll        = require('./helpers/handleScroll');
-var prepare             = require('./helpers/prepare');
-var elements            = require('./helpers/elements');
+import detect from './helpers/detector';
+import handleScroll from './helpers/handleScroll';
+import prepare from './helpers/prepare';
+import elements from './helpers/elements';
 
+/**
+ * Private variables
+ */
+let $aosElements = [];
+let initialized = false;
 
-// Plugin scope
-;(function(window, document, undefined) {
+/**
+ * Default options
+ */
+let options = {
+  offset: 120,
+  delay: 0,
+  easing: 'ease',
+  duration: 400,
+  disable: false,
+  once: false,
+  startEvent: 'DOMContentLoaded'
+};
 
-    /**
-     * Private variables
-     */
-    var $aosElements = [];
-    var initialized = false;
+/**
+ * Refresh AOS
+ */
+const refresh = function refresh(initialize = false) {
+  // Allow refresh only when it was first initialized on startEvent
+  if (initialize) initialized = true;
 
-    /**
-     * Default options
-     */
-    var options = {
-        offset:     120,
-        delay:      0,
-        easing:     'ease',
-        duration:   400,
-        disable:    false,
-        once:       false,
-        startEvent: 'DOMContentLoaded'
-    };
+  if (initialized) {
+    // Extend elements objects in $aosElements with their positions
+    $aosElements = prepare($aosElements, options);
+    // Perform scroll event, to refresh view and show/hide elements
+    handleScroll($aosElements, options.once);
 
-    /**
-     * Refresh AOS
-     */
-    var refresh = function(initialize) {
-        // Allow refresh only when it was first initialized on startEvent
-        if (initialize && initialize === true) initialized = true;
+    return $aosElements;
+  }
+};
 
-        if (initialized) {
-            // Extend elements objects in $aosElements with their positions
-            $aosElements = prepare($aosElements, options);
-            // Perform scroll event, to refresh view and show/hide elements
-            handleScroll($aosElements, options.once);
+/**
+ * Initializing AOS
+ * - Create options merging defaults with user defined options
+ * - Set attributes on <body> as global setting - css relies on it
+ * - Attach preparing elements to options.startEvent,
+ *   window resize and orientation change
+ * - Attach function that handle scroll and everything connected to it
+ *   to window scroll event and fire once document is ready to set initial state
+ */
+const init = function init(settings) {
+  options = Object.assign(options, settings);
 
-            return $aosElements;
-        }
-    };
+  // Create initial array with elements -> to be fullfilled later with prepare()
+  $aosElements = elements();
 
-    /**
-     * Initializing AOS
-     * - Create options merging defaults with user defined options
-     * - Set attributes on <body> as global setting - css relies on it
-     * - Attach preparing elements to options.startEvent,
-     *   window resize and orientation change
-     * - Attach function that handle scroll and everything connected to it
-     *   to window scroll event and fire once document is ready to set initial state
-     */
-    var init = function(settings) {
-        options = _extend(options, settings);
-
-        // Create initial array with elements -> to be fullfilled later with prepare()
-        $aosElements = elements();
-
-        /**
-         * Check options.disable
-         * and do not init plugin if conditions are true
-         */
-        if (options.disable) {
-            if (
-                options.disable === true ||
-                (options.disable === 'mobile' && detect.mobile()) ||
-                (options.disable === 'phone' && detect.phone()) ||
-                (options.disable === 'tablet' && detect.tablet()) ||
-                (typeof options.disable === 'function' && options.disable() === true)
-            ) {
-                [].forEach.call($aosElements, function(el, i) {
-                    el.node.removeAttribute('data-aos');
-                    el.node.removeAttribute('data-aos-easing');
-                    el.node.removeAttribute('data-aos-duration');
-                    el.node.removeAttribute('data-aos-delay');
-                });
-                return false;
-            }
-        }
+  /**
+   * Check options.disable
+   * and do not init plugin if conditions are true
+   */
+  if (options.disable) {
+    if (
+      options.disable === true ||
+      (options.disable === 'mobile' && detect.mobile()) ||
+      (options.disable === 'phone' && detect.phone()) ||
+      (options.disable === 'tablet' && detect.tablet()) ||
+      (typeof options.disable === 'function' && options.disable() === true)
+    ) {
+      $aosElements.forEach(function(el, i) {
+        el.node.removeAttribute('data-aos');
+        el.node.removeAttribute('data-aos-easing');
+        el.node.removeAttribute('data-aos-duration');
+        el.node.removeAttribute('data-aos-delay');
+      });
+      return false;
+    }
+  }
 
 
-        /**
-         * Set global settings on body, based on options
-         * so CSS can use it
-         */
-        document.querySelector('body').setAttribute('data-aos-easing', options.easing);
-        document.querySelector('body').setAttribute('data-aos-duration', options.duration);
-        document.querySelector('body').setAttribute('data-aos-delay', options.delay);
+  /**
+   * Set global settings on body, based on options
+   * so CSS can use it
+   */
+  document.querySelector('body').setAttribute('data-aos-easing', options.easing);
+  document.querySelector('body').setAttribute('data-aos-duration', options.duration);
+  document.querySelector('body').setAttribute('data-aos-delay', options.delay);
 
-        /**
-         * Handle initializing
-         */
-        if (options.startEvent === 'DOMContentLoaded' &&
-            ['complete', 'interactive'].indexOf(document.readyState) > -1) {
-            // Initialize AOS if default startEvent was already fired
-            refresh(true);
-        } else {
-            // Listen to options.startEvent and initialize AOS
-            document.addEventListener(options.startEvent, function() {
-                refresh(true);
-            });
-        }
+  /**
+   * Handle initializing
+   */
+  if (options.startEvent === 'DOMContentLoaded' &&
+    ['complete', 'interactive'].includes(document.readyState)) {
+    // Initialize AOS if default startEvent was already fired
+    refresh(true);
+  } else {
+    // Listen to options.startEvent and initialize AOS
+    document.addEventListener(options.startEvent, function() {
+      refresh(true);
+    });
+  }
 
-        /**
-         * Refresh plugin on window resize or orientation change
-         */
-        window.addEventListener('resize', _debounce(refresh, 50, true));
-        window.addEventListener('orientationchange', _debounce(refresh, 50, true));
+  /**
+   * Refresh plugin on window resize or orientation change
+   */
+  window.addEventListener('resize', debounce(refresh, 50, true));
+  window.addEventListener('orientationchange', debounce(refresh, 50, true));
 
-        /**
-         * Handle scroll event to animate elements on scroll
-         */
-        window.addEventListener('scroll', _throttle(function() {
-            handleScroll($aosElements, options.once);
-        }, 99));
+  /**
+   * Handle scroll event to animate elements on scroll
+   */
+  window.addEventListener('scroll', throttle(() => {
+    handleScroll($aosElements, options.once);
+  }, 99));
 
-        /**
-         * Watch if nodes are removed
-         * If so refresh plugin
-         */
-        document.addEventListener('DOMNodeRemoved', function(event) {
-            var el = event.target;
-            if (el && el.nodeType === 1 && el.hasAttribute && event.target.hasAttribute('data-aos')) {
-                _debounce(refresh, 50, true)
-            }
-        });
+  /**
+   * Watch if nodes are removed
+   * If so refresh plugin
+   */
+  document.addEventListener('DOMNodeRemoved', (event) => {
+    const el = event.target;
+    if (el && el.nodeType === 1 && el.hasAttribute && el.hasAttribute('data-aos')) {
+      debounce(refresh, 50, true)
+    }
+  });
 
-        /**
-         * Observe [aos] elements
-         * If something is loaded by AJAX
-         * it'll refresh plugin automatically
-         */
-        observe('[data-aos]', refresh);
+  /**
+   * Observe [aos] elements
+   * If something is loaded by AJAX
+   * it'll refresh plugin automatically
+   */
+  observe('[data-aos]', refresh);
 
-        return $aosElements;
-    };
+  return $aosElements;
+};
 
-    /**
-     * Public API
-     */
-    var AOS = {
-        init: init,
-        refresh: refresh
-    };
-
-    module.exports = AOS;
-
-})(window, document);
+/**
+ * Export Public API
+ */
+export default {
+  init,
+  refresh
+};

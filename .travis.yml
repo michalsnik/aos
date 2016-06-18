@@ -6,7 +6,7 @@ node_js:
 branches:
   only:
     - master
-    - dev
+    - (.+-dev$)|(^dev$)
 
 env:
   global:
@@ -17,7 +17,6 @@ before_install:
 - sh -e /etc/init.d/xvfb start
 
 install:
-- npm install -g gulp
 - npm install -g karma
 - npm install
 
