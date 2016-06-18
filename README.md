@@ -124,18 +124,20 @@ Down below you can find list of all anchor-placement options.
 
 ####API
 
-AOS object is exposed as global variable, for now there are only two methods available:
+AOS object is exposed as a global variable, for now there are three methods available:
 
-  * init
-  * refresh
+  * `init` - initialize AOS
+  * `refresh` - recalculate all offsets and positions of elements (called on window resize)
+  * `refreshHard` - reinit array with AOS elements and trigger `refresh` (called on DOM changes that are related to `aos` elements)
 
-Running:
+Example execution:
 ```javascript
   AOS.refresh();
 ```
-will recalculate all offsets and positions of elements.
-It could be handy in older browsers which don't support mutation observer.
-By default AOS is watching for DOM changes and if there are any new elements loaded asynchronously or when something is removed from DOM it calls refresh automatically. In older browsers like IE you might need to call `AOS.refresh()` by yourself.
+
+By default AOS is watching for DOM changes and if there are any new elements loaded asynchronously or when something is removed from DOM it calls `refreshHard` automatically. In browsers that don't support `MutationObserver` like IE you might need to call `AOS.refreshHard()` by yourself.
+
+`refresh` method is called on window resize and so on, as it doesn't require to build new store with AOS elements and should be as light as possible.
 
 ### Global settings
 
@@ -305,6 +307,9 @@ Head into `/demo` in your browser folder to test your code in real environment.
 If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
 
 ## Changelog
+
+#### 1.2.2
+- Fix AOS refreshing on asynchronously loaded elements
 
 #### 1.2.1
 - Add main file to package.json
