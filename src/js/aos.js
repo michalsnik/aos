@@ -60,6 +60,15 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
     };
 
     /**
+     * Hard refresh
+     * create array with new elements and trigger refresh
+     */
+    var refreshHard = function() {
+        $aosElements = elements();
+        refresh();
+    };
+
+    /**
      * Initializing AOS
      * - Create options merging defaults with user defined options
      * - Set attributes on <body> as global setting - css relies on it
@@ -142,7 +151,7 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
         document.addEventListener('DOMNodeRemoved', function(event) {
             var el = event.target;
             if (el && el.nodeType === 1 && el.hasAttribute && event.target.hasAttribute('aos')) {
-                _debounce(refresh, 50, true)
+                _debounce(refreshHard, 50, true)
             }
         });
 
@@ -151,7 +160,7 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
          * If something is loaded by AJAX
          * it'll refresh plugin automatically
          */
-        observe('[aos]', refresh);
+        observe('[aos]', refreshHard);
 
         return $aosElements;
     };
@@ -161,7 +170,8 @@ var replaceDataAttr      = require('./helpers/replaceDataAttr');
      */
     var AOS = {
         init: init,
-        refresh: refresh
+        refresh: refresh,
+        refreshHard: refreshHard
     };
 
     module.exports = AOS;

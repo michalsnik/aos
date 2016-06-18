@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AOS - Animate on scroll library</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../dist/aos.css" />
+  </head>
+  <body>
+    <div id="aos-demo" class="aos-all">
+      <div class="aos-item" aos="fade-up">
+        <div class="aos-item__inner colored-1"><h3>Lorem ipsum</h3></div>
+      </div>
+      <div class="aos-item" aos="fade-down">
+        <div class="aos-item__inner colored-2"><h3>dolor sit amet</h3></div>
+      </div>
+      <div class="aos-item" aos="zoom-out-down">
+        <div class="aos-item__inner colored-3"><h3>onsectetur adipisicing</h3></div>
+      </div>
+    </div>
+
+    <script src="../dist/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+
+      setInterval(addItem, 1000);
+
+      var itemsCounter = 4;
+      var container = document.getElementById('aos-demo');
+
+      function addItem () {
+        var item = document.createElement('div');
+        item.classList.add('aos-item');
+        item.setAttribute('aos', 'fade-up');
+        item.innerHTML = '<div class="aos-item__inner colored-' + itemsCounter + '"><h3>Lorem ipsum</h3></div>';
+        container.appendChild(item);
+      }
+    </script>
+  </body>
+</html>
