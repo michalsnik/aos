@@ -1,15 +1,14 @@
 /* Clearing variables */
 
-var calculateOffset = require('./calculateOffset');
+import calculateOffset from './calculateOffset';
 
-var prepare = function ($elements, options) {
+const prepare = function ($elements, options) {
+  $elements.forEach((el, i) => {
+    el.node.classList.add('aos-init');
+    el.position = calculateOffset(el.node, options.offset);
+  });
 
-    [].forEach.call($elements, function(el, i) {
-        el.node.classList.add('aos-init');
-        el.position = calculateOffset(el.node, options.offset);
-    });
-
-    return $elements;
+  return $elements;
 };
 
-module.exports = prepare;
+export default prepare;

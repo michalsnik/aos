@@ -4,16 +4,16 @@
  * @param {int}  top        scrolled distance
  * @param {void} once
  */
-var setState = function (el, top, once) {
-    var attrOnce = el.node.getAttribute('aos-once');
+const setState = function (el, top, once) {
+  const attrOnce = el.node.getAttribute('data-aos-once');
 
-    if (top > el.position) {
-        el.node.classList.add('aos-animate');
-    } else if (typeof attrOnce !== 'undefined') {
-        if (attrOnce === 'false' || (!once && attrOnce !== 'true')) {
-            el.node.classList.remove('aos-animate');
-        }
+  if (top > el.position) {
+    el.node.classList.add('aos-animate');
+  } else if (typeof attrOnce !== 'undefined') {
+    if (attrOnce === 'false' || (!once && attrOnce !== 'true')) {
+      el.node.classList.remove('aos-animate');
     }
+  }
 };
 
 
@@ -24,16 +24,16 @@ var setState = function (el, top, once) {
  * @param  {bool} once               plugin option
  * @return {void}
  */
-var handleScroll = function ($elements, once) {
-    var scrollTop       = window.pageYOffset;
-    var windowHeight    = window.innerHeight;
-    /**
-     * Check all registered elements positions
-     * and animate them on scroll
-     */
-    [].forEach.call($elements, function(el, i) {
-        setState(el, windowHeight + scrollTop, once);
-    });
+const handleScroll = function ($elements, once) {
+  const scrollTop = window.pageYOffset;
+  const windowHeight = window.innerHeight;
+  /**
+   * Check all registered elements positions
+   * and animate them on scroll
+   */
+  $elements.forEach((el, i) => {
+    setState(el, windowHeight + scrollTop, once);
+  });
 };
 
-module.exports = handleScroll;
+export default handleScroll;

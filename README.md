@@ -60,10 +60,10 @@ AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, G
 
 ### Basic usage
 
-  All you have to do is to add "aos" attribute to html element, like so:
+  All you have to do is to add `data-aos` attribute to html element, like so:
 
 ```html
-  <div aos="animation_name">
+  <div data-aos="animation_name">
 ```
 
   Script will trigger "animation_name" animation on this element, if you scroll to it.
@@ -72,55 +72,48 @@ AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, G
 
 ### Advanced settings
 
-These settings can be set both on certain elements, or as default while initializing script (in options object).
+These settings can be set both on certain elements, or as default while initializing script (in options object without `data-` part).
 
 | Attribute | Description | Example value | Default value |
 |---------------------------|-------------|---------------|---------|
-| *`aos-offset`* | Change offset to trigger animations sooner or later (px) | 200 | 120 |
-| *`aos-duration`* | *Duration of animation (ms) | 600 | 400 |
-| *`aos-easing`* | Choose timing function to ease elements in different ways | ease-in-sine | ease |
-| *`aos-delay`* | Delay animation (ms) | 300 | 0 |
-| *`aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
-| *`aos-anchor-placement`* | Anchor placement - which one position of element on the screen should trigger animation | top-center | top-bottom |
-| *`aos-once`* | Choose wheter animation should fire once, or every time you scroll up/down to element | true | false |
+| *`data-aos-offset`* | Change offset to trigger animations sooner or later (px) | 200 | 120 |
+| *`data-aos-duration`* | *Duration of animation (ms) | 600 | 400 |
+| *`data-aos-easing`* | Choose timing function to ease elements in different ways | ease-in-sine | ease |
+| *`data-aos-delay`* | Delay animation (ms) | 300 | 0 |
+| *`data-aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
+| *`data-aos-anchor-placement`* | Anchor placement - which one position of element on the screen should trigger animation | top-center | top-bottom |
+| *`data-aos-once`* | Choose wheter animation should fire once, or every time you scroll up/down to element | true | false |
 
 *Duration accept values from 50 to 3000, with step 50ms, it's because duration of animation is handled by css, and to not make css longer than it is already I created implementations only in this range. I think this should be good for almost all cases.
 
 If not, you may write simple CSS on your page that will add another duration option value available, for example:
 
 ```css
-  body[aos-duration='4000'] [aos], [aos][aos][aos-duration='4000']{
+  body[data-aos-duration='4000'] [data-aos], [data-aos][data-aos][data-aos-duration='4000']{
     transition-duration: 4000ms;
   }
 ```
 
 This code will add 4000ms duration available for you to set on AOS elements, or to set as global duration while initializing AOS script.
 
-Notice that double `[aos][aos]` - it's not a mistake, it is a trick, to make individual settings more important than global, without need to write ugly "!important" there :)
+Notice that double `[data-aos][data-aos]` - it's not a mistake, it is a trick, to make individual settings more important than global, without need to write ugly "!important" there :)
 
-`aos-anchor-placement` - You can set different placement option on each element, the principle is pretty simple, each anchor-placement option contains two words i.e. `top-center`. This means that animation will be triggered when `top` of element will reach `center` of the window.
+`data-aos-anchor-placement` - You can set different placement option on each element, the principle is pretty simple, each anchor-placement option contains two words i.e. `top-center`. This means that animation will be triggered when `top` of element will reach `center` of the window.
 `bottom-top` means that animation will be triggered when `bottom` of an element reach `top` of the window, and so on.
 Down below you can find list of all anchor-placement options.
 
 ####Examples:
 
 ```html
-  <div aos="fade-zoom-in" aos-offset="200" aos-easing="ease-in-sine" aos-duration="600">
+  <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
 ```
 ```html
-  <div aos="flip-left" aos-delay="100" aos-anchor=".example-selector">
+  <div data-aos="flip-left" data-aos-delay="100" data-aos-anchor=".example-selector">
 ```
 ```html
-  <div aos="fade-up" aos-anchor-placement="top-center">
+  <div data-aos="fade-up" data-aos-anchor-placement="top-center">
 ```
 
-### HTML5 Validation
-
-  If you care about html5 validation use "data-" prefix to all attributes.
-
-```html
-  <div data-aos="animation_name" data-aos-offset="200" data-aos-easing="ease-in-sine">
-```
 
 ####API
 
@@ -305,6 +298,10 @@ Head into `/demo` in your browser folder to test your code in real environment.
 If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
 
 ## Changelog
+
+#### 2.0.0
+- Make `data-aos` attributes the default ones
+- Improve animations performance
 
 #### 1.2.1
 - Add main file to package.json
