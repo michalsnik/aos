@@ -1,4 +1,6 @@
 # AOS - Animate on scroll library
+[![NPM version](https://img.shields.io/npm/v/aos.svg?style=flat)](https://npmjs.org/package/aos)
+[![NPM downloads](https://img.shields.io/npm/dm/aos.svg?style=flat)](https://npmjs.org/package/aos)
 [![Build Status](https://travis-ci.org/michalsnik/aos.svg?branch=master)](https://travis-ci.org/michalsnik/aos)
 
 Small library to animate elements on your page as you scroll.
@@ -11,9 +13,8 @@ If you scroll back to top, element will animate to it's previous state and is re
 ### 🚀 DEMO
 [Click here](http://michalsnik.github.io/aos/)
 
-## Requirements
-
-* None -> from version 0.4.x AOS doesn't rely on jQuery anymore
+## ❗ Attention
+> From version `2.0.0` attributes `aos` are no longer supported, always use `data-aos`.
 
 ## ⚙ Setup
 
@@ -275,42 +276,10 @@ You can choose one of these timing function to animate elements nicely:
   * ease-out-quart
   * ease-in-out-quart
 
-## ✌️ Contribution
+## ✌️ Contribution [(click here)](CONTRIBUTION.md)
 
-I use gulp to concatenate JS & CSS and minify it.
-
-First install all gulp dependencies:
-
-```
-npm install
-```
-
-And run gulp, to start localhost with livereload and tests:
-
-```
-gulp
-```
-
-Now you're ready to roll.
-
-Head into `/demo` in your browser folder to test your code in real environment.
+## 📝 Changelog [(click here)](CONTRIBUTION.md)
 
 ## ❔Questions
 
-If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
-
-## 📝 Changelog
-
-#### 2.0.0
-- Make `data-aos` attributes the default ones
-- Improve animations performance
-
-#### 1.2.2
-- Fix AOS refreshing on asynchronously loaded elements
-
-#### 1.2.1
-- Add main file to package.json
-
-#### 1.2.0
-- Add compatibility with module systems
-- Improve AOS initializing
+If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTION.md) and don't hesitate to create new a issue.
