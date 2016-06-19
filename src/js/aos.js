@@ -55,6 +55,15 @@ const refresh = function refresh(initialize = false) {
 };
 
 /**
+ * Hard refresh
+ * create array with new elements and trigger refresh
+ */
+var refreshHard = function() {
+  $aosElements = elements();
+  refresh();
+};
+
+/**
  * Initializing AOS
  * - Create options merging defaults with user defined options
  * - Set attributes on <body> as global setting - css relies on it
@@ -134,7 +143,7 @@ const init = function init(settings) {
   document.addEventListener('DOMNodeRemoved', (event) => {
     const el = event.target;
     if (el && el.nodeType === 1 && el.hasAttribute && el.hasAttribute('data-aos')) {
-      debounce(refresh, 50, true)
+      debounce(refreshHard, 50, true)
     }
   });
 
@@ -143,7 +152,7 @@ const init = function init(settings) {
    * If something is loaded by AJAX
    * it'll refresh plugin automatically
    */
-  observe('[data-aos]', refresh);
+  observe('[data-aos]', refreshHard);
 
   return $aosElements;
 };
