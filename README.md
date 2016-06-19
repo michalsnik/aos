@@ -5,16 +5,27 @@
 
 Small library to animate elements on your page as you scroll.
 
-You may say it's like WOWJS, yeah - you're right, effect is similar to WOWJS, but i had different idea how to make such a plugin, so here it is. CSS3 driven scroll animation library. It's even smaller than already small WOWJS library.
+You may say it's like WOWJS, yeah - you're right, effect is similar to WOWJS, but I had a different idea how to make such a plugin, so here it is. CSS3 driven scroll animation library.
 
 AOS allows you to animate elements as you scroll down, and up.
-If you scroll back to top, element will animate to it's previous state and is ready to animate again if you scroll down.
+If you scroll back to top, elements will animate to it's previous state and are ready to animate again if you scroll down.
 
-### 🚀 DEMO
-[Click here](http://michalsnik.github.io/aos/)
+👉 To get a better understanding how this actually works, I encourage you to check [my post on CSS-tricks](https://css-tricks.com/aos-css-driven-scroll-animation-library/).
+
+------
+
+### 🚀 [Demo](http://michalsnik.github.io/aos/)
+
+### 🌟 Codepen Examples
+- [Different build in animations](http://codepen.io/michalsnik/pen/WxNdvq)
+- [With anchor setting in use](http://codepen.io/michalsnik/pen/jrOYVO)
+- [With anchor-placement and different easing](http://codepen.io/michalsnik/pen/EyxoNm)
+- [With simple custom animations](http://codepen.io/michalsnik/pen/WxvNvE)
+
+---
 
 ## ❗ Attention
-> From version `2.0.0` attributes `aos` are no longer supported, always use `data-aos`.
+From version `2.0.0` attributes `aos` are no longer supported, always use `data-aos`.
 
 ## ⚙ Setup
 
@@ -276,10 +287,10 @@ You can choose one of these timing function to animate elements nicely:
   * ease-out-quart
   * ease-in-out-quart
 
-## ✌️ Contribution [(click here)](CONTRIBUTION.md)
+## ✌️ [Contributing](CONTRIBUTING.md)
 
-## 📝 Changelog [(click here)](CONTRIBUTION.md)
+## 📝 [Changelog](CHANGELOG.md)
 
 ## ❔Questions
 
-If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTION.md) and don't hesitate to create new a issue.
+If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.
