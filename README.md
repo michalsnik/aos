@@ -12,7 +12,7 @@ If you scroll back to top, elements will animate to it's previous state and are 
 
 👉 To get a better understanding how this actually works, I encourage you to check [my post on CSS-tricks](https://css-tricks.com/aos-css-driven-scroll-animation-library/).
 
-------
+---
 
 ### 🚀 [Demo](http://michalsnik.github.io/aos/)
 
