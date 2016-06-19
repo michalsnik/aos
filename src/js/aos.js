@@ -58,7 +58,7 @@ const refresh = function refresh(initialize = false) {
  * Hard refresh
  * create array with new elements and trigger refresh
  */
-var refreshHard = function() {
+const refreshHard = function refreshHard() {
   $aosElements = elements();
   refresh();
 };
@@ -162,5 +162,6 @@ const init = function init(settings) {
  */
 export default {
   init,
-  refresh
+  refresh,
+  refreshHard
 };

@@ -8,14 +8,14 @@ You may say it's like WOWJS, yeah - you're right, effect is similar to WOWJS, bu
 AOS allows you to animate elements as you scroll down, and up.
 If you scroll back to top, element will animate to it's previous state and is ready to animate again if you scroll down.
 
-### DEMO
+### 🚀 DEMO
 [Click here](http://michalsnik.github.io/aos/)
 
 ## Requirements
 
 * None -> from version 0.4.x AOS doesn't rely on jQuery anymore
 
-## Setup
+## ⚙ Setup
 
 ### Install AOS
 
@@ -56,7 +56,7 @@ AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, G
   </script>
 ```
 
-## How to use it?
+## 🤔 How to use it?
 
 ### Basic usage
 
@@ -70,7 +70,7 @@ AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, G
 
   [Down below](https://github.com/michalsnik/aos#animations) is a list of all available animations for now :)
 
-### Advanced settings
+### 🔥 Advanced settings
 
 These settings can be set both on certain elements, or as default while initializing script (in options object without `data-` part).
 
@@ -199,7 +199,7 @@ If you don't want to initialize AOS on `DOMContentLoaded` event, you can pass yo
 ```
 
 
-### Animations
+### 👻 Animations
 
 There are serveral predefined animations you can use already:
 
@@ -275,7 +275,7 @@ You can choose one of these timing function to animate elements nicely:
   * ease-out-quart
   * ease-in-out-quart
 
-## Contribution
+## ✌️ Contribution
 
 I use gulp to concatenate JS & CSS and minify it.
 
@@ -295,11 +295,11 @@ Now you're ready to roll.
 
 Head into `/demo` in your browser folder to test your code in real environment.
 
-## Questions
+## ❔Questions
 
 If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
 
-## Changelog
+## 📝 Changelog
 
 #### 2.0.0
 - Make `data-aos` attributes the default ones
