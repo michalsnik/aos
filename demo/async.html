@@ -34,7 +34,7 @@
       function addItem () {
         var item = document.createElement('div');
         item.classList.add('aos-item');
-        item.setAttribute('aos', 'fade-up');
+        item.setAttribute('data-aos', 'fade-up');
         item.innerHTML = '<div class="aos-item__inner colored-' + itemsCounter + '"><h3>Lorem ipsum</h3></div>';
         container.appendChild(item);
       }

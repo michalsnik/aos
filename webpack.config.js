@@ -6,10 +6,14 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: './dist',
+    publicPath: 'dist/',
     filename: 'aos.js',
     library: 'AOS',
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map'
+  },
+  devServer: {
+    contentBase: 'demo/'
   },
   module: {
     loaders: [

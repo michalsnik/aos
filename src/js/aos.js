@@ -160,7 +160,8 @@ const init = function init(settings) {
 /**
  * Export Public API
  */
-export default {
+
+module.exports = {
   init,
   refresh,
   refreshHard
