@@ -1,21 +1,34 @@
-# AOS - Animate on scroll library
+[![AOS - Animate on scroll library](https://s32.postimg.org/ktvt59hol/aos_header.png)](http://michalsnik.github.io/aos/)
+
+[![NPM version](https://img.shields.io/npm/v/aos.svg?style=flat)](https://npmjs.org/package/aos)
+[![NPM downloads](https://img.shields.io/npm/dm/aos.svg?style=flat)](https://npmjs.org/package/aos)
 [![Build Status](https://travis-ci.org/michalsnik/aos.svg?branch=master)](https://travis-ci.org/michalsnik/aos)
 
 Small library to animate elements on your page as you scroll.
 
-You may say it's like WOWJS, yeah - you're right, effect is similar to WOWJS, but i had different idea how to make such a plugin, so here it is. CSS3 driven scroll animation library. It's even smaller than already small WOWJS library.
+You may say it's like WOWJS, yeah - you're right, effect is similar to WOWJS, but I had a different idea how to make such a plugin, so here it is. CSS3 driven scroll animation library.
 
 AOS allows you to animate elements as you scroll down, and up.
-If you scroll back to top, element will animate to it's previous state and is ready to animate again if you scroll down.
+If you scroll back to top, elements will animate to it's previous state and are ready to animate again if you scroll down.
 
-### DEMO
-[Click here](http://michalsnik.github.io/aos/)
+👉 To get a better understanding how this actually works, I encourage you to check [my post on CSS-tricks](https://css-tricks.com/aos-css-driven-scroll-animation-library/).
 
-## Requirements
+---
 
-* None -> from version 0.4.x AOS doesn't rely on jQuery anymore
+### 🚀 [Demo](http://michalsnik.github.io/aos/)
 
-## Setup
+### 🌟 Codepen Examples
+- [Different build in animations](http://codepen.io/michalsnik/pen/WxNdvq)
+- [With anchor setting in use](http://codepen.io/michalsnik/pen/jrOYVO)
+- [With anchor-placement and different easing](http://codepen.io/michalsnik/pen/EyxoNm)
+- [With simple custom animations](http://codepen.io/michalsnik/pen/WxvNvE)
+
+---
+
+## ❗ Attention
+From version `2.0.0` attributes `aos` are no longer supported, always use `data-aos`.
+
+## ⚙ Setup
 
 ### Install AOS
 
@@ -56,71 +69,64 @@ AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, G
   </script>
 ```
 
-## How to use it?
+## 🤔 How to use it?
 
 ### Basic usage
 
-  All you have to do is to add "aos" attribute to html element, like so:
+  All you have to do is to add `data-aos` attribute to html element, like so:
 
 ```html
-  <div aos="animation_name">
+  <div data-aos="animation_name">
 ```
 
   Script will trigger "animation_name" animation on this element, if you scroll to it.
 
   [Down below](https://github.com/michalsnik/aos#animations) is a list of all available animations for now :)
 
-### Advanced settings
+### 🔥 Advanced settings
 
-These settings can be set both on certain elements, or as default while initializing script (in options object).
+These settings can be set both on certain elements, or as default while initializing script (in options object without `data-` part).
 
 | Attribute | Description | Example value | Default value |
 |---------------------------|-------------|---------------|---------|
-| *`aos-offset`* | Change offset to trigger animations sooner or later (px) | 200 | 120 |
-| *`aos-duration`* | *Duration of animation (ms) | 600 | 400 |
-| *`aos-easing`* | Choose timing function to ease elements in different ways | ease-in-sine | ease |
-| *`aos-delay`* | Delay animation (ms) | 300 | 0 |
-| *`aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
-| *`aos-anchor-placement`* | Anchor placement - which one position of element on the screen should trigger animation | top-center | top-bottom |
-| *`aos-once`* | Choose wheter animation should fire once, or every time you scroll up/down to element | true | false |
+| *`data-aos-offset`* | Change offset to trigger animations sooner or later (px) | 200 | 120 |
+| *`data-aos-duration`* | *Duration of animation (ms) | 600 | 400 |
+| *`data-aos-easing`* | Choose timing function to ease elements in different ways | ease-in-sine | ease |
+| *`data-aos-delay`* | Delay animation (ms) | 300 | 0 |
+| *`data-aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
+| *`data-aos-anchor-placement`* | Anchor placement - which one position of element on the screen should trigger animation | top-center | top-bottom |
+| *`data-aos-once`* | Choose wheter animation should fire once, or every time you scroll up/down to element | true | false |
 
 *Duration accept values from 50 to 3000, with step 50ms, it's because duration of animation is handled by css, and to not make css longer than it is already I created implementations only in this range. I think this should be good for almost all cases.
 
 If not, you may write simple CSS on your page that will add another duration option value available, for example:
 
 ```css
-  body[aos-duration='4000'] [aos], [aos][aos][aos-duration='4000']{
+  body[data-aos-duration='4000'] [data-aos], [data-aos][data-aos][data-aos-duration='4000']{
     transition-duration: 4000ms;
   }
 ```
 
 This code will add 4000ms duration available for you to set on AOS elements, or to set as global duration while initializing AOS script.
 
-Notice that double `[aos][aos]` - it's not a mistake, it is a trick, to make individual settings more important than global, without need to write ugly "!important" there :)
+Notice that double `[data-aos][data-aos]` - it's not a mistake, it is a trick, to make individual settings more important than global, without need to write ugly "!important" there :)
 
-`aos-anchor-placement` - You can set different placement option on each element, the principle is pretty simple, each anchor-placement option contains two words i.e. `top-center`. This means that animation will be triggered when `top` of element will reach `center` of the window.
+`data-aos-anchor-placement` - You can set different placement option on each element, the principle is pretty simple, each anchor-placement option contains two words i.e. `top-center`. This means that animation will be triggered when `top` of element will reach `center` of the window.
 `bottom-top` means that animation will be triggered when `bottom` of an element reach `top` of the window, and so on.
 Down below you can find list of all anchor-placement options.
 
 ####Examples:
 
 ```html
-  <div aos="fade-zoom-in" aos-offset="200" aos-easing="ease-in-sine" aos-duration="600">
+  <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
 ```
 ```html
-  <div aos="flip-left" aos-delay="100" aos-anchor=".example-selector">
+  <div data-aos="flip-left" data-aos-delay="100" data-aos-anchor=".example-selector">
 ```
 ```html
-  <div aos="fade-up" aos-anchor-placement="top-center">
+  <div data-aos="fade-up" data-aos-anchor-placement="top-center">
 ```
 
-### HTML5 Validation
-
-  If you care about html5 validation use "data-" prefix to all attributes.
-
-```html
-  <div data-aos="animation_name" data-aos-offset="200" data-aos-easing="ease-in-sine">
-```
 
 ####API
 
@@ -206,7 +212,7 @@ If you don't want to initialize AOS on `DOMContentLoaded` event, you can pass yo
 ```
 
 
-### Animations
+### 👻 Animations
 
 There are serveral predefined animations you can use already:
 
@@ -282,38 +288,10 @@ You can choose one of these timing function to animate elements nicely:
   * ease-out-quart
   * ease-in-out-quart
 
-## Contribution
+## ✌️ [Contributing](CONTRIBUTING.md)
 
-I use gulp to concatenate JS & CSS and minify it.
+## 📝 [Changelog](CHANGELOG.md)
 
-First install all gulp dependencies:
+## ❔Questions
 
-```
-npm install
-```
-
-And run gulp, to start localhost with livereload and tests:
-
-```
-gulp
-```
-
-Now you're ready to roll.
-
-Head into `/demo` in your browser folder to test your code in real environment.
-
-## Questions
-
-If you have any questions, ideas or whatsoever, please let me know in `issues` or message me directly.
-
-## Changelog
-
-#### 1.2.2
-- Fix AOS refreshing on asynchronously loaded elements
-
-#### 1.2.1
-- Add main file to package.json
-
-#### 1.2.0
-- Add compatibility with module systems
-- Improve AOS initializing
+If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.

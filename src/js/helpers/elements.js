@@ -3,9 +3,9 @@
  * This array will be extended later with elements attributes values
  * like 'position'
  */
-var createArrayWithElements = function (elements) {
-  var elements = elements || document.querySelectorAll('[aos]');
-  var finalElements = [];
+const createArrayWithElements = function (elements) {
+  elements = elements || document.querySelectorAll('[data-aos]');
+  let finalElements = [];
 
   [].forEach.call(elements, function(el, i) {
     finalElements.push({
@@ -14,6 +14,6 @@ var createArrayWithElements = function (elements) {
   });
 
   return finalElements;
-}
+};
 
-module.exports = createArrayWithElements;
+export default createArrayWithElements;

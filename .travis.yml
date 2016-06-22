@@ -1,12 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-- '0.12'
-
-branches:
-  only:
-    - master
-    - (.+-dev$)|(^dev$)
+- '4.1'
 
 env:
   global:
@@ -17,7 +12,6 @@ before_install:
 - sh -e /etc/init.d/xvfb start
 
 install:
-- npm install -g gulp
 - npm install -g karma
 - npm install
 

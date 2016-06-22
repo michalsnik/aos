@@ -8,17 +8,7 @@
     <link rel="stylesheet" href="../dist/aos.css" />
   </head>
   <body>
-    <div id="aos-demo" class="aos-all">
-      <div class="aos-item" aos="fade-up">
-        <div class="aos-item__inner colored-1"><h3>Lorem ipsum</h3></div>
-      </div>
-      <div class="aos-item" aos="fade-down">
-        <div class="aos-item__inner colored-2"><h3>dolor sit amet</h3></div>
-      </div>
-      <div class="aos-item" aos="zoom-out-down">
-        <div class="aos-item__inner colored-3"><h3>onsectetur adipisicing</h3></div>
-      </div>
-    </div>
+    <div id="aos-demo" class="aos-all"></div>
 
     <script src="../dist/aos.js"></script>
     <script>
@@ -26,17 +16,19 @@
         easing: 'ease-in-out-sine'
       });
 
-      setInterval(addItem, 1000);
+      setInterval(addItem, 300);
 
-      var itemsCounter = 4;
+      var itemsCounter = 1;
       var container = document.getElementById('aos-demo');
 
       function addItem () {
+        if (itemsCounter > 42) return;
         var item = document.createElement('div');
         item.classList.add('aos-item');
-        item.setAttribute('aos', 'fade-up');
-        item.innerHTML = '<div class="aos-item__inner colored-' + itemsCounter + '"><h3>Lorem ipsum</h3></div>';
+        item.setAttribute('data-aos', 'fade-up');
+        item.innerHTML = '<div class="aos-item__inner"><h3>' + itemsCounter + '</h3></div>';
         container.appendChild(item);
+        itemsCounter++;
       }
     </script>
   </body>
