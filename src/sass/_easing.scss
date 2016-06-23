@@ -36,7 +36,7 @@ $easing: (
  * Default timing function: 'ease'
  */
 
-[aos] {
+[data-aos] {
 
   @each $key, $val in $easing {
     body[data-aos-easing="#{$key}"] &, &[data-aos][data-aos-easing="#{$key}"]{
