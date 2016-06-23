@@ -1,6 +1,11 @@
 # Change Log
 
-## [Unreleased]
+## [2.0.1]
+
+### Fixed
+- Add easings, after they were accidentaly ignored
+
+## [2.0.0]
 
 ### Added
 - Add new CHANGELOG
