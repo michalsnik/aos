@@ -18,7 +18,7 @@ $val-lg: 100vw;
 [data-aos] {
   @for $i from 1 through 60 {
     body[data-aos-duration='#{$i*50}'] &,
-    &[data-aos][data-aos-duration='#{$i*50}'] {
+    &[data-aos-duration='#{$i*50}'] {
       transition-duration: #{$i*50}ms;
     }
   }
@@ -31,7 +31,7 @@ $val-lg: 100vw;
 [data-aos] {
   @for $i from 1 through 60 {
     body[data-aos-delay='#{$i*50}'] &,
-    &[data-aos][data-aos-delay='#{$i*50}'] {
+    &[data-aos-delay='#{$i*50}'] {
       transition-delay: 0;
 
       &.aos-animate{
