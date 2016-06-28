@@ -1,5 +1,10 @@
 # Change Log
 
+## [2.0.2]
+
+### Fixed
+- Fix include in arrays, so it works in IE
+
 ## [2.0.1]
 
 ### Fixed
