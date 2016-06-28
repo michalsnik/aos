@@ -24,6 +24,10 @@ import elements from './helpers/elements';
 let $aosElements = [];
 let initialized = false;
 
+// Detect not supported browsers (<=IE9)
+// http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+const browserNotSupported = document.all && !window.atob;
+
 /**
  * Default options
  */
@@ -64,6 +68,31 @@ const refreshHard = function refreshHard() {
 };
 
 /**
+ * Disable AOS
+ * Remove all attributes to reset applied styles
+ */
+const disable = function() {
+  $aosElements.forEach(function(el, i) {
+    el.node.removeAttribute('data-aos');
+    el.node.removeAttribute('data-aos-easing');
+    el.node.removeAttribute('data-aos-duration');
+    el.node.removeAttribute('data-aos-delay');
+  });
+};
+
+
+/**
+ * Check if AOS should be disabled based on provided setting
+ */
+const isDisabled = function(optionDisable) {
+  return optionDisable === true ||
+  (optionDisable === 'mobile' && detect.mobile()) ||
+  (optionDisable === 'phone' && detect.phone()) ||
+  (optionDisable === 'tablet' && detect.tablet()) ||
+  (typeof optionDisable === 'function' && optionDisable() === true);
+};
+
+/**
  * Initializing AOS
  * - Create options merging defaults with user defined options
  * - Set attributes on <body> as global setting - css relies on it
@@ -79,27 +108,12 @@ const init = function init(settings) {
   $aosElements = elements();
 
   /**
-   * Check options.disable
-   * and do not init plugin if conditions are true
+   * Don't init plugin if option `disable` is set
+   * or when browser is not supported
    */
-  if (options.disable) {
-    if (
-      options.disable === true ||
-      (options.disable === 'mobile' && detect.mobile()) ||
-      (options.disable === 'phone' && detect.phone()) ||
-      (options.disable === 'tablet' && detect.tablet()) ||
-      (typeof options.disable === 'function' && options.disable() === true)
-    ) {
-      $aosElements.forEach(function(el, i) {
-        el.node.removeAttribute('data-aos');
-        el.node.removeAttribute('data-aos-easing');
-        el.node.removeAttribute('data-aos-duration');
-        el.node.removeAttribute('data-aos-delay');
-      });
-      return false;
-    }
+  if (isDisabled(options.disable) || browserNotSupported) {
+    return disable();
   }
-
 
   /**
    * Set global settings on body, based on options
