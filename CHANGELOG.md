@@ -1,5 +1,10 @@
 # Change Log
 
+## [2.0.3]
+
+### Added
+- Add `transform-object-assign` plugin for babel, so Object.assign works in IE
+
 ## [2.0.2]
 
 ### Fixed
