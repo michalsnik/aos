@@ -1,6 +1,6 @@
 {
   "name": "aos",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Animate on scroll library",
   "homepage": "http://michalsnik.github.io/aos/",
   "author": "Michał Sajnóg <michal.sajnog@hotmail.com>",
@@ -38,6 +38,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "classlist-polyfill": "^1.0.3",
     "lodash.debounce": "^4.0.6",
     "lodash.throttle": "^4.0.1"
   },

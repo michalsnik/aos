@@ -1,5 +1,15 @@
 # Change Log
 
+## [2.0.4]
+
+### Fixed
+- Fix device detector (tablet setting)
+
+### Changed
+- Disable AOS on not supported browsers (<= IE9)
+- Clean code around `disable` option
+- Rewrite device detector using ES6 Class
+
 ## [2.0.3]
 
 ### Added
