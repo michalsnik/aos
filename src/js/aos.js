@@ -38,6 +38,7 @@ let options = {
   duration: 400,
   disable: false,
   once: false,
+  mirror: false,
   startEvent: 'DOMContentLoaded'
 };
 
@@ -52,7 +53,7 @@ const refresh = function refresh(initialize = false) {
     // Extend elements objects in $aosElements with their positions
     $aosElements = prepare($aosElements, options);
     // Perform scroll event, to refresh view and show/hide elements
-    handleScroll($aosElements, options.once);
+    handleScroll($aosElements);
 
     return $aosElements;
   }

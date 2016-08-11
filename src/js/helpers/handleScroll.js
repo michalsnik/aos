@@ -2,17 +2,16 @@
  * Set or remove aos-animate class
  * @param {node} el         element
  * @param {int}  top        scrolled distance
- * @param {void} once
  */
-const setState = function (el, top, once) {
-  const attrOnce = el.node.getAttribute('data-aos-once');
-
-  if (top > el.position) {
+const setState = function (el, top) {
+  if (top > el.position.out && !el.options.once && el.options.mirror) {
+    el.node.classList.remove('aos-animate');
+  }
+  else if (top > el.position.in) {
     el.node.classList.add('aos-animate');
-  } else if (typeof attrOnce !== 'undefined') {
-    if (attrOnce === 'false' || (!once && attrOnce !== 'true')) {
-      el.node.classList.remove('aos-animate');
-    }
+  }
+  else if (!el.options.once) {
+    el.node.classList.remove('aos-animate');
   }
 };
 
@@ -24,7 +23,7 @@ const setState = function (el, top, once) {
  * @param  {bool} once               plugin option
  * @return {void}
  */
-const handleScroll = function ($elements, once) {
+const handleScroll = function ($elements) {
   const scrollTop = window.pageYOffset;
   const windowHeight = window.innerHeight;
   /**
@@ -32,7 +31,7 @@ const handleScroll = function ($elements, once) {
    * and animate them on scroll
    */
   $elements.forEach((el, i) => {
-    setState(el, windowHeight + scrollTop, once);
+    setState(el, windowHeight + scrollTop);
   });
 };
 
