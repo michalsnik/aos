@@ -15,6 +15,8 @@ If you scroll back to top, elements will animate to it's previous state and are 
 
 ---
 
+[![Join the chat at https://gitter.im/michalsnik/aos](https://badges.gitter.im/michalsnik/aos.svg)](https://gitter.im/michalsnik/aos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ### 🚀 [Demo](http://michalsnik.github.io/aos/)
 
 ### 🌟 Codepen Examples
