@@ -1,5 +1,8 @@
 # Change Log
 
+## [2.1.0]
+- Attach event listener to window instead of document for event `load`
+
 ## [2.0.4]
 
 ### Fixed

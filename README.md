@@ -33,13 +33,13 @@ From version `2.0.0` attributes `aos` are no longer supported, always use `data-
 ### Install AOS
 
 - Using `bower`
-    
+
     ```bash
       bower install aos --save
     ```
 
 - Using `npm`
-    
+
     ```bash
       npm install aos --save
     ```
@@ -210,6 +210,8 @@ If you don't want to initialize AOS on `DOMContentLoaded` event, you can pass yo
     });
   </script>
 ```
+
+**Important note:** If you set `startEvent: 'load'` it will add event listener on `window` instead of `document`.
 
 
 ### 👻 Animations
