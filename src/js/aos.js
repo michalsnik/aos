@@ -130,6 +130,11 @@ const init = function init(settings) {
     ['complete', 'interactive'].indexOf(document.readyState) > -1) {
     // Initialize AOS if default startEvent was already fired
     refresh(true);
+  } else if (options.startEvent === 'load') {
+    // If start event is 'Load' - attach listener to window
+    window.addEventListener(options.startEvent, function() {
+      refresh(true);
+    });
   } else {
     // Listen to options.startEvent and initialize AOS
     document.addEventListener(options.startEvent, function() {
