@@ -1,5 +1,8 @@
 # Change Log
 
+## [2.1.1]
+- Clean styles, prefix variables, use !default, separate files for core and animations
+
 ## [2.1.0]
 - Attach event listener to window instead of document for event `load`
 
