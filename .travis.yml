@@ -12,6 +12,7 @@ before_install:
 - sh -e /etc/init.d/xvfb start
 
 install:
+- npm config set registry http://registry.npmjs.org/
 - npm install -g karma
 - npm install
 

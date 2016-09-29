@@ -1,0 +1,18 @@
+// Generate Duration && Delay
+[data-aos] {
+  @for $i from 1 through 60 {
+    body[data-aos-duration='#{$i * 50}'] &,
+    &[data-aos][data-aos-duration='#{$i * 50}'] {
+      transition-duration: #{$i * 50}ms;
+    }
+
+    body[data-aos-delay='#{$i * 50}'] &,
+    &[data-aos][data-aos-delay='#{$i * 50}'] {
+      transition-delay: 0;
+
+      &.aos-animate {
+        transition-delay: #{$i * 50}ms;
+      }
+    }
+  }
+}
