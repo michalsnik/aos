@@ -26,6 +26,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  float: left;
   background: #1da4e2;
   line-height: 260px;
   text-align: center;
