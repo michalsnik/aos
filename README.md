@@ -220,6 +220,7 @@ If you don't want to initialize AOS on `DOMContentLoaded` event, you can pass yo
 There are serveral predefined animations you can use already:
 
   * Fade animations:
+    * fade
     * fade-up
     * fade-down
     * fade-left
