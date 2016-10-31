@@ -82,7 +82,7 @@ AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, G
 
   Script will trigger "animation_name" animation on this element, if you scroll to it.
 
-  [Down below](https://github.com/michalsnik/aos#animations) is a list of all available animations for now :)
+  [Down below](https://github.com/michalsnik/aos#-animations) is a list of all available animations for now :)
 
 ### 🔥 Advanced settings
 
