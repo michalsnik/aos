@@ -141,7 +141,9 @@ a {
  * Sections
  */
 .section {
-    width: 100%; float: left;
+    width: 100%;
+    float: left;
+    overflow: hidden;
 }
 
 .section-title{
