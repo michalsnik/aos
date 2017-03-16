@@ -33,7 +33,7 @@
     "node-sass": "^4.3.0",
     "phantomjs": "^2.1.7",
     "sass-loader": "^4.1.1",
-    "style-loader": "^0.13.1",
+    "style-loader": "^0.14.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
