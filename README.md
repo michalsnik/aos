@@ -118,7 +118,7 @@ Notice that double `[data-aos][data-aos]` - it's not a mistake, it is a trick, t
 `bottom-top` means that animation will be triggered when `bottom` of an element reach `top` of the window, and so on.
 Down below you can find list of all anchor-placement options.
 
-####Examples:
+#### Examples:
 
 ```html
   <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
@@ -131,7 +131,7 @@ Down below you can find list of all anchor-placement options.
 ```
 
 
-####API
+#### API
 
 AOS object is exposed as a global variable, for now there are three methods available:
 
