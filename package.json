@@ -19,7 +19,7 @@
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
-    "css-loader": "^0.27.0",
+    "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "jasmine-core": "^2.3.4",
     "jasmine-fixture": "^2.0.0",
