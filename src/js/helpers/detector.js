@@ -9,7 +9,7 @@ const prefixMobileRe = /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac
 
 
 function ua() {
-  return navigator.userAgent || navigator.vendor || window.opera;
+  return navigator.userAgent || navigator.vendor || window.opera || '';
 }
 
 
