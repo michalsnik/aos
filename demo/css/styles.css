@@ -8,10 +8,18 @@ body {
   box-sizing: border-box;
 }
 
-.aos-all {
-  width: 1000px;
-  max-width: 98%;
-  margin: 10vh auto 0 auto;
+/* MAKE SURE THE WRAPPER DIV IS ALWAYS 100% IN WIDTH */
+.aos-all {  
+  max-width: 100% !important;
+  width: 100% !important;
+  width: 100vw !important;
+  /* overflow is hidden since 
+  animations are outside the wrapper 
+  creating horizontal scrolling */
+  overflow: hidden;
+  /* margin is not mandatory if the wrapper
+  is neede with margins */
+  margin: 0;    
 }
 
 .aos-item {
