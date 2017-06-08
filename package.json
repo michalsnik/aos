@@ -36,7 +36,7 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.18.2",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^2.4.0"
   },
   "dependencies": {
     "classlist-polyfill": "^1.0.3",
