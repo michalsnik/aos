@@ -16,7 +16,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.9.1",
-    "babel-loader": "^6.2.4",
+    "babel-loader": "^7.1.0",
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
