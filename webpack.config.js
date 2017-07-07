@@ -28,11 +28,6 @@ module.exports = {
       }
     ]
   },
-  postcss: function (webpack) {
-    return [
-      autoprefixer
-    ];
-  },
   plugins: [
     new ExtractTextPlugin('aos.css'),
     new webpack.optimize.UglifyJsPlugin()
