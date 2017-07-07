@@ -156,17 +156,6 @@ const init = function init(settings) {
   }, 99));
 
   /**
-   * Watch if nodes are removed
-   * If so refresh plugin
-   */
-  document.addEventListener('DOMNodeRemoved', (event) => {
-    const el = event.target;
-    if (el && el.nodeType === 1 && el.hasAttribute && el.hasAttribute('data-aos')) {
-      debounce(refreshHard, 50, true)
-    }
-  });
-
-  /**
    * Observe [aos] elements
    * If something is loaded by AJAX
    * it'll refresh plugin automatically
