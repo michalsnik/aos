@@ -17,7 +17,7 @@ $aos-distance: 100px !default;
 
   &.aos-animate {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translate(0px, 0);
   }
 }
 
@@ -68,7 +68,7 @@ $aos-distance: 100px !default;
 
   &.aos-animate {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    transform: translate(0px, 0) scale(1);
   }
 }
 
@@ -123,7 +123,7 @@ $aos-distance: 100px !default;
   transition-property: transform;
 
   &.aos-animate {
-    transform: translate(0, 0);
+    transform: translate(0px, 0);
   }
 }
 
