@@ -26,7 +26,7 @@
     "jasmine-fixture": "^2.0.0",
     "jasmine-jquery": "^2.1.1",
     "jquery": "^3.1.1",
-    "karma": "^1.4.0",
+    "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-jquery": "^0.1.1",
