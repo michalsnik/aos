@@ -38,7 +38,9 @@ let options = {
   duration: 400,
   disable: false,
   once: false,
-  startEvent: 'DOMContentLoaded'
+  startEvent: 'DOMContentLoaded',
+  root: null,
+  scrollContainer: null
 };
 
 /**
@@ -52,7 +54,7 @@ const refresh = function refresh(initialize = false) {
     // Extend elements objects in $aosElements with their positions
     $aosElements = prepare($aosElements, options);
     // Perform scroll event, to refresh view and show/hide elements
-    handleScroll($aosElements, options.once);
+    handleScroll($aosElements, options.once, options.scrollContainer);
 
     return $aosElements;
   }
@@ -63,7 +65,7 @@ const refresh = function refresh(initialize = false) {
  * create array with new elements and trigger refresh
  */
 const refreshHard = function refreshHard() {
-  $aosElements = elements();
+  $aosElements = elements(null, options.root);
   refresh();
 };
 
@@ -104,8 +106,14 @@ const isDisabled = function(optionDisable) {
 const init = function init(settings) {
   options = Object.assign(options, settings);
 
+  options.root = options.root || document;
+  options.scrollContainer = options.scrollContainer || window;
+
+  // En caso que haya shadowDOM
+  options.root = options.root.shadowRoot || options.root;
+
   // Create initial array with elements -> to be fullfilled later with prepare()
-  $aosElements = elements();
+  $aosElements = elements(null, options.root);
 
   /**
    * Don't init plugin if option `disable` is set
@@ -119,9 +127,10 @@ const init = function init(settings) {
    * Set global settings on body, based on options
    * so CSS can use it
    */
-  document.querySelector('body').setAttribute('data-aos-easing', options.easing);
-  document.querySelector('body').setAttribute('data-aos-duration', options.duration);
-  document.querySelector('body').setAttribute('data-aos-delay', options.delay);
+  var tagConfig = options.root != document ? options.root.querySelector('div'): document.querySelector('body');
+  tagConfig.setAttribute('data-aos-easing', options.easing);
+  tagConfig.setAttribute('data-aos-duration', options.duration);
+  tagConfig.setAttribute('data-aos-delay', options.delay);
 
   /**
    * Handle initializing
@@ -151,8 +160,8 @@ const init = function init(settings) {
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener('scroll', throttle(() => {
-    handleScroll($aosElements, options.once);
+  options.scrollContainer.addEventListener('scroll', throttle(() => {
+    handleScroll($aosElements, options.once, options.scrollContainer);
   }, 99));
 
   /**

@@ -1,11 +1,13 @@
 // Generate Duration && Delay
 [data-aos] {
   @for $i from 1 through 60 {
+    :host [data-aos-duration='#{$i * 50}'] &,
     body[data-aos-duration='#{$i * 50}'] &,
     &[data-aos][data-aos-duration='#{$i * 50}'] {
       transition-duration: #{$i * 50}ms;
     }
 
+    :host [data-aos-delay='#{$i * 50}'] &,
     body[data-aos-delay='#{$i * 50}'] &,
     &[data-aos][data-aos-delay='#{$i * 50}'] {
       transition-delay: 0;
