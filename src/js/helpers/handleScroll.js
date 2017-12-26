@@ -24,9 +24,10 @@ const setState = function (el, top, once) {
  * @param  {bool} once               plugin option
  * @return {void}
  */
-const handleScroll = function ($elements, once) {
-  const scrollTop = window.pageYOffset;
-  const windowHeight = window.innerHeight;
+const handleScroll = function ($elements, once, container) {
+  container = container || window;
+  var scrollTop = container == window ? window.pageYOffset : container.scrollTop;
+  var windowHeight = container == window? window.innerHeight : container.offsetHeight;
   /**
    * Check all registered elements positions
    * and animate them on scroll
