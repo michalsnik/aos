@@ -1,9 +1,12 @@
 const doc = window.document;
-const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+const MutationObserver =
+  window.MutationObserver ||
+  window.WebKitMutationObserver ||
+  window.MozMutationObserver;
 
 let callback = () => {};
 
-function ready (selector, fn) {
+function ready(selector, fn) {
   const observer = new MutationObserver(check);
   callback = fn;
 
@@ -18,15 +21,15 @@ function check(mutations) {
   if (!mutations) return;
 
   mutations.forEach(mutation => {
-    const addedNodes = Array.prototype.slice.call(mutation.addedNodes)
-    const removedNodes = Array.prototype.slice.call(mutation.removedNodes)
+    const addedNodes = Array.prototype.slice.call(mutation.addedNodes);
+    const removedNodes = Array.prototype.slice.call(mutation.removedNodes);
 
-    const anyAOSElementAdded = addedNodes.concat(removedNodes)
-      .filter(el => el.hasAttribute && el.hasAttribute('data-aos'))
-      .length
+    const anyAOSElementAdded = addedNodes
+      .concat(removedNodes)
+      .filter(el => el.hasAttribute && el.hasAttribute('data-aos')).length;
 
-    if(anyAOSElementAdded) {
-      callback()
+    if (anyAOSElementAdded) {
+      callback();
     }
   });
 }
