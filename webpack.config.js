@@ -4,14 +4,12 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: './src/js/aos.js',
-  devtool: 'source-map',
   output: {
     path: './dist',
     publicPath: 'dist/',
     filename: 'aos.js',
     library: 'AOS',
     libraryTarget: 'umd',
-    sourceMapFilename: '[file].map'
   },
   devServer: {
     contentBase: 'demo/'
