@@ -30,7 +30,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-jquery": "^0.1.1",
-    "karma-webpack": "^2.0.1",
+    "karma-webpack": "^3.0.0",
     "node-sass": "^4.3.0",
     "phantomjs": "^2.1.7",
     "postcss-loader": "^2.0.6",
