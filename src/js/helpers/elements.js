@@ -5,15 +5,7 @@
  */
 const createArrayWithElements = function (elements) {
   elements = elements || document.querySelectorAll('[data-aos]');
-  let finalElements = [];
-
-  [].forEach.call(elements, function(el, i) {
-    finalElements.push({
-      node: el
-    });
-  });
-
-  return finalElements;
+  return Array.prototype.map.call(elements, node => ({ node }));
 };
 
 export default createArrayWithElements;
