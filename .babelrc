@@ -1,4 +1,11 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["transform-object-assign"]
+  "presets": [
+    ["env", {
+      "modules": false
+    }]
+  ],
+  "plugins": [
+    "transform-object-assign",
+    "external-helpers"
+  ]
 }

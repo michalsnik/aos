@@ -4,7 +4,6 @@
  * made to animate elements on scroll in both directions
  * *******************************************************
  */
-
 import styles from './../sass/aos.scss';
 
 // Modules & helpers
@@ -169,7 +168,7 @@ const init = function init(settings) {
  * Export Public API
  */
 
-module.exports = {
+export default {
   init,
   refresh,
   refreshHard
