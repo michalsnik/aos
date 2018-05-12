@@ -296,8 +296,6 @@ You can choose one of these timing function to animate elements nicely:
 
 ## ✌️ [Contributing](CONTRIBUTING.md)
 
-## 📝 [Changelog](CHANGELOG.md)
-
 ## ❔Questions
 
 If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.
