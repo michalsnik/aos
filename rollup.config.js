@@ -2,13 +2,16 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
+import uglify from 'rollup-plugin-uglify';
 import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import pkg from './package.json';
 
 const transformStyles = postcss({
   extract: 'dist/aos.css',
   plugins: [
-    autoprefixer
+    autoprefixer,
+    cssnano,
   ]
 });
 
@@ -29,6 +32,7 @@ export default [
 			babel({
         exclude: ['node_modules/**']
       }),
+      uglify(),
 		],
 	},
 	{
@@ -42,7 +46,7 @@ export default [
       transformStyles,
 			babel({
 				exclude: ['node_modules/**']
-			}),
+      }),
 		],
 	},
 ];

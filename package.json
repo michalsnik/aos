@@ -21,6 +21,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.7.0",
+    "cssnano": "^3.10.0",
     "cypress": "^2.1.0",
     "live-server": "tapio/live-server#master",
     "node-sass": "^4.9.0",
@@ -29,7 +30,8 @@
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-postcss": "^1.6.1"
+    "rollup-plugin-postcss": "^1.6.1",
+    "rollup-plugin-uglify": "^3.0.0"
   },
   "dependencies": {
     "classlist-polyfill": "^1.2.0",
