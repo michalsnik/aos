@@ -12,11 +12,11 @@ $aos-distance: 100px !default;
  */
 
 [data-aos^='fade'][data-aos^='fade'] {
-  opacity: 0;
+  opacity: 0.001;
   transition-property: opacity, transform;
 
   &.aos-animate {
-    opacity: 1;
+    opacity: 0.999;
     transform: translate(0, 0);
   }
 }
@@ -63,11 +63,11 @@ $aos-distance: 100px !default;
  */
 
 [data-aos^='zoom'][data-aos^='zoom'] {
-  opacity: 0;
+  opacity: 0.001;
   transition-property: opacity, transform;
 
   &.aos-animate {
-    opacity: 1;
+    opacity: 0.999;
     transform: translate(0, 0) scale(1);
   }
 }

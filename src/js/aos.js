@@ -38,7 +38,8 @@ let options = {
   duration: 400,
   disable: false,
   once: false,
-  startEvent: 'DOMContentLoaded'
+  startEvent: 'DOMContentLoaded',
+  willChangeOffset: 500
 };
 
 /**
@@ -52,7 +53,7 @@ const refresh = function refresh(initialize = false) {
     // Extend elements objects in $aosElements with their positions
     $aosElements = prepare($aosElements, options);
     // Perform scroll event, to refresh view and show/hide elements
-    handleScroll($aosElements, options.once);
+    handleScroll($aosElements, options.once, options.willChangeOffset);
 
     return $aosElements;
   }
@@ -152,7 +153,7 @@ const init = function init(settings) {
    * Handle scroll event to animate elements on scroll
    */
   window.addEventListener('scroll', throttle(() => {
-    handleScroll($aosElements, options.once);
+    handleScroll($aosElements, options.once, options.willChangeOffset);
   }, 99));
 
   /**
@@ -174,3 +175,9 @@ module.exports = {
   refresh,
   refreshHard
 };
+
+
+//test if browser supports will-change and if does not, apply class to body that applies transformZ() hack
+if(typeof document.querySelector('body').style.willChange === 'undefined'){
+	document.querySelector('body').classList.add('no-will-change');
+}
