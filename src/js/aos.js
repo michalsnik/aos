@@ -39,7 +39,9 @@ let options = {
   disable: false,
   once: false,
   startEvent: 'DOMContentLoaded',
-  disableMutationObserver: false
+  throttleDelay: 99,
+  debounceDelay: 50,
+  disableMutationObserver: false,
 };
 
 /**
@@ -146,15 +148,15 @@ const init = function init(settings) {
   /**
    * Refresh plugin on window resize or orientation change
    */
-  window.addEventListener('resize', debounce(refresh, 50, true));
-  window.addEventListener('orientationchange', debounce(refresh, 50, true));
+  window.addEventListener('resize', debounce(refresh, options.debounceDelay, true));
+  window.addEventListener('orientationchange', debounce(refresh, options.debounceDelay, true));
 
   /**
    * Handle scroll event to animate elements on scroll
    */
   window.addEventListener('scroll', throttle(() => {
     handleScroll($aosElements, options.once);
-  }, 99));
+  }, options.throttleDelay));
 
   /**
    * Observe [aos] elements
