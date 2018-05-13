@@ -28,63 +28,45 @@ If you scroll back to top, elements will animate to it's previous state and are 
 
 ---
 
-## ❗ Attention
-From version `2.0.0` attributes `aos` are no longer supported, always use `data-aos`.
+## ⚙ Installation
 
-## ⚙ Setup
-
-### Install AOS
-
-- Using `bower`
-
-    ```bash
-      bower install aos --save
-    ```
-
-- Using `npm`
-
-    ```bash
-      npm install aos --save
-    ```
-
-- Direct download -> [click here](https://github.com/michalsnik/aos/archive/master.zip)
-
-
-### Link styles
+Add styles in `<head>`:
 
 ```html
-  <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos/dist/aos.css" />
 ```
 
-### Add scripts
-
+Add script right before closing `</body>` tag:
 ```html
-  <script src="bower_components/aos/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos/dist/aos.js"></script>
 ```
 
-AOS from version `1.2.0` is available as UMD module, so you can use it as AMD, Global, Node or ES6 module.
+You can also:
 
-### Init AOS
-
-```javascript
-  <script>
-    AOS.init();
-  </script>
-```
+* `yarn add aos`
+* `npm install --save aos`
 
 ## 🤔 How to use it?
 
+First you have to initialize AOS:
+
+```html
+<script>
+  AOS.init();
+</script>
+```
+
 ### Basic usage
 
-  All you have to do is to add `data-aos` attribute to html element, like so:
+  Add `data-aos` attribute to html elements:
 
 ```html
   <div data-aos="animation_name">
 ```
 
-  Script will trigger "animation_name" animation on this element, if you scroll to it.
+  Script will trigger "animation_name" animation on this element, when you scroll to it.
 
-  [Down below](https://github.com/michalsnik/aos#-animations) is a list of all available animations for now :)
+  [Down below](https://github.com/michalsnik/aos#-animations) is a list of all available animations.
 
 ### 🔥 Advanced settings
 

@@ -2,8 +2,6 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
-import serve from 'rollup-plugin-serve';
-import livereload from 'rollup-plugin-livereload';
 import autoprefixer from 'autoprefixer';
 import pkg from './package.json';
 
@@ -31,14 +29,6 @@ export default [
 			babel({
         exclude: ['node_modules/**']
       }),
-      ...(process.env.NODE_ENV === 'dev' ? [
-        serve({
-          contentBase: ['dist', 'demo'],
-        }),
-        livereload({
-          watch: ['dist', 'demo'],
-        }),
-      ] : []),
 		],
 	},
 	{
