@@ -1,2 +1,2 @@
-describe('settings: anchor', function () {
+describe('setting: anchor', function () {
 });

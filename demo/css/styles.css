@@ -17,7 +17,7 @@ body {
 .aos-item {
   display: inline-block;
   float: left;
-  width: 33%;
+  width: 100%;
   height: 300px;
   padding: 20px;
 }
@@ -34,8 +34,14 @@ body {
   color: #fff;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 420px) {
   .aos-item {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .aos-item {
+    width: 33%;
   }
 }
