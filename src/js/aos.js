@@ -40,7 +40,8 @@ let options = {
   once: false,
   startEvent: 'DOMContentLoaded',
   throttleDelay: 99,
-  debounceDelay: 50
+  debounceDelay: 50,
+  disableMutationObserver: false,
 };
 
 /**
@@ -162,7 +163,9 @@ const init = function init(settings) {
    * If something is loaded by AJAX
    * it'll refresh plugin automatically
    */
-  observe('[data-aos]', refreshHard);
+  if (!options.disableMutationObserver) {
+    observe('[data-aos]', refreshHard);
+  }
 
   return $aosElements;
 };
