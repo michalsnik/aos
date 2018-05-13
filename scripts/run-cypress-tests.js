@@ -1,4 +1,4 @@
 const cypress = require('cypress');
-require('./start-server');
+const server = require('./start-server');
 
-cypress.run().then(() => liveServer.close());
+cypress.run().then(() => server.close());

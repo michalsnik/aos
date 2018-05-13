@@ -10,4 +10,6 @@ const params = {
   noCssInject: true,
 };
 
-liveServer.start(params);
+const server = liveServer.start(params);
+
+module.exports = server;
