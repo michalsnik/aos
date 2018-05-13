@@ -26,7 +26,8 @@ function check(mutations) {
 
     const anyAOSElementAdded = addedNodes
       .concat(removedNodes)
-      .filter(el => el.hasAttribute && el.hasAttribute('data-aos')).length;
+      .filter(el => el.hasAttribute && el.hasAttribute('data-aos'))
+      .length;
 
     if (anyAOSElementAdded) {
       callback();
