@@ -6,29 +6,21 @@ Found a bug? Have a problem with AOS? Please check past issues, maybe someone al
 
 ## Development process
 
-AOS is built using webpack.
-
 ### Setup
 
 - Install all dependencies: 
   
   ```
-  npm install
+  yarn
   ```
 
-- Run dev server:
+- Run rollup and dev server in watch mode:
   
   ```
-  npm run dev
+  yarn dev
   ```
 
-  This will run local webpack-dev-server and build AOS automatically.
-
-- Open browser and head to: 
-  [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/)
-  Server loads content from `demo` folder.
-  
-Now you are ready to play with AOS. Browser should reload automatically as you change code in `src` folder.
+  This will run [local-server](http://localhost:8080), build AOS and automatically refresh page on any changes (it loads content from `demo` folder).
 
 ### Testing
 
@@ -36,7 +28,12 @@ Before you create Pull Request make sure all tests are passing.
 
 In order to do so run:
 ```
-npm test
+yarn test
+```
+
+If you want to run tests while working on the plugin (when local-server is running on), run:
+```
+yarn test:dev
 ```
 
 ### Commiting changes
