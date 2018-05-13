@@ -1,0 +1,2 @@
+describe('settings: anchor', function () {
+});

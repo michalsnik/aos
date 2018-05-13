@@ -1,6 +1,7 @@
 describe('AOS', function () {
-  beforeEach(() => {
+  before(() => {
     cy.visit('/');
+    cy.initAOS();
   });
 
   it('Should be defined', function() {
@@ -15,26 +16,26 @@ describe('AOS', function () {
     cy.window().its('AOS.refresh').should('exist');
   });
 
-  it('Should have same number of elements after init', function() {
-    cy.window().then(({ AOS }) => {
-      const elements = AOS.init();
-      cy.get('.aos-item').should('have.length', elements.length);
-    });
-  });
-
-  it('Should have same number of elements after refresh', function() {
-    cy.window().then(({ AOS }) => {
-      let elements = AOS.init();
-      elements = AOS.refresh(true);
-      cy.get('.aos-item').should('have.length', elements.length);
-    });
+  it('Should have refreshHard method', function() {
+    cy.window().its('AOS.refreshHard').should('exist');
   });
 
   it('Should add aos-init class on all elements', function() {
-    cy.get('.aos-init').should('have.length', 42);
+    cy.get('.aos-init').should('have.length', 24);
   });
 
   it('Should add aos-animate class on all visible elements', () => {
+    cy.get('.aos-animate').should('have.length', 6);
+  });
+
+  it('Should add or remove aos-animate classes regarding to their visibility after scroll', () => {
+    cy.scrollTo(0, 200);
+    cy.get('.aos-animate').should('have.length', 9);
+
+    cy.scrollTo(0, 800);
+    cy.get('.aos-animate').should('have.length', 15);
+
+    cy.scrollTo(0, 0);
     cy.get('.aos-animate').should('have.length', 6);
   });
 });
