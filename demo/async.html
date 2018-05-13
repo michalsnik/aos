@@ -16,13 +16,17 @@
         easing: 'ease-in-out-sine'
       });
 
-      setInterval(addItem, 300);
+      if (!window.Cypress) {
+        setInterval(addItem, 150);
+      } else {
+        document.addEventListener('add-aos-item', addItem);
+      }
 
       var itemsCounter = 1;
       var container = document.getElementById('aos-demo');
 
       function addItem () {
-        if (itemsCounter > 42) return;
+        if (itemsCounter > 24) return;
         var item = document.createElement('div');
         item.classList.add('aos-item');
         item.setAttribute('data-id', itemsCounter);

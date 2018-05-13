@@ -4,9 +4,11 @@ Cypress.Commands.add('initAOS', (settings) => {
   });
 });
 
-Cypress.Commands.add('dispatchEvent', (eventName) => {
+Cypress.Commands.add('dispatchEvent', (eventName, times = 1) => {
   cy.window().then(window => {
     const event = new Event(eventName);
-    window.document.dispatchEvent(event);
+    for (let i = 0; i < times; i++) {
+      window.document.dispatchEvent(event);
+    }
   });
 });

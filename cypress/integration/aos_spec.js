@@ -35,7 +35,27 @@ describe('AOS', function () {
     cy.scrollTo(0, 800);
     cy.get('.aos-animate').should('have.length', 15);
 
-    cy.scrollTo(0, 0);
+    cy.scrollTo('top');
+    cy.get('.aos-animate').should('have.length', 6);
+  });
+
+  it('Should refresh on window resize and orientation change', () => {
+    cy.viewport('iphone-6');
+    cy.get('.aos-animate').should('have.length', 2);
+
+    cy.scrollTo(0, 100);
+    cy.get('.aos-animate').should('have.length', 2);
+
+    cy.viewport('iphone-6', 'landscape');
+    cy.get('.aos-animate').should('have.length', 4);
+
+    cy.scrollTo(0, 450);
+    cy.get('.aos-animate').should('have.length', 6);
+
+    cy.scrollTo('top')
+    cy.get('.aos-animate').should('have.length', 2);
+
+    cy.viewport('macbook-13')
     cy.get('.aos-animate').should('have.length', 6);
   });
 });
