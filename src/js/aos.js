@@ -76,6 +76,8 @@ const disable = function() {
     el.node.removeAttribute('data-aos-easing');
     el.node.removeAttribute('data-aos-duration');
     el.node.removeAttribute('data-aos-delay');
+    el.node.classList.remove('aos-init');
+    el.node.classList.remove('aos-animate');
   });
 };
 
@@ -151,7 +153,7 @@ const init = function init(settings) {
    * Handle scroll event to animate elements on scroll
    */
   window.addEventListener('scroll', throttle(() => {
-    handleScroll($aosElements, options.once);
+    handleScroll($aosElements, options.once)
   }, 99));
 
   /**

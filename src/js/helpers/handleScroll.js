@@ -7,7 +7,7 @@
 const setState = function (el, top, once) {
   const attrOnce = el.node.getAttribute('data-aos-once');
 
-  if (top > el.position) {
+  if (top >= el.position) {
     el.node.classList.add('aos-animate');
   } else if (typeof attrOnce !== 'undefined') {
     if (attrOnce === 'false' || (!once && attrOnce !== 'true')) {
