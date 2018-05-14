@@ -3,8 +3,8 @@
  * @param {node} el         element
  * @param {int}  top        scrolled distance
  */
-const setState = function (el, top) {
-  if (top >= el.position.out && !el.options.once && el.options.mirror) {
+const setState = (el, top) => {
+  if (el.options.mirror && top >= el.position.out && !el.options.once) {
     el.node.classList.remove('aos-animate');
   }
   else if (top >= el.position.in) {
@@ -19,19 +19,11 @@ const setState = function (el, top) {
  * Scroll logic - add or remove 'aos-animate' class on scroll
  *
  * @param  {array} $elements         array of elements nodes
- * @param  {bool} once               plugin option
  * @return {void}
  */
-const handleScroll = function ($elements) {
-  const scrollTop = window.pageYOffset;
-  const windowHeight = window.innerHeight;
-  /**
-   * Check all registered elements positions
-   * and animate them on scroll
-   */
-  $elements.forEach((el, i) => {
-    setState(el, windowHeight + scrollTop);
-  });
-};
+const handleScroll = $elements =>
+  $elements.forEach((el, i) =>
+    setState(el, window.pageYOffset)
+  );
 
 export default handleScroll;

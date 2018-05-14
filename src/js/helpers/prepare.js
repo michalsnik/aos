@@ -1,23 +1,26 @@
 /* Clearing variables */
 
-import calculateOffset from './calculateOffset';
+import { getPositionIn, getPositionOut } from './offsetCalculator';
 import getInlineOption from './getInlineOption';
 
 const prepare = function ($elements, options) {
   $elements.forEach((el, i) => {
-    const positionIn = calculateOffset(el.node, options.offset);
-    const positionOut = positionIn + window.innerHeight;
+    const mirror = getInlineOption(el.node, 'mirror', options.mirror);
+    const once = getInlineOption(el.node, 'once', options.once);
 
     el.node.classList.add('aos-init');
+
     el.position = {
-      in: positionIn,
-      out: positionOut
+      in: getPositionIn(el.node, options.offset),
+      out: mirror && getPositionOut(el.node, options.offset),
     };
+
     el.options = {
-      once: getInlineOption(el, 'once', options.once),
-      mirror: getInlineOption(el, 'mirror', options.mirror)
-    }
+      once,
+      mirror,
+    };
   });
+
   return $elements;
 };
 

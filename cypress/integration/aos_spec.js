@@ -55,7 +55,7 @@ describe('AOS', function () {
     cy.scrollTo('top')
     cy.get('.aos-animate').should('have.length', 2);
 
-    cy.viewport('macbook-13')
+    cy.viewport(1280, 720);
     cy.get('.aos-animate').should('have.length', 6);
   });
 });
