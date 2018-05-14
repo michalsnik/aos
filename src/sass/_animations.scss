@@ -17,7 +17,7 @@ $aos-distance: 100px !default;
 
   &.aos-animate {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: none;
   }
 }
 
