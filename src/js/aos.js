@@ -38,7 +38,10 @@ let options = {
   disable: false,
   once: false,
   mirror: false,
-  startEvent: 'DOMContentLoaded'
+  startEvent: 'DOMContentLoaded',
+  animatedClassName: 'aos-animate',
+  initClassName: 'aos-init',
+  useClassNames: false,
 };
 
 /**
@@ -77,8 +80,14 @@ const disable = function() {
     el.node.removeAttribute('data-aos-easing');
     el.node.removeAttribute('data-aos-duration');
     el.node.removeAttribute('data-aos-delay');
-    el.node.classList.remove('aos-init');
-    el.node.classList.remove('aos-animate');
+
+    if (options.initClassName) {
+      el.node.classList.remove(options.initClassName);
+    }
+
+    if (options.animatedClassName) {
+      el.node.classList.remove(options.animatedClassName);
+    }
   });
 };
 

@@ -1,17 +1,33 @@
 /**
+ * Adds multiple classes on node
+ * @param {DOMNode} node
+ * @param {array}  classes
+ */
+const addClasses = (node, classes) =>
+  classes && classes.forEach(className => node.classList.add(className));
+
+/**
+ * Removes multiple classes from node
+ * @param {DOMNode} node
+ * @param {array}  classes
+ */
+const removeClasses = (node, classes) =>
+  classes && classes.forEach(className => node.classList.remove(className));
+
+/**
  * Set or remove aos-animate class
  * @param {node} el         element
  * @param {int}  top        scrolled distance
  */
-const setState = (el, top) => {
-  if (el.options.mirror && top >= el.position.out && !el.options.once) {
-    el.node.classList.remove('aos-animate');
+const applyClasses = ({ options, position, node }, top) => {
+  if (options.mirror && top >= position.out && !options.once) {
+    removeClasses(node, options.animatedClassNames);
   }
-  else if (top >= el.position.in) {
-    el.node.classList.add('aos-animate');
+  else if (top >= position.in) {
+    addClasses(node, options.animatedClassNames);
   }
-  else if (!el.options.once) {
-    el.node.classList.remove('aos-animate');
+  else if (!options.once) {
+    removeClasses(node, options.animatedClassNames);
   }
 };
 
@@ -21,9 +37,9 @@ const setState = (el, top) => {
  * @param  {array} $elements         array of elements nodes
  * @return {void}
  */
-const handleScroll = $elements =>
+const handleScroll = ($elements) =>
   $elements.forEach((el, i) =>
-    setState(el, window.pageYOffset)
+    applyClasses(el, window.pageYOffset)
   );
 
 export default handleScroll;
