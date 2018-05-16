@@ -7,6 +7,7 @@ const prepare = function ($elements, options) {
   $elements.forEach((el, i) => {
     const mirror = getInlineOption(el.node, 'mirror', options.mirror);
     const once = getInlineOption(el.node, 'once', options.once);
+    const id = getInlineOption(el.node, 'id');
     const customClassNames = options.useClassNames && el.node.getAttribute('data-aos');
 
     const animatedClassNames = [
@@ -23,10 +24,18 @@ const prepare = function ($elements, options) {
       out: mirror && getPositionOut(el.node, options.offset),
     };
 
+    el.data = el.node.getAttributeNames()
+      .reduce((acc, attr) => {
+        return Object.assign({}, acc, {
+          [attr]: el.node.getAttribute(attr),
+        });
+      }, {});
+
     el.options = {
       once,
       mirror,
       animatedClassNames,
+      id,
     };
   });
 

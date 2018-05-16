@@ -21,7 +21,7 @@
       <div data-id="7" class="aos-item" data-aos="fade-in"></div>
       <div data-id="8" class="aos-item" data-aos="fade-down"></div>
       <div data-id="9" class="aos-item" data-aos="fade-in"></div>
-      <div data-id="10" class="aos-item" data-aos="fade-down"></div>
+      <div data-id="10" class="aos-item" data-aos="fade-down" data-aos-id="super-duper"></div>
       <div data-id="11" class="aos-item" data-aos="fade-up"></div>
       <div data-id="12" class="aos-item" data-aos="fade-down"></div>
       <div data-id="13" class="aos-item" data-aos="fade-in"></div>
@@ -42,6 +42,10 @@
     <script>
       if (!window.Cypress) AOS.init({
         mirror: true
+      });
+
+      document.addEventListener('aos:in:super-duper', ({ detail }) => {
+        console.log('in!', detail);
       });
     </script>
   </body>

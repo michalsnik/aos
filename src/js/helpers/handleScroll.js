@@ -14,20 +14,53 @@ const addClasses = (node, classes) =>
 const removeClasses = (node, classes) =>
   classes && classes.forEach(className => node.classList.remove(className));
 
+const fireEvent = (eventName, data) => {
+  const customEvent = new CustomEvent(eventName, {
+    detail: data,
+  });
+  return document.dispatchEvent(customEvent);
+}
+
 /**
  * Set or remove aos-animate class
  * @param {node} el         element
  * @param {int}  top        scrolled distance
  */
-const applyClasses = ({ options, position, node }, top) => {
-  if (options.mirror && top >= position.out && !options.once) {
+const applyClasses = (el, top) => {
+  const { options, position, node, data } = el;
+
+  const hide = () => {
+    if (!el.animated) return;
+
     removeClasses(node, options.animatedClassNames);
-  }
-  else if (top >= position.in) {
+    fireEvent('aos:out', node);
+
+    if (el.options.id) {
+      fireEvent(`aos:in:${el.options.id}`, node);
+    }
+
+    el.animated = false;
+  };
+
+  const show = () => {
+    if (el.animated) return;
+
     addClasses(node, options.animatedClassNames);
-  }
-  else if (!options.once) {
-    removeClasses(node, options.animatedClassNames);
+
+    fireEvent('aos:in', node);
+    if (el.options.id) {
+      fireEvent(`aos:in:${el.options.id}`, node);
+    }
+
+    el.animated = true;
+  };
+
+  if (options.mirror && top >= position.out && !options.once) {
+    hide();
+  } else if (top >= position.in) {
+    show();
+  } else if (el.animated && !options.once) {
+    hide();
   }
 };
 
