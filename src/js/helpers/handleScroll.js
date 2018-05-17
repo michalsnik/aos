@@ -16,10 +16,10 @@ const removeClasses = (node, classes) =>
 
 const fireEvent = (eventName, data) => {
   const customEvent = new CustomEvent(eventName, {
-    detail: data,
+    detail: data
   });
   return document.dispatchEvent(customEvent);
-}
+};
 
 /**
  * Set or remove aos-animate class
@@ -70,9 +70,7 @@ const applyClasses = (el, top) => {
  * @param  {array} $elements         array of elements nodes
  * @return {void}
  */
-const handleScroll = ($elements) =>
-  $elements.forEach((el, i) =>
-    applyClasses(el, window.pageYOffset)
-  );
+const handleScroll = $elements =>
+  $elements.forEach((el, i) => applyClasses(el, window.pageYOffset));
 
 export default handleScroll;

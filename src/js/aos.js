@@ -41,7 +41,7 @@ let options = {
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
-  useClassNames: false,
+  useClassNames: false
 };
 
 /**
@@ -91,16 +91,17 @@ const disable = function() {
   });
 };
 
-
 /**
  * Check if AOS should be disabled based on provided setting
  */
 const isDisabled = function(optionDisable) {
-  return optionDisable === true ||
-  (optionDisable === 'mobile' && detect.mobile()) ||
-  (optionDisable === 'phone' && detect.phone()) ||
-  (optionDisable === 'tablet' && detect.tablet()) ||
-  (typeof optionDisable === 'function' && optionDisable() === true);
+  return (
+    optionDisable === true ||
+    (optionDisable === 'mobile' && detect.mobile()) ||
+    (optionDisable === 'phone' && detect.phone()) ||
+    (optionDisable === 'tablet' && detect.tablet()) ||
+    (typeof optionDisable === 'function' && optionDisable() === true)
+  );
 };
 
 /**
@@ -130,15 +131,23 @@ const init = function init(settings) {
    * Set global settings on body, based on options
    * so CSS can use it
    */
-  document.querySelector('body').setAttribute('data-aos-easing', options.easing);
-  document.querySelector('body').setAttribute('data-aos-duration', options.duration);
+  document
+    .querySelector('body')
+    .setAttribute('data-aos-easing', options.easing);
+
+  document
+    .querySelector('body')
+    .setAttribute('data-aos-duration', options.duration);
+
   document.querySelector('body').setAttribute('data-aos-delay', options.delay);
 
   /**
    * Handle initializing
    */
-  if (options.startEvent === 'DOMContentLoaded' &&
-    ['complete', 'interactive'].indexOf(document.readyState) > -1) {
+  if (
+    options.startEvent === 'DOMContentLoaded' &&
+    ['complete', 'interactive'].indexOf(document.readyState) > -1
+  ) {
     // Initialize AOS if default startEvent was already fired
     refresh(true);
   } else if (options.startEvent === 'load') {
@@ -162,9 +171,12 @@ const init = function init(settings) {
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener('scroll', throttle(() => {
-    handleScroll($aosElements, options.once)
-  }, 99));
+  window.addEventListener(
+    'scroll',
+    throttle(() => {
+      handleScroll($aosElements, options.once);
+    }, 99)
+  );
 
   /**
    * Observe [aos] elements

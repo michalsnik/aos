@@ -15,7 +15,9 @@ export const getPositionIn = (el, defaultOffset) => {
   const windowHeight = window.innerHeight;
   const anchor = getInlineOption(el, 'anchor');
   const anchorPlacement = getInlineOption(el, 'anchor-placement');
-  const additionalOffset = Number(getInlineOption(el, 'offset', anchorPlacement ? 0 : defaultOffset));
+  const additionalOffset = Number(
+    getInlineOption(el, 'offset', anchorPlacement ? 0 : defaultOffset)
+  );
   let finalEl = el;
 
   if (anchor && document.querySelectorAll(anchor)) {

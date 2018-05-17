@@ -19,4 +19,4 @@ export default (el, key, fallback) => {
   }
 
   return attr || fallback;
-}
+};
