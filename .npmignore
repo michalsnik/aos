@@ -3,3 +3,4 @@ src
 test
 node_modules
 cypress
+.babelrc
