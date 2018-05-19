@@ -47,9 +47,9 @@
     "watch": "NODE_ENV=dev rollup -c -w",
     "serve": "node ./scripts/start-server.js",
     "dev": "npm-run-all --parallel serve watch",
-    "test": "NODE_ENV=test node ./scripts/run-cypress-tests.js",
+    "test": "yarn lint && NODE_ENV=test node ./scripts/run-cypress-tests.js",
     "test:dev": "cypress open",
-    "lint": "eslint src",
+    "lint": "eslint src cypress demo scripts",
     "prepare": "npm run build"
   },
   "files": [
