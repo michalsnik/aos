@@ -25,12 +25,6 @@ const prepare = function($elements, options) {
       out: mirror && getPositionOut(el.node, options.offset)
     };
 
-    el.data = el.node.getAttributeNames().reduce((acc, attr) => {
-      return Object.assign({}, acc, {
-        [attr]: el.node.getAttribute(attr)
-      });
-    }, {});
-
     el.options = {
       once,
       mirror,
