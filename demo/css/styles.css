@@ -8,6 +8,15 @@ body {
   box-sizing: border-box;
 }
 
+.scroll-counter {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+}
+
 .aos-all {
   width: 1000px;
   max-width: 98%;

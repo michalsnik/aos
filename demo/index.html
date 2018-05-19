@@ -11,6 +11,7 @@
     <![endif]-->
   </head>
   <body>
+    <div class="js-scroll-counter scroll-counter"></div>
     <div class="aos-all">
       <div data-id="1" class="aos-item" data-aos="fade-up"></div>
       <div data-id="2" class="aos-item" data-aos="fade-down"></div>
@@ -40,13 +41,21 @@
 
     <script src="dist/aos.js"></script>
     <script>
-      if (!window.Cypress) AOS.init({
-        mirror: true
-      });
+      if (!window.Cypress) {
+        const scrollCounter = document.querySelector('.js-scroll-counter');
 
-      document.addEventListener('aos:in:super-duper', ({ detail }) => {
-        console.log('in!', detail);
-      });
+        AOS.init({
+          mirror: true
+        });
+
+        document.addEventListener('aos:in', ({ detail }) => {
+          console.log('in!', detail);
+        });
+
+        window.addEventListener('scroll', function() {
+          scrollCounter.innerHTML = window.scrollY;
+        });
+      }
     </script>
   </body>
 </html>
