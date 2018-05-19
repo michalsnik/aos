@@ -1,4 +1,4 @@
-describe('setting: delay', function () {
+describe('setting: delay', function() {
   before(() => {
     cy.visit('/');
   });
@@ -10,7 +10,7 @@ describe('setting: delay', function () {
 
   it('Should respect global delay setting and set attribue on body', function() {
     cy.initAOS({
-      delay: 100,
+      delay: 100
     });
     cy.get('body').should('have.attr', 'data-aos-delay', '100');
   });

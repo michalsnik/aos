@@ -1,4 +1,4 @@
-describe('setting: duration', function () {
+describe('setting: duration', function() {
   before(() => {
     cy.visit('/');
   });
@@ -10,7 +10,7 @@ describe('setting: duration', function () {
 
   it('Should respect global duration setting and set attribue on body', function() {
     cy.initAOS({
-      duration: 2000,
+      duration: 2000
     });
     cy.get('body').should('have.attr', 'data-aos-duration', '2000');
   });

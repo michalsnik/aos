@@ -1,4 +1,4 @@
-Cypress.Commands.add('initAOS', (settings) => {
+Cypress.Commands.add('initAOS', settings => {
   cy.window().then(({ AOS }) => {
     AOS.init(settings);
   });

@@ -1,4 +1,4 @@
-describe('setting: offset', function () {
+describe('setting: offset', function() {
   context('global', () => {
     before(() => {
       cy.visit('/');
@@ -7,7 +7,7 @@ describe('setting: offset', function () {
     context('400px', () => {
       before(() => {
         cy.initAOS({
-          offset: 400,
+          offset: 400
         });
       });
 
@@ -24,7 +24,7 @@ describe('setting: offset', function () {
     context('0px', () => {
       before(() => {
         cy.initAOS({
-          offset: 0,
+          offset: 0
         });
       });
 

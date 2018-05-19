@@ -1,4 +1,4 @@
-describe('mutation observer', function () {
+describe('mutation observer', function() {
   before(() => {
     cy.visit('/async.html');
     cy.initAOS();

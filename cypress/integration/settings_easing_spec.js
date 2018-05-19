@@ -1,4 +1,4 @@
-describe('setting: easing', function () {
+describe('setting: easing', function() {
   before(() => {
     cy.visit('/');
   });
@@ -10,7 +10,7 @@ describe('setting: easing', function () {
 
   it('Should respect global easing setting and set attribue on body', function() {
     cy.initAOS({
-      easing: 'ease-in-sine',
+      easing: 'ease-in-sine'
     });
     cy.get('body').should('have.attr', 'data-aos-easing', 'ease-in-sine');
   });
