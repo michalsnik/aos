@@ -118,7 +118,7 @@ By default AOS is watching for DOM changes and if there are any new elements loa
 ### JS Events
 
 AOS dispatches two events on document: `aos:in` and `aos:out` whenever any element animates in our our, so that you can do extra stuff in JS:
-```
+```js
 document.addEventListener('aos:in', ({ detail }) => {
   console.log('animated in', detail);
 });
@@ -137,8 +137,8 @@ Then you'll be able to listen for two custom events `aos:in:super-duper` and `ao
 
 ### Recepies:
 
-#### Animate.CSS (or any other) integration:
-Use `animatedClassName` to change default behaviour of AOS, and apply classes placed inside `data-aos` on scroll.
+#### Integrating external CSS animation library (e.g. Animate.css):
+Use `animatedClassName` to change default behaviour of AOS, to apply class names placed inside `data-aos` on scroll.
 
 ```html
 <div data-aos="fadeInUp"></div>
@@ -152,9 +152,9 @@ AOS.init({
 });
 ```
 
-On scroll the above element will get two classes: `animated` and `fadeInUp`. Using different combinations of the three above settings, you should be able to integrate any external CSS animation library.
+The above element will get two classes: `animated` and `fadeInUp`. Using different combinations of the three above settings, you should be able to integrate any external CSS animation library.
 
-External libraries however don't care too much about animation state before the actual animation. So if you want those elements to be not visible before scrolling to them, you might need to adress it yourself, by for example adding the following styles:
+External libraries however don't care too much about animation state before the actual animation. So if you want those elements to be not visible before scrolling, you might need to add similar styles:
 ```css
 [data-aos] {
   visibility: hidden;
