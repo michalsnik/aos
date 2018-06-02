@@ -34,7 +34,7 @@
     "node-sass": "^4.3.0",
     "phantomjs": "^2.1.7",
     "postcss-loader": "^2.0.6",
-    "sass-loader": "^4.1.1",
+    "sass-loader": "^7.0.2",
     "style-loader": "^0.18.2",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
