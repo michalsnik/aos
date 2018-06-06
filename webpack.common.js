@@ -21,7 +21,7 @@ module.exports = {
       { 
         test: /\.js$/, 
         loader: 'babel-loader', 
-        exclude: /node_modules/ 
+        exclude: [/bower_components/, /node_modules/]
       },
       {
         test: /\.scss$/,
