@@ -1,0 +1,13 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "globals": {
+    "document": true,
+    "module": true,
+    "navigator": true,
+    "window": true
+  },
+  "rules": {
+    "no-useless-escape": "off"
+  }
+}

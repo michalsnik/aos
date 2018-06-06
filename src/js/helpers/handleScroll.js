@@ -31,7 +31,7 @@ const handleScroll = function ($elements, once) {
    * Check all registered elements positions
    * and animate them on scroll
    */
-  $elements.forEach((el, i) => {
+  $elements.forEach(el => {
     setState(el, windowHeight + scrollTop, once);
   });
 };

@@ -28,6 +28,6 @@ class Detector {
   tablet() {
     return this.mobile() && !this.phone();
   }
-};
+}
 
 export default new Detector;
