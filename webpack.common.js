@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -9,10 +11,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: 'dist',
-    filename: '[name].min.js',
+    filename: '[name].js',
+    sourceMapFilename: '[name].js.map',
     library: 'AOS',
     libraryTarget: 'umd'
   },
+  devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'demo'),
   },
@@ -25,13 +29,27 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader?sourceMap', 'sass-loader', 'postcss-loader']
       }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: true
+      })
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].min.css',
+      filename: '[name].css',
+    }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        map: {
+          inline: false
+        }
+      }
     })
   ]
 };
