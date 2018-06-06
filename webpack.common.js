@@ -8,12 +8,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    publicPath: 'dist',
+    filename: '[name].min.js',
     library: 'AOS',
     libraryTarget: 'umd'
   },
   devServer: {
-    contentBase: 'demo/'
+    contentBase: path.resolve(__dirname, 'demo'),
   },
   module: {
     rules: [
@@ -24,13 +25,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader?sourceMap', 'sass-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader']
       }
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].min.css',
     })
   ]
 };
