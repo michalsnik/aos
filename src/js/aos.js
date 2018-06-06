@@ -5,7 +5,7 @@
  * *******************************************************
  */
 
-import styles from './../sass/aos.scss';
+import './../sass/aos.scss';
 
 // Modules & helpers
 import throttle from 'lodash.throttle';
@@ -75,7 +75,7 @@ const refreshHard = function refreshHard() {
  * Remove all attributes to reset applied styles
  */
 const disable = function() {
-  $aosElements.forEach(function(el, i) {
+  $aosElements.forEach(function(el) {
     el.node.removeAttribute('data-aos');
     el.node.removeAttribute('data-aos-easing');
     el.node.removeAttribute('data-aos-duration');

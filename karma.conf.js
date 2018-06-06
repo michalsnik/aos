@@ -28,10 +28,10 @@ module.exports = function(config) {
     webpack: {
       devtool: 'inline-source-map',
       module: {
-        loaders: [{
+        rules: [{
           test: /\.js?$/,
+          loader: 'babel-loader',
           exclude: [/bower_components/, /node_modules/],
-          loader: 'babel'
         }, {
           test: /\.scss$/,
           loader: "css-loader?sourceMap!sass-loader"
@@ -59,5 +59,5 @@ module.exports = function(config) {
     singleRun: singleRun,
     colors: true,
     logLevel: config.LOG_WARN
-  })
-}
+  });
+};
