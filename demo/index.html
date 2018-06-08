@@ -9,6 +9,14 @@
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
+    <style>
+    .aos-all {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+    </style>
   </head>
   <body>
     <div class="js-scroll-counter scroll-counter"></div>
@@ -45,7 +53,8 @@
         const scrollCounter = document.querySelector('.js-scroll-counter');
 
         AOS.init({
-          mirror: true
+          mirror: true,
+          targetSelector: ".aos-all"
         });
 
         document.addEventListener('aos:in', ({ detail }) => {
