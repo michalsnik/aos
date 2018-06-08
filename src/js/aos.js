@@ -41,7 +41,8 @@ let options = {
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
-  useClassNames: false
+  useClassNames: false,
+  targetSelector: 'window'
 };
 
 /**
@@ -55,7 +56,7 @@ const refresh = function refresh(initialize = false) {
     // Extend elements objects in $aosElements with their positions
     $aosElements = prepare($aosElements, options);
     // Perform scroll event, to refresh view and show/hide elements
-    handleScroll($aosElements);
+    handleScroll(0, $aosElements);
 
     return $aosElements;
   }
@@ -171,12 +172,21 @@ const init = function init(settings) {
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener(
-    'scroll',
-    throttle(() => {
-      handleScroll($aosElements, options.once);
-    }, 99)
-  );
+  if (options.targetSelector === 'window') {
+    window.addEventListener(
+      'scroll',
+      throttle(() => {
+        handleScroll(window.pageYOffset, $aosElements, options.once);
+      }, 99)
+    );
+  } else {
+    document.querySelector(options.targetSelector).addEventListener(
+      'scroll',
+      throttle(e => {
+        handleScroll(e.target.scrollTop, $aosElements, options.once);
+      }, 99)
+    );
+  }
 
   /**
    * Observe [aos] elements
