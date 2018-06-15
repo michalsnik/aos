@@ -24,10 +24,6 @@ import elements from './helpers/elements';
 let $aosElements = [];
 let initialized = false;
 
-// Detect not supported browsers (<=IE9)
-// http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-const browserNotSupported = document.all && !window.atob;
-
 /**
  * Default options
  */
@@ -109,6 +105,10 @@ const init = function init(settings) {
 
   // Create initial array with elements -> to be fullfilled later with prepare()
   $aosElements = elements();
+
+  // Detect not supported browsers (<=IE9)
+  // http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+  const browserNotSupported = document.all && !window.atob;
 
   /**
    * Don't init plugin if option `disable` is set

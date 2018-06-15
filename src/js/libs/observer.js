@@ -1,12 +1,12 @@
-const doc = window.document;
-const MutationObserver =
+let callback = () => {};
+
+function ready(selector, fn) {
+  const doc = window.document;
+  const MutationObserver =
   window.MutationObserver ||
   window.WebKitMutationObserver ||
   window.MozMutationObserver;
 
-let callback = () => {};
-
-function ready(selector, fn) {
   const observer = new MutationObserver(check);
   callback = fn;
 
