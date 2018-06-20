@@ -20,9 +20,9 @@ export default [
     output: {
       file: pkg.browser,
       name: 'AOS',
-      format: 'umd'
+      format: 'umd',
+      sourcemap: process.env.NODE_ENV === 'dev'
     },
-    sourceMap: process.env.NODE_ENV === 'dev',
     plugins: [
       transformStyles,
       resolve(),
