@@ -9,44 +9,42 @@ import pkg from './package.json';
 
 const transformStyles = postcss({
   extract: 'dist/aos.css',
-  plugins: [
-    autoprefixer,
-    cssnano,
-  ]
+  plugins: [autoprefixer, cssnano]
 });
 
 const input = 'src/js/aos.js';
 
 export default [
-	{
-		input,
-		output: {
+  {
+    input,
+    output: {
       file: pkg.browser,
       name: 'AOS',
-      format: 'umd',
+      format: 'umd'
     },
-		plugins: [
+    sourceMap: process.env.NODE_ENV === 'dev',
+    plugins: [
       transformStyles,
       resolve(),
-			commonjs(),
-			babel({
+      commonjs(),
+      babel({
         exclude: ['node_modules/**']
       }),
-      uglify(),
-		],
-	},
-	{
-		input,
-		external: Object.keys(pkg.dependencies),
-		output: [
-			{ file: pkg.main, format: 'cjs' },
-			{ file: pkg.module, format: 'es' },
-		],
-		plugins: [
+      uglify()
+    ]
+  },
+  {
+    input,
+    external: Object.keys(pkg.dependencies),
+    output: [
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'es' }
+    ],
+    plugins: [
       transformStyles,
-			babel({
-				exclude: ['node_modules/**']
-      }),
-		],
-	},
+      babel({
+        exclude: ['node_modules/**']
+      })
+    ]
+  }
 ];
