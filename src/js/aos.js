@@ -44,21 +44,32 @@ let options = {
   useClassNames: false
 };
 
+const initializeScroll = function initializeScroll() {
+  // Extend elements objects in $aosElements with their positions
+  $aosElements = prepare($aosElements, options);
+  // Perform scroll event, to refresh view and show/hide elements
+  handleScroll($aosElements);
+
+  /**
+   * Handle scroll event to animate elements on scroll
+   */
+  window.addEventListener(
+    'scroll',
+    throttle(() => {
+      handleScroll($aosElements, options.once);
+    }, 99)
+  );
+
+  return $aosElements;
+};
+
 /**
  * Refresh AOS
  */
 const refresh = function refresh(initialize = false) {
   // Allow refresh only when it was first initialized on startEvent
   if (initialize) initialized = true;
-
-  if (initialized) {
-    // Extend elements objects in $aosElements with their positions
-    $aosElements = prepare($aosElements, options);
-    // Perform scroll event, to refresh view and show/hide elements
-    handleScroll($aosElements);
-
-    return $aosElements;
-  }
+  if (initialized) initializeScroll();
 };
 
 /**
@@ -144,22 +155,23 @@ const init = function init(settings) {
   /**
    * Handle initializing
    */
+  if (['DOMContentLoaded', 'load'].indexOf(options.startEvent) === -1) {
+    // Listen to options.startEvent and initialize AOS
+    document.addEventListener(options.startEvent, function() {
+      refresh(true);
+    });
+  } else {
+    window.addEventListener('load', function() {
+      refresh(true);
+    });
+  }
+
   if (
     options.startEvent === 'DOMContentLoaded' &&
     ['complete', 'interactive'].indexOf(document.readyState) > -1
   ) {
     // Initialize AOS if default startEvent was already fired
     refresh(true);
-  } else if (options.startEvent === 'load') {
-    // If start event is 'Load' - attach listener to window
-    window.addEventListener(options.startEvent, function() {
-      refresh(true);
-    });
-  } else {
-    // Listen to options.startEvent and initialize AOS
-    document.addEventListener(options.startEvent, function() {
-      refresh(true);
-    });
   }
 
   /**
@@ -167,16 +179,6 @@ const init = function init(settings) {
    */
   window.addEventListener('resize', debounce(refresh, 50, true));
   window.addEventListener('orientationchange', debounce(refresh, 50, true));
-
-  /**
-   * Handle scroll event to animate elements on scroll
-   */
-  window.addEventListener(
-    'scroll',
-    throttle(() => {
-      handleScroll($aosElements, options.once);
-    }, 99)
-  );
 
   /**
    * Observe [aos] elements
