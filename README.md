@@ -14,9 +14,9 @@
 ### 🚀 [Demo](http://michalsnik.github.io/aos/)
 
 ### 🌟 Codepen Examples
-- [Different build in animations](http://codepen.io/michalsnik/pen/WxNdvq)
+- [Different built-in animations](http://codepen.io/michalsnik/pen/WxNdvq)
 - [With anchor setting in use](http://codepen.io/michalsnik/pen/jrOYVO)
-- [With anchor-placement and different easing](http://codepen.io/michalsnik/pen/EyxoNm)
+- [With anchor-placement and different easings](http://codepen.io/michalsnik/pen/EyxoNm)
 - [With simple custom animations](http://codepen.io/michalsnik/pen/WxvNvE)
 
 ---
@@ -26,18 +26,18 @@
 Add styles in `<head>`:
 
 ```html
-  <link rel="stylesheet" href="https://unpkg.com/aos/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 ```
 
 Add script right before closing `</body>` tag:
 ```html
-  <script src="https://unpkg.com/aos/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 ```
 
 You can also use:
 
-* `yarn add aos`
-* `npm install --save aos`
+* `yarn add aos@next`
+* `npm install --save aos@next`
 
 ## 🤔 How to use it?
 
@@ -117,7 +117,7 @@ By default AOS is watching for DOM changes and if there are any new elements loa
 
 ### JS Events
 
-AOS dispatches two events on document: `aos:in` and `aos:out` whenever any element animates in our our, so that you can do extra stuff in JS:
+AOS dispatches two events on document: `aos:in` and `aos:out` whenever any element animates in or out, so that you can do extra stuff in JS:
 ```js
 document.addEventListener('aos:in', ({ detail }) => {
   console.log('animated in', detail);
@@ -133,7 +133,9 @@ You can also tell AOS to trigger custom event on specific element, by setting `d
 <div data-aos="fade-in" data-aos-id="super-duper"></div>
 ```
 
-Then you'll be able to listen for two custom events `aos:in:super-duper` and `aos:out:super-duper`.
+Then you'll be able to listen for two custom events then:
+- `aos:in:super-duper`
+- `aos:out:super-duper`
 
 ### Recepies:
 
