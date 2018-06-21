@@ -121,8 +121,10 @@ $aos-distance: 100px !default;
 
 [data-aos^='slide'][data-aos^='slide'] {
   transition-property: transform;
+  visibility: hidden;
 
   &.aos-animate {
+    visibility: visible;
     transform: translate3d(0, 0, 0);
   }
 }
