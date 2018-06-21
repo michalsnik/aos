@@ -1,6 +1,6 @@
 /**
- * Get offset of DOM element Helper
- * including these with translation
+ * Get offset of DOM element
+ * like there were no transforms applied on it
  *
  * @param  {Node} el [DOM element]
  * @return {Object} [top and left offset]
