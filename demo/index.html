@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     <meta charset="utf-8">
     <title>AOS - Animate on scroll library</title>
@@ -41,6 +41,7 @@
 
     <script src="dist/aos.js"></script>
     <script>
+      document.querySelector('html').classList.remove('no-js');
       if (!window.Cypress) {
         const scrollCounter = document.querySelector('.js-scroll-counter');
 
