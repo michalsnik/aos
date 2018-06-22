@@ -40,6 +40,10 @@ let options = {
   useClassNames: false
 };
 
+// Detect not supported browsers (<=IE9)
+// http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+const isBrowserNotSupported = () => document.all && !window.atob;
+
 const initializeScroll = function initializeScroll() {
   // Extend elements objects in $aosElements with their positions
   $aosElements = prepare($aosElements, options);
@@ -74,6 +78,11 @@ const refresh = function refresh(initialize = false) {
  */
 const refreshHard = function refreshHard() {
   $aosElements = elements();
+
+  if (isDisabled(options.disable) || isBrowserNotSupported()) {
+    return disable();
+  }
+
   refresh();
 };
 
@@ -126,15 +135,18 @@ const init = function init(settings) {
   // Create initial array with elements -> to be fullfilled later with prepare()
   $aosElements = elements();
 
-  // Detect not supported browsers (<=IE9)
-  // http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-  const browserNotSupported = document.all && !window.atob;
+  /**
+   * Observe [aos] elements
+   * If something is loaded by AJAX
+   * it'll refresh plugin automatically
+   */
+  observe('[data-aos]', refreshHard);
 
   /**
    * Don't init plugin if option `disable` is set
    * or when browser is not supported
    */
-  if (isDisabled(options.disable) || browserNotSupported) {
+  if (isDisabled(options.disable) || isBrowserNotSupported()) {
     return disable();
   }
 
@@ -179,13 +191,6 @@ const init = function init(settings) {
    */
   window.addEventListener('resize', debounce(refresh, 50, true));
   window.addEventListener('orientationchange', debounce(refresh, 50, true));
-
-  /**
-   * Observe [aos] elements
-   * If something is loaded by AJAX
-   * it'll refresh plugin automatically
-   */
-  observe('[data-aos]', refreshHard);
 
   return $aosElements;
 };
