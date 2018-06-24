@@ -205,9 +205,11 @@ Example usage:
   <div data-aos="fade-in" data-aos-duration="4000"></div>
 ```
 
-### 👻 Animations
+---
 
-There are serveral predefined animations you can use already:
+## Predefined options
+
+### Animations
 
   * Fade animations:
     * fade
@@ -244,7 +246,7 @@ There are serveral predefined animations you can use already:
     * zoom-out-left
     * zoom-out-right
 
-### Anchor placement:
+### Anchor placements:
 
   * top-bottom
   * top-center
@@ -257,8 +259,6 @@ There are serveral predefined animations you can use already:
   * bottom-top
 
 ### Easing functions:
-
-You can choose one of these timing function to animate elements nicely:
 
   * linear
   * ease
@@ -280,6 +280,8 @@ You can choose one of these timing function to animate elements nicely:
   * ease-in-quart
   * ease-out-quart
   * ease-in-out-quart
+
+---
 
 ## ✌️ [Contributing](CONTRIBUTING.md)
 
