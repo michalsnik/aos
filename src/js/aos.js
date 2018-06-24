@@ -34,6 +34,7 @@ let options = {
   disable: false,
   once: false,
   mirror: false,
+  anchorPlacement: 'top-bottom',
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',

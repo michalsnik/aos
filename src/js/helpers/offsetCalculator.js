@@ -11,13 +11,14 @@
 import getOffset from './../libs/offset';
 import getInlineOption from './getInlineOption';
 
-export const getPositionIn = (el, defaultOffset) => {
+export const getPositionIn = (el, defaultOffset, defaultAnchorPlacement) => {
   const windowHeight = window.innerHeight;
   const anchor = getInlineOption(el, 'anchor');
-  const anchorPlacement = getInlineOption(el, 'anchor-placement');
+  const inlineAnchorPlacement = getInlineOption(el, 'anchor-placement');
   const additionalOffset = Number(
-    getInlineOption(el, 'offset', anchorPlacement ? 0 : defaultOffset)
+    getInlineOption(el, 'offset', inlineAnchorPlacement ? 0 : defaultOffset)
   );
+  const anchorPlacement = inlineAnchorPlacement || defaultAnchorPlacement;
   let finalEl = el;
 
   if (anchor && document.querySelectorAll(anchor)) {
