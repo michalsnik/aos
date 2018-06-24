@@ -3,9 +3,9 @@ let callback = () => {};
 function ready(selector, fn) {
   const doc = window.document;
   const MutationObserver =
-  window.MutationObserver ||
-  window.WebKitMutationObserver ||
-  window.MozMutationObserver;
+    window.MutationObserver ||
+    window.WebKitMutationObserver ||
+    window.MozMutationObserver;
 
   const observer = new MutationObserver(check);
   callback = fn;
