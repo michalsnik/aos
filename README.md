@@ -39,6 +39,9 @@ You can also use:
 * `yarn add aos@next`
 * `npm install --save aos@next`
 
+---
+
+
 ## 🤔 How to use it?
 
 ### 1. Initialize AOS:
@@ -50,54 +53,63 @@ You can also use:
   // You can also pass an optional settings object
   // below listed default settings
   AOS.init({
+    // Global settings
+    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+    initClassName: 'aos-init', // class applied after initialization
+    animatedClassName: 'aos-animate', // class applied on animation
+    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+
+    // Settings that can be overriden on per-element basis, by `data-aos-*` attributes:
     offset: 120, // offset (in px) from the original trigger point
     delay: 0, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
     duration: 400, // values from 0 to 3000, with step 50ms
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    easing: 'ease', // default easing for AOS animations
     once: false, // whether animation should happen only once - while scrolling down
     mirror: false, // whether elements should animate out while scrolling past them
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    animatedClassName: 'aos-animate', // class applied on animation
-    initClassName: 'aos-init', // class applied after initialization
-    useClassNames: false // if true, will add content of `data-aos` as classes on scroll
+    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   });
 </script>
 ```
 
-### 2. Add attributes on HTML elements:
+### 2. Set animation using `data-aos` attribute:
 
 ```html
   <div data-aos="fade-in"></div>
 ```
 
+And adjust behaviour by using `data-aos-*` attributes:
+```html
+  <div
+    data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false"
+    data-aos-anchor-placement="top-center"
+  >
+  </div>
+```
+
 [See full list of all animations, easings and anchor placements](https://github.com/michalsnik/aos#-animations)
 
+#### Anchor
 
-#### Available attributes
-
-You can overwrite some of the global settings on per-element basis by using following attributes:
-* `data-aos-offset`
-* `data-aos-duration`
-* `data-aos-easing`
-* `data-aos-delay`
-* `data-aos-once`
-* `data-aos-mirror`
-
-There are also few settings that can be used only on per-element basis:
-* `data-aos-anchor` - element whose offset will be used to trigger animation instead of an actual one
-* `data-aos-anchor-placement` (default `top-bottom`) - defines which position of the element regarding to window should trigger the animation. `top-bottom` means that the animation will be triggered once top of the element hits bottom of the screen.
+There is also a setting that can be used only on per-element basis:
+* `data-aos-anchor` - element whose offset will be used to trigger animation instead of an actual one.
 
 Examples:
 ```html
-<div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600"></div>
-  
-<div data-aos="flip-left" data-aos-delay="100" data-aos-anchor=".example-selector"></div>
-
-<div data-aos="fade-up" data-aos-anchor-placement="top-center"></div>
+<div data-aos="fade-up" data-aos-anchor=".other-element"></div>
 ```
 
-### API
+This way you can trigger animation on one element, while you scroll to another - useful in animating fixed elements.
+
+---
+
+## API
 
 AOS object is exposed as a global variable, for now there are three methods available:
 
@@ -114,8 +126,9 @@ By default AOS is watching for DOM changes and if there are any new elements loa
 
 `refresh` method is called on window resize and so on, as it doesn't require to build new store with AOS elements and should be as light as possible.
 
+---
 
-### JS Events
+## JS Events
 
 AOS dispatches two events on document: `aos:in` and `aos:out` whenever any element animates in or out, so that you can do extra stuff in JS:
 ```js
@@ -137,7 +150,9 @@ Then you'll be able to listen for two custom events then:
 - `aos:in:super-duper`
 - `aos:out:super-duper`
 
-### Recepies:
+---
+
+## Recepies:
 
 #### Integrating external CSS animation library (e.g. Animate.css):
 Use `animatedClassName` to change default behaviour of AOS, to apply class names placed inside `data-aos` on scroll.
@@ -166,25 +181,29 @@ External libraries however don't care too much about animation state before the 
 }
 ```
 
-### Caveats:
+---
 
-#### setting: duration:
-*Duration accept values from 50 to 3000, with step 50ms, it's because duration of animation is handled by css, and to not make css longer than it is already I created implementations only in this range. I think this should be good for almost all cases.
+## Caveats:
 
-If not, you may write simple CSS on your page that will add another duration option value available, for example:
+#### setting: `duration`, `delay`
+
+Duration and delay accept values from 50 to 3000, with step 50ms, it's because those are handled by css, and to not make css longer than it is already I implemented only a subset. I believe those should cover most cases.
+
+If not, you can write simple CSS that will add another duration, for example:
 
 ```css
-  body[data-aos-duration='4000'] [data-aos], [data-aos][data-aos][data-aos-duration='4000']{
+  body[data-aos-duration='4000'] [data-aos],
+  [data-aos][data-aos][data-aos-duration='4000'] {
     transition-duration: 4000ms;
   }
 ```
-
 This code will add 4000ms duration available for you to set on AOS elements, or to set as global duration while initializing AOS script.
-
 Notice that double `[data-aos][data-aos]` - it's not a mistake, it is a trick, to make individual settings more important than global, without need to write ugly "!important" there :)
 
-#### setting: startEvent:
-If you set `startEvent: 'load'` it will add event listener on `window` instead of `document`.
+Example usage:
+```html
+  <div data-aos="fade-in" data-aos-duration="4000"></div>
+```
 
 ### 👻 Animations
 
@@ -236,7 +255,6 @@ There are serveral predefined animations you can use already:
   * bottom-bottom
   * bottom-center
   * bottom-top
-
 
 ### Easing functions:
 
