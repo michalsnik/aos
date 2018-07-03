@@ -132,31 +132,25 @@ const init = function init(settings) {
   if (options.startEvent === 'DOMContentLoaded' &&
     ['complete', 'interactive'].indexOf(document.readyState) > -1) {
     // Initialize AOS if default startEvent was already fired
-    refresh(true);
+    loadEvent();
   } else if (options.startEvent === 'load') {
     // If start event is 'Load' - attach listener to window
-    window.addEventListener(options.startEvent, function() {
-      refresh(true);
-    });
+    window.addEventListener(options.startEvent, loadEvent);
   } else {
     // Listen to options.startEvent and initialize AOS
-    document.addEventListener(options.startEvent, function() {
-      refresh(true);
-    });
+    document.addEventListener(options.startEvent, loadEvent);
   }
 
   /**
    * Refresh plugin on window resize or orientation change
    */
-  window.addEventListener('resize', debounce(refresh, options.debounceDelay, true));
-  window.addEventListener('orientationchange', debounce(refresh, options.debounceDelay, true));
+  window.addEventListener('resize', orientationChangeEvent);
+  window.addEventListener('orientationchange', orientationChangeEvent);
 
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener('scroll', throttle(() => {
-    handleScroll($aosElements, options.once);
-  }, options.throttleDelay));
+  window.addEventListener('scroll', scrollEvent);
 
   /**
    * Observe [aos] elements
@@ -170,12 +164,47 @@ const init = function init(settings) {
   return $aosElements;
 };
 
+/*
+ * Remove event listeners from DOM
+ */
+const destroy = function() {
+  if (options.startEvent === 'load') {
+    window.removeEventListener(options.startEvent, loadEvent);
+  } else {
+    document.removeEventListener(options.startEvent, loadEvent);
+  }
+
+  window.removeEventListener('resize', orientationChangeEvent);
+  window.removeEventListener('orientationchange', orientationChangeEvent);
+  window.removeEventListener('scroll', scrollEvent);
+};
+
+/*
+ * Event listener for resizing and orientation changes
+ */
+const orientationChangeEvent = debounce(refresh, options.debounceDelay, true);
+
+/*
+ * Event listener for scrolling
+ */
+const scrollEvent = throttle(() => {
+    handleScroll($aosElements, options.once);
+  }, options.throttleDelay);
+
+/*
+ * Event listener for when document is loaded
+ */
+const loadEvent = function() {
+  refresh(true);
+};
+
 /**
  * Export Public API
  */
 
 module.exports = {
   init,
+  destroy,
   refresh,
   refreshHard
 };
