@@ -20,12 +20,20 @@ describe('AOS -> ', function() {
     expect(AOS).toBeDefined();
   });
 
+  it('Should have destroy method', function() {
+    expect(AOS.destroy).toBeDefined();
+  });
+
   it('Should have init method', function() {
     expect(AOS.init).toBeDefined();
   });
 
   it('Should have refresh method', function() {
     expect(AOS.refresh).toBeDefined();
+  });
+
+  it('Should have refreshHard method', function() {
+    expect(AOS.refreshHard).toBeDefined();
   });
 
   it('Should have same number of elements after init', function() {
