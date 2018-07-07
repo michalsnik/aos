@@ -11,6 +11,13 @@ describe('AOS', function() {
       .should('exist');
   });
 
+  it('Should have destroy method', function() {
+    cy
+      .window()
+      .its('AOS.destroy')
+      .should('exist');
+  });
+
   it('Should have init method', function() {
     cy
       .window()
