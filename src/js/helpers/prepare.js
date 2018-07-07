@@ -11,10 +11,9 @@ const prepare = function($elements, options) {
     const customClassNames =
       options.useClassNames && el.node.getAttribute('data-aos');
 
-    const animatedClassNames = [
-      options.animatedClassName,
-      ...(customClassNames && customClassNames.split(' '))
-    ].filter(className => typeof className === 'string');
+    const animatedClassNames = [options.animatedClassName]
+      .concat(customClassNames ? customClassNames.split(' ') : [])
+      .filter(className => typeof className === 'string');
 
     if (options.initClassName) {
       el.node.classList.add(options.initClassName);

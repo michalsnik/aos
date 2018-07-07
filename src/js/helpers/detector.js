@@ -25,6 +25,14 @@ class Detector {
   tablet() {
     return this.mobile() && !this.phone();
   }
+
+  // http://browserhacks.com/#hack-acea075d0ac6954f275a70023906050c
+  ie11() {
+    return (
+      '-ms-scroll-limit' in document.documentElement.style &&
+      '-ms-ime-align' in document.documentElement.style
+    );
+  }
 }
 
 export default new Detector();

@@ -1,3 +1,5 @@
+import detect from './detector';
+
 /**
  * Adds multiple classes on node
  * @param {DOMNode} node
@@ -15,9 +17,17 @@ const removeClasses = (node, classes) =>
   classes && classes.forEach(className => node.classList.remove(className));
 
 const fireEvent = (eventName, data) => {
-  const customEvent = new CustomEvent(eventName, {
-    detail: data
-  });
+  let customEvent;
+
+  if (detect.ie11()) {
+    customEvent = document.createEvent('CustomEvent');
+    customEvent.initCustomEvent(eventName, true, true, { detail: data });
+  } else {
+    customEvent = new CustomEvent(eventName, {
+      detail: data
+    });
+  }
+
   return document.dispatchEvent(customEvent);
 };
 
