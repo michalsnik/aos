@@ -26,21 +26,38 @@ For last stable release (v2) go [here](https://github.com/michalsnik/aos/tree/v2
 
 ## ⚙ Installation
 
+### Basic
+
 Add styles in `<head>`:
 
 ```html
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 ```
 
-Add script right before closing `</body>` tag:
+Add script right before closing `</body>` tag, and initialize AOS:
 ```html
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 ```
 
-You can also use:
+### Using package managers
 
+Install `aos` package:
 * `yarn add aos@next`
-* `npm install --save aos@next`
+* or `npm install --save aos@next`
+
+Import script, styles and initialize AOS:
+```js
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+```
+
+In order to make it work you'll have to make sure your build process has configured styles loader, and bundles it all correctly.
+If you're using [Parcel](https://parceljs.org/) however, it will work out of the box as provided.
 
 ---
 
@@ -49,30 +66,28 @@ You can also use:
 
 ### 1. Initialize AOS:
 
-```html
-<script>
-  AOS.init();
-  
-  // You can also pass an optional settings object
-  // below listed default settings
-  AOS.init({
-    // Global settings
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init', // class applied after initialization
-    animatedClassName: 'aos-animate', // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+```js
+AOS.init();
 
-    // Settings that can be overriden on per-element basis, by `data-aos-*` attributes:
-    offset: 120, // offset (in px) from the original trigger point
-    delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 400, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: false, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-  });
-</script>
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+
+  // Settings that can be overriden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+});
 ```
 
 ### 2. Set animation using `data-aos` attribute:
@@ -333,8 +348,6 @@ Example usage:
 
 ---
 
-## ✌️ [Contributing](CONTRIBUTING.md)
-
 ## ❔Questions
 
-If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.
+If you found a bug, have a question or an idea, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.
