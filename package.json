@@ -53,6 +53,7 @@
     "prepare": "npm run build"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ]
 }
