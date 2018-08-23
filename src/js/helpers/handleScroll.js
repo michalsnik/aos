@@ -6,7 +6,6 @@
  */
 const setState = function (el, top, once) {
   const attrOnce = el.node.getAttribute('data-aos-once');
-
   if (top > el.position) {
     el.node.classList.add('aos-animate');
   } else if (typeof attrOnce !== 'undefined') {
@@ -24,9 +23,18 @@ const setState = function (el, top, once) {
  * @param  {bool} once               plugin option
  * @return {void}
  */
-const handleScroll = function ($elements, once) {
-  const scrollTop = window.pageYOffset;
-  const windowHeight = window.innerHeight;
+const handleScroll = function ($elements, once, scrollContainer = window) {
+  let scrollTop = null;
+  let windowHeight = null;
+
+  if(scrollContainer == window) {
+    scrollTop = window.pageYOffset;
+    windowHeight = window.innerHeight;
+  } else {
+    scrollTop = scrollContainer.scrollTop;
+    windowHeight = scrollContainer.offsetHeight;
+  }
+
   /**
    * Check all registered elements positions
    * and animate them on scroll
