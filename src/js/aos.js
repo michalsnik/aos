@@ -23,6 +23,7 @@ import elements from './helpers/elements';
  */
 let $aosElements = [];
 let initialized = false;
+let scrollContainer = window;
 
 /**
  * Default options
@@ -38,6 +39,7 @@ let options = {
   throttleDelay: 99,
   debounceDelay: 50,
   disableMutationObserver: false,
+  scrollContainer: '',
 };
 
 /**
@@ -51,7 +53,7 @@ const refresh = function refresh(initialize = false) {
     // Extend elements objects in $aosElements with their positions
     $aosElements = prepare($aosElements, options);
     // Perform scroll event, to refresh view and show/hide elements
-    handleScroll($aosElements, options.once);
+    handleScroll($aosElements, options.once, scrollContainer);
 
     return $aosElements;
   }
@@ -103,6 +105,10 @@ const isDisabled = function(optionDisable) {
 const init = function init(settings) {
   options = Object.assign(options, settings);
 
+  if(options.scrollContainer) {
+    scrollContainer = window.document.querySelector(options.scrollContainer);
+  }
+
   // Create initial array with elements -> to be fullfilled later with prepare()
   $aosElements = elements();
 
@@ -135,7 +141,7 @@ const init = function init(settings) {
     refresh(true);
   } else if (options.startEvent === 'load') {
     // If start event is 'Load' - attach listener to window
-    window.addEventListener(options.startEvent, function() {
+    scrollContainer.addEventListener(options.startEvent, function() {
       refresh(true);
     });
   } else {
@@ -148,14 +154,14 @@ const init = function init(settings) {
   /**
    * Refresh plugin on window resize or orientation change
    */
-  window.addEventListener('resize', debounce(refresh, options.debounceDelay, true));
-  window.addEventListener('orientationchange', debounce(refresh, options.debounceDelay, true));
+  scrollContainer.addEventListener('resize', debounce(refresh, options.debounceDelay, true));
+  scrollContainer.addEventListener('orientationchange', debounce(refresh, options.debounceDelay, true));
 
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener('scroll', throttle(() => {
-    handleScroll($aosElements, options.once);
+  scrollContainer.addEventListener('scroll', throttle(() => {
+    handleScroll($aosElements, options.once, scrollContainer);
   }, options.throttleDelay));
 
   /**
