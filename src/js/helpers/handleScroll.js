@@ -4,9 +4,9 @@
  * @param {int}  top        scrolled distance
  * @param {void} once
  */
-const setState = function (el, top, once) {
+const setState = function (el, top, once, offset) {
   const attrOnce = el.node.getAttribute('data-aos-once');
-  if (top > el.position) {
+  if (top > (el.position - offset)) {
     el.node.classList.add('aos-animate');
   } else if (typeof attrOnce !== 'undefined') {
     if (attrOnce === 'false' || (!once && attrOnce !== 'true')) {
@@ -26,6 +26,7 @@ const setState = function (el, top, once) {
 const handleScroll = function ($elements, once, scrollContainer = window) {
   let scrollTop = null;
   let windowHeight = null;
+  let offset = 0;
 
   if(scrollContainer == window) {
     scrollTop = window.pageYOffset;
@@ -33,6 +34,7 @@ const handleScroll = function ($elements, once, scrollContainer = window) {
   } else {
     scrollTop = scrollContainer.scrollTop;
     windowHeight = scrollContainer.offsetHeight;
+    offset = scrollContainer.offsetTop;
   }
 
   /**
@@ -40,7 +42,7 @@ const handleScroll = function ($elements, once, scrollContainer = window) {
    * and animate them on scroll
    */
   $elements.forEach((el, i) => {
-    setState(el, windowHeight + scrollTop, once);
+    setState(el, windowHeight + scrollTop, once, offset);
   });
 };
 
