@@ -111,7 +111,7 @@ And adjust behaviour by using `data-aos-*` attributes:
   </div>
 ```
 
-[See full list of all animations, easings and anchor placements](https://github.com/michalsnik/aos#-animations)
+[See full list of all animations, easings and anchor placements](https://github.com/michalsnik/aos#animations)
 
 #### Anchor
 
@@ -170,7 +170,7 @@ Then you'll be able to listen for two custom events then:
 
 ---
 
-## Recepies:
+## Recipes:
 
 #### Adding custom animations:
 Sometimes built-in animations are just not enough. Let's say you need one box to have different animation depending on resultion.
