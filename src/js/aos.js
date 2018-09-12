@@ -53,7 +53,7 @@ const initializeScroll = function initializeScroll() {
   let container =
     options.container == 'window'
       ? window
-      : document.querySelector(options.container);
+      : document.querySelector(options.container) || window;
   // Perform scroll event, to refresh view and show/hide elements
   handleScroll($aosElements, container);
 
