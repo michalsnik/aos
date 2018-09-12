@@ -38,7 +38,8 @@ let options = {
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
-  useClassNames: false
+  useClassNames: false,
+  container: 'window'
 };
 
 // Detect not supported browsers (<=IE9)
@@ -48,16 +49,21 @@ const isBrowserNotSupported = () => document.all && !window.atob;
 const initializeScroll = function initializeScroll() {
   // Extend elements objects in $aosElements with their positions
   $aosElements = prepare($aosElements, options);
+  // Define container element
+  let container =
+    options.container == 'window'
+      ? window
+      : document.querySelector(options.container);
   // Perform scroll event, to refresh view and show/hide elements
-  handleScroll($aosElements);
+  handleScroll($aosElements, container);
 
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener(
+  container.addEventListener(
     'scroll',
     throttle(() => {
-      handleScroll($aosElements, options.once);
+      handleScroll($aosElements, container);
     }, 99)
   );
 

@@ -78,9 +78,12 @@ const applyClasses = (el, top) => {
  * Scroll logic - add or remove 'aos-animate' class on scroll
  *
  * @param  {array} $elements         array of elements nodes
+ * @param  {node}  container         container
  * @return {void}
  */
-const handleScroll = $elements =>
-  $elements.forEach((el, i) => applyClasses(el, window.pageYOffset));
+const handleScroll = ($elements, container) => {
+  let top = container == window ? container.pageYOffset : container.scrollTop;
+  $elements.forEach((el, i) => applyClasses(el, top));
+};
 
 export default handleScroll;
