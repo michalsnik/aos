@@ -39,7 +39,9 @@ let options = {
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
   useClassNames: false,
-  disableMutationObserver: false
+  disableMutationObserver: false,
+  throttleDelay: 99,
+  debounceDelay: 50
 };
 
 // Detect not supported browsers (<=IE9)
@@ -59,7 +61,7 @@ const initializeScroll = function initializeScroll() {
     'scroll',
     throttle(() => {
       handleScroll($aosElements, options.once);
-    }, 99)
+    }, options.throttleDelay)
   );
 
   return $aosElements;
@@ -193,8 +195,15 @@ const init = function init(settings) {
   /**
    * Refresh plugin on window resize or orientation change
    */
-  window.addEventListener('resize', debounce(refresh, 50, true));
-  window.addEventListener('orientationchange', debounce(refresh, 50, true));
+  window.addEventListener(
+    'resize',
+    debounce(refresh, options.debounceDelay, true)
+  );
+
+  window.addEventListener(
+    'orientationchange',
+    debounce(refresh, options.debounceDelay, true)
+  );
 
   return $aosElements;
 };
