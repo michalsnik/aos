@@ -20,23 +20,6 @@ function containsAOSNode(nodes) {
   return false;
 }
 
-function ready(selector, fn) {
-  const doc = window.document;
-  const MutationObserver =
-    window.MutationObserver ||
-    window.WebKitMutationObserver ||
-    window.MozMutationObserver;
-
-  const observer = new MutationObserver(check);
-  callback = fn;
-
-  observer.observe(doc.documentElement, {
-    childList: true,
-    subtree: true,
-    removedNodes: true
-  });
-}
-
 function check(mutations) {
   if (!mutations) return;
 
@@ -51,4 +34,30 @@ function check(mutations) {
   });
 }
 
-export default ready;
+function getMutationObserver() {
+  return (
+    window.MutationObserver ||
+    window.WebKitMutationObserver ||
+    window.MozMutationObserver
+  );
+}
+
+function isSupported() {
+  return !!getMutationObserver();
+}
+
+function ready(selector, fn) {
+  const doc = window.document;
+  const MutationObserver = getMutationObserver();
+
+  const observer = new MutationObserver(check);
+  callback = fn;
+
+  observer.observe(doc.documentElement, {
+    childList: true,
+    subtree: true,
+    removedNodes: true
+  });
+}
+
+export default { isSupported, ready };
