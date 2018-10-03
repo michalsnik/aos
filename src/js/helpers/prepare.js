@@ -20,7 +20,12 @@ const prepare = function($elements, options) {
     }
 
     el.position = {
-      in: getPositionIn(el.node, options.offset, options.anchorPlacement),
+      in: getPositionIn(
+        el.node,
+        options.offset,
+        options.anchorPlacement,
+        options.container
+      ),
       out: mirror && getPositionOut(el.node, options.offset)
     };
 
