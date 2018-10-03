@@ -79,7 +79,7 @@ AOS.init({
   animatedClassName: 'aos-animate', // class applied on animation
   useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
 
-  // Settings that can be overriden on per-element basis, by `data-aos-*` attributes:
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
   offset: 120, // offset (in px) from the original trigger point
   delay: 0, // values from 0 to 3000, with step 50ms
   duration: 400, // values from 0 to 3000, with step 50ms
@@ -173,7 +173,7 @@ Then you'll be able to listen for two custom events then:
 ## Recipes:
 
 #### Adding custom animations:
-Sometimes built-in animations are just not enough. Let's say you need one box to have different animation depending on resultion.
+Sometimes built-in animations are just not enough. Let's say you need one box to have different animation depending on resolution.
 Here's how you could do it:
 
 ```css
