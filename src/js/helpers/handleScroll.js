@@ -77,10 +77,15 @@ const applyClasses = (el, top) => {
 /**
  * Scroll logic - add or remove 'aos-animate' class on scroll
  *
- * @param  {array} $elements         array of elements nodes
+ * @param  {array}                  $elements         array of elements nodes
+ * @param  {(HTMLElement|Window)}   container         AOS container
  * @return {void}
  */
-const handleScroll = $elements =>
-  $elements.forEach((el, i) => applyClasses(el, window.pageYOffset));
+const handleScroll = ($elements, container) => {
+  // Get the number of pixels scrolled inside the container (y-axis)
+  const top =
+    container === window ? container.pageYOffset : container.scrollTop;
+  $elements.forEach((el, i) => applyClasses(el, top));
+};
 
 export default handleScroll;

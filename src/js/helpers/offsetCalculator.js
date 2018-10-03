@@ -10,9 +10,18 @@
 
 import getOffset from './../libs/offset';
 import getInlineOption from './getInlineOption';
+import validContainer from './container';
 
-export const getPositionIn = (el, defaultOffset, defaultAnchorPlacement) => {
-  const windowHeight = window.innerHeight;
+export const getPositionIn = (
+  el,
+  defaultOffset,
+  defaultAnchorPlacement,
+  container
+) => {
+  const windowHeight =
+    container === window
+      ? validContainer(container).innerHeight
+      : validContainer(container).clientHeight;
   const anchor = getInlineOption(el, 'anchor');
   const inlineAnchorPlacement = getInlineOption(el, 'anchor-placement');
   const additionalOffset = Number(
@@ -61,7 +70,6 @@ export const getPositionIn = (el, defaultOffset, defaultAnchorPlacement) => {
 };
 
 export const getPositionOut = (el, defaultOffset) => {
-  const windowHeight = window.innerHeight;
   const anchor = getInlineOption(el, 'anchor');
   const additionalOffset = getInlineOption(el, 'offset', defaultOffset);
   let finalEl = el;
