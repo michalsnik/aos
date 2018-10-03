@@ -11,7 +11,7 @@ import styles from './../sass/aos.scss';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 
-import observe from './libs/observer';
+import observer from './libs/observer';
 
 import detect from './helpers/detector';
 import handleScroll from './helpers/handleScroll';
@@ -119,6 +119,18 @@ const init = function init(settings) {
   }
 
   /**
+   * Disable mutation observing if not supported
+   */
+  if (!options.disableMutationObserver && !observer.isSupported()) {
+    console.info(`
+      aos: MutationObserver is not supported on this browser,
+      code mutations observing has been disabled.
+      You may have to call "refreshHard()" by yourself.
+    `);
+    options.disableMutationObserver = true;
+  }
+
+  /**
    * Set global settings on body, based on options
    * so CSS can use it
    */
@@ -164,7 +176,7 @@ const init = function init(settings) {
    * it'll refresh plugin automatically
    */
   if (!options.disableMutationObserver) {
-    observe('[data-aos]', refreshHard);
+    observer.ready('[data-aos]', refreshHard);
   }
 
   return $aosElements;

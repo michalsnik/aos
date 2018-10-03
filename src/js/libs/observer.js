@@ -20,12 +20,19 @@ function containsAOSNode(nodes) {
   return false;
 }
 
+function getMutationObserver() {
+  return window.MutationObserver ||
+    window.WebKitMutationObserver ||
+    window.MozMutationObserver;
+}
+
+function isSupported() {
+  return !!getMutationObserver();
+}
+
 function ready(selector, fn) {
   const doc = window.document;
-  const MutationObserver =
-  window.MutationObserver ||
-  window.WebKitMutationObserver ||
-  window.MozMutationObserver;
+  const MutationObserver = getMutationObserver();
 
   const observer = new MutationObserver(check);
   callback = fn;
@@ -51,4 +58,4 @@ function check(mutations) {
   });
 }
 
-export default ready;
+export default { isSupported, ready };
