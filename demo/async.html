@@ -15,11 +15,8 @@
 
     <script src="dist/aos.js"></script>
     <script>
-      AOS.init({
-        easing: 'ease-in-out-sine'
-      });
-
       if (!window.Cypress) {
+        AOS.init();
         setInterval(addItem, 150);
       } else {
         document.addEventListener('add-aos-item', addItem);

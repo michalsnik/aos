@@ -38,7 +38,8 @@ let options = {
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
-  useClassNames: false
+  useClassNames: false,
+  disableMutationObserver: false
 };
 
 // Detect not supported browsers (<=IE9)
@@ -141,7 +142,9 @@ const init = function init(settings) {
    * If something is loaded by AJAX
    * it'll refresh plugin automatically
    */
-  observe('[data-aos]', refreshHard);
+  if (!options.disableMutationObserver) {
+    observe('[data-aos]', refreshHard);
+  }
 
   /**
    * Don't init plugin if option `disable` is set
