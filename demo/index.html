@@ -49,12 +49,12 @@
           mirror: true
         });
 
-        document.addEventListener('aos:in', ({ detail }) => {
-          console.log('in!', detail);
+        document.addEventListener('aos:in', function(e) {
+          console.log('in!', e.detail);
         });
 
         window.addEventListener('scroll', function() {
-          scrollCounter.innerHTML = window.scrollY;
+          scrollCounter.innerHTML = window.pageYOffset;
         });
       }
     </script>

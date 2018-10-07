@@ -1,16 +1,17 @@
 [![AOS - Animate on scroll library](https://s32.postimg.org/ktvt59hol/aos_header.png)](http://michalsnik.github.io/aos/)
 
-[![NPM version](https://img.shields.io/npm/v/aos.svg?style=flat)](https://npmjs.org/package/aos)
+[![NPM version](https://img.shields.io/npm/v/aos/next.svg?style=flat)](https://npmjs.org/package/aos)
 [![NPM downloads](https://img.shields.io/npm/dm/aos.svg?style=flat)](https://npmjs.org/package/aos)
 [![Build Status](https://travis-ci.org/michalsnik/aos.svg?branch=master)](https://travis-ci.org/michalsnik/aos)
 [![Gitter](https://badges.gitter.im/michalsnik/aos.svg)](https://gitter.im/michalsnik/aos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/michalsnik.svg?style=social)](https://twitter.com/michalsnik) [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=AOS%20-%20Animate%20on%20Scroll%20library%0Ahttps%3A//github.com/michalsnik/aos)
 
-👉 To get a better understanding how this actually works, I encourage you to check [my post on CSS-tricks](https://css-tricks.com/aos-css-driven-scroll-animation-library/).
+## :exclamation::exclamation::exclamation: This is README for aos@next :exclamation::exclamation::exclamation:
+
+For last stable release (v2) go [here](https://github.com/michalsnik/aos/tree/v2)
 
 ---
-
 ### 🚀 [Demo](http://michalsnik.github.io/aos/)
 
 ### 🌟 Codepen Examples
@@ -19,9 +20,13 @@
 - [With anchor-placement and different easings](http://codepen.io/michalsnik/pen/EyxoNm)
 - [With simple custom animations](http://codepen.io/michalsnik/pen/WxvNvE)
 
+👉 To get a better understanding how this actually works, I encourage you to check [my post on CSS-tricks](https://css-tricks.com/aos-css-driven-scroll-animation-library/).
+
 ---
 
 ## ⚙ Installation
+
+### Basic
 
 Add styles in `<head>`:
 
@@ -29,15 +34,30 @@ Add styles in `<head>`:
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 ```
 
-Add script right before closing `</body>` tag:
+Add script right before closing `</body>` tag, and initialize AOS:
 ```html
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 ```
 
-You can also use:
+### Using package managers
 
+Install `aos` package:
 * `yarn add aos@next`
-* `npm install --save aos@next`
+* or `npm install --save aos@next`
+
+Import script, styles and initialize AOS:
+```js
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+```
+
+In order to make it work you'll have to make sure your build process has configured styles loader, and bundles it all correctly.
+If you're using [Parcel](https://parceljs.org/) however, it will work out of the box as provided.
 
 ---
 
@@ -46,30 +66,33 @@ You can also use:
 
 ### 1. Initialize AOS:
 
-```html
-<script>
-  AOS.init();
-  
-  // You can also pass an optional settings object
-  // below listed default settings
-  AOS.init({
-    // Global settings
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init', // class applied after initialization
-    animatedClassName: 'aos-animate', // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+```js
+AOS.init();
 
-    // Settings that can be overriden on per-element basis, by `data-aos-*` attributes:
-    offset: 120, // offset (in px) from the original trigger point
-    delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 400, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: false, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-  });
-</script>
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
 ```
 
 ### 2. Set animation using `data-aos` attribute:
@@ -93,7 +116,7 @@ And adjust behaviour by using `data-aos-*` attributes:
   </div>
 ```
 
-[See full list of all animations, easings and anchor placements](https://github.com/michalsnik/aos#-animations)
+[See full list of all animations, easings and anchor placements](https://github.com/michalsnik/aos#animations)
 
 #### Anchor
 
@@ -152,7 +175,54 @@ Then you'll be able to listen for two custom events then:
 
 ---
 
-## Recepies:
+## Recipes:
+
+#### Adding custom animations:
+Sometimes built-in animations are just not enough. Let's say you need one box to have different animation depending on resolution.
+Here's how you could do it:
+
+```css
+[data-aos="new-animation"] {
+  opacity: 0;
+  transition-property: transform, opacity;
+
+  &.aos-animate {
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: translateX(100px);
+
+    &.aos-animate {
+      transform: translateX(0);
+    }
+  }
+}
+```
+Then use it in HTML:
+```html
+<div data-aos="new-animation"></div>
+```
+The element will only animate opacity on mobile devices, but from 768px width it'll also slide from right to left.
+
+#### Adding custom easing:
+Similar to animations you can add custom easings:
+```css
+[data-aos] {
+  body[data-aos-easing="new-easing"] &,
+  &[data-aos][data-aos-easing="new-easing"] {
+    transition-timing-function: cubic-bezier(.250, .250, .750, .750);
+  }
+}
+```
+
+#### Customizing default animations distance
+Default distance for built-in animations is 100px. As long as you're using SCSS though, you can override it:
+```css
+$aos-distance: 200px; // It has to be above import
+@import 'node_modules/aos/src/sass/aos.scss';
+```
+You have to however configure your build process to allow it to import styles from `node_modules` beforehand.
 
 #### Integrating external CSS animation library (e.g. Animate.css):
 Use `animatedClassName` to change default behaviour of AOS, to apply class names placed inside `data-aos` on scroll.
@@ -283,8 +353,6 @@ Example usage:
 
 ---
 
-## ✌️ [Contributing](CONTRIBUTING.md)
-
 ## ❔Questions
 
-If you have any questions, ideas or whatsoever, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.
+If you found a bug, have a question or an idea, please check [AOS contribution guide](CONTRIBUTING.md) and don't hesitate to create new issues.

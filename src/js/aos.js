@@ -10,7 +10,7 @@ import styles from './../sass/aos.scss';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 
-import observe from './libs/observer';
+import observer from './libs/observer';
 
 import detect from './helpers/detector';
 import handleScroll from './helpers/handleScroll';
@@ -38,7 +38,10 @@ let options = {
   startEvent: 'DOMContentLoaded',
   animatedClassName: 'aos-animate',
   initClassName: 'aos-init',
-  useClassNames: false
+  useClassNames: false,
+  disableMutationObserver: false,
+  throttleDelay: 99,
+  debounceDelay: 50
 };
 
 // Detect not supported browsers (<=IE9)
@@ -54,10 +57,7 @@ const initializeScroll = function initializeScroll() {
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener(
-    'scroll',
-    scrollEvent
-  );
+  window.addEventListener('scroll', scrollEvent);
 
   return $aosElements;
 };
@@ -135,11 +135,25 @@ const init = function init(settings) {
   $aosElements = elements();
 
   /**
+   * Disable mutation observing if not supported
+   */
+  if (!options.disableMutationObserver && !observer.isSupported()) {
+    console.info(`
+      aos: MutationObserver is not supported on this browser,
+      code mutations observing has been disabled.
+      You may have to call "refreshHard()" by yourself.
+    `);
+    options.disableMutationObserver = true;
+  }
+
+  /**
    * Observe [aos] elements
    * If something is loaded by AJAX
    * it'll refresh plugin automatically
    */
-  observe('[data-aos]', refreshHard);
+  if (!options.disableMutationObserver) {
+    observer.ready('[data-aos]', refreshHard);
+  }
 
   /**
    * Don't init plugin if option `disable` is set
@@ -208,14 +222,14 @@ const destroy = () => {
 /*
  * Event listener for resize and orientation change
  */
-const orientationChangeEvent = debounce(refresh, 50, true);
+const orientationChangeEvent = debounce(refresh, options.debounceDelay, true);
 
 /*
  * Event listener for window scroll
  */
 const scrollEvent = throttle(() => {
   handleScroll($aosElements, options.once);
-}, 99);
+}, options.throttleDelay);
 
 /*
  * Event listener for document load
