@@ -46,7 +46,7 @@ const applyClasses = (el, top) => {
     fireEvent('aos:out', node);
 
     if (el.options.id) {
-      fireEvent(`aos:in:${el.options.id}`, node);
+      fireEvent(`aos:out:${el.options.id}`, node);
     }
 
     el.animated = false;
