@@ -1,4 +1,5 @@
 import detect from './detector';
+import { getElementOffset } from './container';
 
 /**
  * Adds multiple classes on node
@@ -82,9 +83,7 @@ const applyClasses = (el, top) => {
  * @return {void}
  */
 const handleScroll = ($elements, container) => {
-  // Get the number of pixels scrolled inside the container (y-axis)
-  const top =
-    container === window ? container.pageYOffset : container.scrollTop;
+  const top = getElementOffset(container);
   $elements.forEach((el, i) => applyClasses(el, top));
 };
 

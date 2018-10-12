@@ -16,7 +16,7 @@ import detect from './helpers/detector';
 import handleScroll from './helpers/handleScroll';
 import prepare from './helpers/prepare';
 import elements from './helpers/elements';
-import validContainer from './helpers/container';
+import { resolveContainer } from './helpers/container';
 
 /**
  * Private variables
@@ -48,10 +48,12 @@ let options = {
 const isBrowserNotSupported = () => document.all && !window.atob;
 
 const initializeScroll = function initializeScroll() {
-  // Extend elements objects in $aosElements with their positions
-  $aosElements = prepare($aosElements, options);
   // Define container element
-  const container = validContainer(options.container);
+  const container = resolveContainer(options.container);
+  if (!container)
+    throw `AOS - cannot find the container element. The container option must be an HTMLElement or a CSS Selector.`;
+  // Extend elements objects in $aosElements with their positions
+  $aosElements = prepare($aosElements, options, container);
   // Perform scroll event, to refresh view and show/hide elements
   handleScroll($aosElements, container);
 
