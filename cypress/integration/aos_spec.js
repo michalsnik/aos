@@ -1,38 +1,38 @@
-describe('AOS', function() {
+describe('AOS', () => {
   before(() => {
     cy.visit('/');
     cy.initAOS();
   });
 
-  it('Should be defined', function() {
+  it('Should be defined', () => {
     cy
       .window()
       .its('AOS')
       .should('exist');
   });
 
-  it('Should have init method', function() {
+  it('Should have init method', () => {
     cy
       .window()
       .its('AOS.init')
       .should('exist');
   });
 
-  it('Should have refresh method', function() {
+  it('Should have refresh method', () => {
     cy
       .window()
       .its('AOS.refresh')
       .should('exist');
   });
 
-  it('Should have refreshHard method', function() {
+  it('Should have refreshHard method', () => {
     cy
       .window()
       .its('AOS.refreshHard')
       .should('exist');
   });
 
-  it('Should add aos-init class on all elements', function() {
+  it('Should add aos-init class on all elements', () => {
     cy.get('.aos-init').should('have.length', 24);
   });
 

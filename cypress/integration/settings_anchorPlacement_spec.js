@@ -1,4 +1,4 @@
-describe('setting: anchorPlacement', function() {
+describe('setting: anchorPlacement', () => {
   beforeEach(() => {
     cy.visit('/index.html');
     cy.viewport(1280, 700);

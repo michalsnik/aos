@@ -1,6 +1,6 @@
 let callback = () => {};
 
-function containsAOSNode(nodes) {
+const containsAOSNode = nodes => {
   let i, currentNode, result;
 
   for (i = 0; i < nodes.length; i += 1) {
@@ -18,9 +18,9 @@ function containsAOSNode(nodes) {
   }
 
   return false;
-}
+};
 
-function check(mutations) {
+const check = mutations => {
   if (!mutations) return;
 
   mutations.forEach(mutation => {
@@ -32,21 +32,21 @@ function check(mutations) {
       return callback();
     }
   });
-}
+};
 
-function getMutationObserver() {
+const getMutationObserver = () => {
   return (
     window.MutationObserver ||
     window.WebKitMutationObserver ||
     window.MozMutationObserver
   );
-}
+};
 
-function isSupported() {
+const isSupported = () => {
   return !!getMutationObserver();
-}
+};
 
-function ready(selector, fn) {
+const ready = (selector, fn) => {
   const doc = window.document;
   const MutationObserver = getMutationObserver();
 
@@ -58,6 +58,6 @@ function ready(selector, fn) {
     subtree: true,
     removedNodes: true
   });
-}
+};
 
 export default { isSupported, ready };

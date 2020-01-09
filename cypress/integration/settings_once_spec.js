@@ -1,4 +1,4 @@
-describe('setting: once', function() {
+describe('setting: once', () => {
   context('global', () => {
     before(() => {
       cy.visit('/');

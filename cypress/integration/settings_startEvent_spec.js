@@ -1,9 +1,9 @@
-describe('setting: startEvent', function() {
+describe('setting: startEvent', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
-  it('Should allow to initialize AOS on custom event', function() {
+  it('Should allow to initialize AOS on custom event', () => {
     cy.initAOS({
       startEvent: 'customEvent'
     });
@@ -13,7 +13,7 @@ describe('setting: startEvent', function() {
     cy.get('.aos-init').should('have.length', 24);
   });
 
-  it('Should properly initialize on "load" event', function() {
+  it('Should properly initialize on "load" event', () => {
     cy.initAOS({
       startEvent: 'load'
     });
@@ -23,7 +23,7 @@ describe('setting: startEvent', function() {
     cy.get('.aos-init').should('have.length', 24);
   });
 
-  it("Shouldn't initialize when event is not dispatched", function() {
+  it("Shouldn't initialize when event is not dispatched", () => {
     cy.initAOS({
       startEvent: 'another-event-name'
     });

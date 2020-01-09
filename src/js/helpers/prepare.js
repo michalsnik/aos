@@ -3,7 +3,7 @@
 import { getPositionIn, getPositionOut } from './offsetCalculator';
 import getInlineOption from './getInlineOption';
 
-const prepare = function($elements, options) {
+const prepare = ($elements, options) => {
   $elements.forEach((el, i) => {
     const mirror = getInlineOption(el.node, 'mirror', options.mirror);
     const once = getInlineOption(el.node, 'once', options.once);

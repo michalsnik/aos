@@ -1,5 +1,5 @@
-describe('setting: useClassNames', function() {
-  context('just useClassNames', function() {
+describe('setting: useClassNames', () => {
+  context('just useClassNames', () => {
     before(() => {
       cy.visit('/animatecss.html');
       cy.initAOS({
@@ -7,7 +7,7 @@ describe('setting: useClassNames', function() {
       });
     });
 
-    it('Should set proper custom class names on AOS elements', function() {
+    it('Should set proper custom class names on AOS elements', () => {
       cy.get('.aos-animate').should('have.length', 6);
       cy.get('.fadeInUp').should('have.length', 6);
 
@@ -17,7 +17,7 @@ describe('setting: useClassNames', function() {
     });
   });
 
-  context('with animatedClassName and initClassName', function() {
+  context('with animatedClassName and initClassName', () => {
     before(() => {
       cy.visit('/animatecss.html');
       cy.initAOS({
@@ -27,7 +27,7 @@ describe('setting: useClassNames', function() {
       });
     });
 
-    it('Should set proper custom class names on AOS elements', function() {
+    it('Should set proper custom class names on AOS elements', () => {
       cy.get('.aos-init').should('have.length', 0);
       cy.get('.aos-animate').should('have.length', 0);
 

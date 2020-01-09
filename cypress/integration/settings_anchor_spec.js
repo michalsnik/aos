@@ -1,4 +1,4 @@
-describe('setting: anchor', function() {
+describe('setting: anchor', () => {
   before(() => {
     cy.visit('/anchor.html');
     cy.viewport(1280, 700);
