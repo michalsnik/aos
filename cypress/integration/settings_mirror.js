@@ -1,4 +1,4 @@
-describe('setting: mirror', function() {
+describe('setting: mirror', () => {
   before(() => {
     cy.visit('/');
     cy.viewport(1280, 650);
@@ -8,7 +8,7 @@ describe('setting: mirror', function() {
     });
   });
 
-  it('Should animate in and out', function() {
+  it('Should animate in and out', () => {
     cy.get('.aos-animate').should('have.length', 6);
 
     cy.scrollTo(0, 50);

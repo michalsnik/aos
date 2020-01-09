@@ -1,5 +1,5 @@
-describe('setting: animatedClassName', function() {
-  context('with: "rawr"', function() {
+describe('setting: animatedClassName', () => {
+  context('with: "rawr"', () => {
     before(() => {
       cy.visit('/');
       cy.initAOS({
@@ -7,7 +7,7 @@ describe('setting: animatedClassName', function() {
       });
     });
 
-    it('Should set proper class names on AOS elements', function() {
+    it('Should set proper class names on AOS elements', () => {
       cy.get('.aos-animate').should('have.length', 0);
       cy.get('.rawr').should('have.length', 6);
 
@@ -17,7 +17,7 @@ describe('setting: animatedClassName', function() {
     });
   });
 
-  context('with: null', function() {
+  context('with: null', () => {
     before(() => {
       cy.visit('/');
       cy.initAOS({
@@ -25,7 +25,7 @@ describe('setting: animatedClassName', function() {
       });
     });
 
-    it('Should not set class names on AOS elements on scroll', function() {
+    it('Should not set class names on AOS elements on scroll', () => {
       cy.get('.aos-animate').should('have.length', 0);
       cy.scrollTo(0, 800);
       cy.get('.aos-animate').should('have.length', 0);

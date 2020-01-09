@@ -1,5 +1,5 @@
-describe('JS Events', function() {
-  context('default events', function() {
+describe('JS Events', () => {
+  context('default events', () => {
     let aosInStub;
     let aosOutStub;
 
@@ -16,7 +16,7 @@ describe('JS Events', function() {
         .initAOS();
     });
 
-    it('Should trigger custom events', function() {
+    it('Should trigger custom events', () => {
       expect(aosInStub).to.have.callCount(6);
       expect(aosOutStub).to.be.not.called;
 
@@ -33,7 +33,7 @@ describe('JS Events', function() {
     });
   });
 
-  context('custom events', function() {
+  context('custom events', () => {
     let aosInStub;
     let aosOutStub;
 
@@ -50,7 +50,7 @@ describe('JS Events', function() {
         .initAOS();
     });
 
-    it('Should trigger custom events', function() {
+    it('Should trigger custom events', () => {
       expect(aosInStub).to.be.not.called;
       expect(aosOutStub).to.be.not.called;
 

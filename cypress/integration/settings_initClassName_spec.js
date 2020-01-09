@@ -1,5 +1,5 @@
-describe('setting: initClassName', function() {
-  context('with: "rawr"', function() {
+describe('setting: initClassName', () => {
+  context('with: "rawr"', () => {
     before(() => {
       cy.visit('/');
       cy.initAOS({
@@ -7,13 +7,13 @@ describe('setting: initClassName', function() {
       });
     });
 
-    it('Should set proper class names on AOS elements', function() {
+    it('Should set proper class names on AOS elements', () => {
       cy.get('.aos-init').should('have.length', 0);
       cy.get('.rawr').should('have.length', 24);
     });
   });
 
-  context('with: null', function() {
+  context('with: null', () => {
     before(() => {
       cy.visit('/');
       cy.initAOS({
@@ -21,7 +21,7 @@ describe('setting: initClassName', function() {
       });
     });
 
-    it('Should not set initial class name on AOS elements', function() {
+    it('Should not set initial class name on AOS elements', () => {
       cy.get('.aos-init').should('have.length', 0);
     });
   });
