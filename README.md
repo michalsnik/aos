@@ -97,7 +97,7 @@ AOS.init({
 #### Accessibility
 
 To improve accessibility and prevent triggering vestibular disorders set:
-* `disable: window.matchMedia('(prefers-reduced-motion: reduce)')
+* `disable: window.matchMedia('(prefers-reduced-motion: reduce)')`
 
 Examples:
 ```js
