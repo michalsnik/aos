@@ -94,6 +94,20 @@ AOS.init({
 
 });
 ```
+#### Accessibility
+
+To improve accessibility and prevent triggering vestibular disorders set:
+* `disable: window.matchMedia('(prefers-reduced-motion: reduce)')`
+
+Examples:
+```js
+//Only enable AOS animations if prefers-reduced-motion set to false
+AOS.init({
+    disable: window.matchMedia('(prefers-reduced-motion: reduce)')
+});
+```
+
+---
 
 ### 2. Set animation using `data-aos` attribute:
 
