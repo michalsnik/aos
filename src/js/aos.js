@@ -48,6 +48,8 @@ let options = {
 // http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
 const isBrowserNotSupported = () => document.all && !window.atob;
 
+// current window scroll handler
+let currentScrollHandler
 const initializeScroll = function initializeScroll() {
   // Extend elements objects in $aosElements with their positions
   $aosElements = prepare($aosElements, options);
@@ -57,12 +59,17 @@ const initializeScroll = function initializeScroll() {
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener(
-    'scroll',
-    throttle(() => {
-      handleScroll($aosElements, options.once);
-    }, options.throttleDelay)
-  );
+  const eventName = options.customScrollEvent || 'scroll'
+
+  if (currentScrollHandler) {
+    window.removeEventListener(eventName, currentScrollHandler)
+  }
+
+  currentScrollHandler = throttle((event) => {
+    handleScroll($aosElements, event)
+  }, options.throttleDelay)
+  
+  window.addEventListener(eventName, currentScrollHandler)
 
   return $aosElements;
 };
