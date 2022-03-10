@@ -1,9 +1,9 @@
-describe('setting: once', function() {
+describe('setting: once', function () {
   context('global', () => {
     before(() => {
       cy.visit('/');
       cy.initAOS({
-        once: true
+        once: true,
       });
     });
 
@@ -46,26 +46,11 @@ describe('setting: once', function() {
     it('Should not remove aos-animate class after scrolling up', () => {
       cy.scrollTo(0, 0);
       cy.get('.aos-animate').should('have.length', 11);
-      cy
-        .get('.aos-init')
-        .eq(8)
-        .should('have.class', 'aos-animate');
-      cy
-        .get('.aos-init')
-        .eq(10)
-        .should('have.class', 'aos-animate');
-      cy
-        .get('.aos-init')
-        .eq(12)
-        .should('have.class', 'aos-animate');
-      cy
-        .get('.aos-init')
-        .eq(16)
-        .should('have.class', 'aos-animate');
-      cy
-        .get('.aos-init')
-        .eq(20)
-        .should('have.class', 'aos-animate');
+      cy.get('.aos-init').eq(8).should('have.class', 'aos-animate');
+      cy.get('.aos-init').eq(10).should('have.class', 'aos-animate');
+      cy.get('.aos-init').eq(12).should('have.class', 'aos-animate');
+      cy.get('.aos-init').eq(16).should('have.class', 'aos-animate');
+      cy.get('.aos-init').eq(20).should('have.class', 'aos-animate');
     });
   });
 });

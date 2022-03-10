@@ -41,7 +41,7 @@ let options = {
   useClassNames: false,
   disableMutationObserver: false,
   throttleDelay: 99,
-  debounceDelay: 50
+  debounceDelay: 50,
 };
 
 // Detect not supported browsers (<=IE9)
@@ -94,8 +94,8 @@ const refreshHard = function refreshHard() {
  * Disable AOS
  * Remove all attributes to reset applied styles
  */
-const disable = function() {
-  $aosElements.forEach(function(el, i) {
+const disable = function () {
+  $aosElements.forEach(function (el, i) {
     el.node.removeAttribute('data-aos');
     el.node.removeAttribute('data-aos-easing');
     el.node.removeAttribute('data-aos-duration');
@@ -114,7 +114,7 @@ const disable = function() {
 /**
  * Check if AOS should be disabled based on provided setting
  */
-const isDisabled = function(optionDisable) {
+const isDisabled = function (optionDisable) {
   return (
     optionDisable === true ||
     (optionDisable === 'mobile' && detect.mobile()) ||
@@ -187,11 +187,11 @@ const init = function init(settings) {
    */
   if (['DOMContentLoaded', 'load'].indexOf(options.startEvent) === -1) {
     // Listen to options.startEvent and initialize AOS
-    document.addEventListener(options.startEvent, function() {
+    document.addEventListener(options.startEvent, function () {
       refresh(true);
     });
   } else {
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       refresh(true);
     });
   }
@@ -227,5 +227,5 @@ const init = function init(settings) {
 export default {
   init,
   refresh,
-  refreshHard
+  refreshHard,
 };

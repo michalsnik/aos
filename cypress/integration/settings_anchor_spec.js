@@ -1,9 +1,9 @@
-describe('setting: anchor', function() {
+describe('setting: anchor', function () {
   before(() => {
     cy.visit('/anchor.html');
     cy.viewport(1280, 700);
     cy.initAOS({
-      offset: 0
+      offset: 0,
     });
   });
 

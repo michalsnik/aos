@@ -6,7 +6,7 @@ import detect from './detector';
  * @param {array}  classes
  */
 const addClasses = (node, classes) =>
-  classes && classes.forEach(className => node.classList.add(className));
+  classes && classes.forEach((className) => node.classList.add(className));
 
 /**
  * Removes multiple classes from node
@@ -14,7 +14,7 @@ const addClasses = (node, classes) =>
  * @param {array}  classes
  */
 const removeClasses = (node, classes) =>
-  classes && classes.forEach(className => node.classList.remove(className));
+  classes && classes.forEach((className) => node.classList.remove(className));
 
 const fireEvent = (eventName, data) => {
   let customEvent;
@@ -24,7 +24,7 @@ const fireEvent = (eventName, data) => {
     customEvent.initCustomEvent(eventName, true, true, { detail: data });
   } else {
     customEvent = new CustomEvent(eventName, {
-      detail: data
+      detail: data,
     });
   }
 
@@ -80,7 +80,7 @@ const applyClasses = (el, top) => {
  * @param  {array} $elements         array of elements nodes
  * @return {void}
  */
-const handleScroll = $elements =>
+const handleScroll = ($elements) =>
   $elements.forEach((el, i) => applyClasses(el, window.pageYOffset));
 
 export default handleScroll;

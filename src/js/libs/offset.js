@@ -5,7 +5,7 @@
  * @param  {Node} el [DOM element]
  * @return {Object} [top and left offset]
  */
-const offset = function(el) {
+const offset = function (el) {
   let _x = 0;
   let _y = 0;
 
@@ -17,7 +17,7 @@ const offset = function(el) {
 
   return {
     top: _y,
-    left: _x
+    left: _x,
   };
 };
 

@@ -7,7 +7,7 @@ const params = {
   watch: ['dist/**', 'demo/**'],
   open: process.env.NODE_ENV !== 'test',
   mount: [['/dist', './dist']],
-  noCssInject: true
+  noCssInject: true,
 };
 
 const server = liveServer.start(params);

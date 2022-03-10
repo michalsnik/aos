@@ -1,4 +1,4 @@
-describe('setting: anchorPlacement', function() {
+describe('setting: anchorPlacement', function () {
   beforeEach(() => {
     cy.visit('/index.html');
     cy.viewport(1280, 700);
@@ -8,7 +8,7 @@ describe('setting: anchorPlacement', function() {
     it('Should be respected by all elements', () => {
       cy.initAOS({
         offset: 0,
-        anchorPlacement: 'top-center'
+        anchorPlacement: 'top-center',
       });
 
       cy.get('.aos-animate').should('have.length', 6);
@@ -20,7 +20,7 @@ describe('setting: anchorPlacement', function() {
     it('Should respect default offset', () => {
       cy.initAOS({
         offset: 120,
-        anchorPlacement: 'top-center'
+        anchorPlacement: 'top-center',
       });
 
       cy.get('.aos-animate').should('have.length', 3);
@@ -32,14 +32,14 @@ describe('setting: anchorPlacement', function() {
 
   context('inline setting', () => {
     it('Should override global setting and reset default offset', () => {
-      cy.document().then(document => {
+      cy.document().then((document) => {
         const el = document.querySelector('[data-id="6"]');
         el.dataset.aosAnchorPlacement = 'bottom-center';
       });
 
       cy.initAOS({
         offset: 400,
-        anchorPlacement: 'top-center'
+        anchorPlacement: 'top-center',
       });
 
       cy.get('[data-id="6"]').should('not.have.class', 'aos-animate');
@@ -52,7 +52,7 @@ describe('setting: anchorPlacement', function() {
     });
 
     it('Should respect inline offset', () => {
-      cy.document().then(document => {
+      cy.document().then((document) => {
         const el = document.querySelector('[data-id="6"]');
         el.dataset.aosAnchorPlacement = 'bottom-center';
         el.dataset.aosOffset = 100;
@@ -60,7 +60,7 @@ describe('setting: anchorPlacement', function() {
 
       cy.initAOS({
         offset: 400,
-        anchorPlacement: 'top-center'
+        anchorPlacement: 'top-center',
       });
 
       cy.get('[data-id="6"]').should('not.have.class', 'aos-animate');

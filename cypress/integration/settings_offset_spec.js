@@ -1,4 +1,4 @@
-describe('setting: offset', function() {
+describe('setting: offset', function () {
   context('global', () => {
     before(() => {
       cy.visit('/');
@@ -7,15 +7,15 @@ describe('setting: offset', function() {
     context('400px', () => {
       before(() => {
         cy.initAOS({
-          offset: 400
+          offset: 400,
         });
       });
 
-      it('Should animate 3 items', function() {
+      it('Should animate 3 items', function () {
         cy.get('.aos-animate').should('have.length', 3);
       });
 
-      it('Should animate next 3 items on scroll', function() {
+      it('Should animate next 3 items on scroll', function () {
         cy.scrollTo(0, 50);
         cy.get('.aos-animate').should('have.length', 6);
       });
@@ -24,11 +24,11 @@ describe('setting: offset', function() {
     context('0px', () => {
       before(() => {
         cy.initAOS({
-          offset: 0
+          offset: 0,
         });
       });
 
-      it('Should animate 9 items', function() {
+      it('Should animate 9 items', function () {
         cy.get('.aos-animate').should('have.length', 9);
         cy.scrollTo(0, 50);
         cy.get('.aos-animate').should('have.length', 9);
@@ -43,7 +43,7 @@ describe('setting: offset', function() {
       cy.viewport(1280, 500);
     });
 
-    it('Should properly tigger all animations', function() {
+    it('Should properly tigger all animations', function () {
       cy.get('.aos-animate').should('have.length', 7);
       cy.scrollTo(0, 1 * 150);
       cy.get('.aos-animate').should('have.length', 8);
