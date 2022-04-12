@@ -4,7 +4,6 @@
  * made to animate elements on scroll in both directions
  * *******************************************************
  */
-import styles from './../sass/aos.scss';
 
 // Modules & helpers
 import throttle from 'lodash.throttle';
