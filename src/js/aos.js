@@ -4,7 +4,6 @@
  * made to animate elements on scroll in both directions
  * *******************************************************
  */
-import styles from './../sass/aos.scss';
 
 // Modules & helpers
 import throttle from 'lodash.throttle';
@@ -61,7 +60,8 @@ const initializeScroll = function initializeScroll() {
     'scroll',
     throttle(() => {
       handleScroll($aosElements, options.once);
-    }, options.throttleDelay)
+    }, options.throttleDelay),
+    { passive: true }
   );
 
   return $aosElements;
