@@ -134,20 +134,20 @@ This way you can trigger animation on one element, while you scroll to another -
 
 ## API
 
-AOS object is exposed as a global variable, for now there are three methods available:
+Textify.js object is exposed as a global variable, for now there are one method available:
 
-  * `init` - initialize AOS
-  * `refresh` - recalculate all offsets and positions of elements (called on window resize)
-  * `refreshHard` - reinit array with AOS elements and trigger `refresh` (called on DOM changes that are related to `aos` elements)
+  * `onRefresh` - recalculate all offsets and positions of elements (called on window resize)
 
 Example execution:
 ```javascript
-  AOS.refresh();
+  const animations = new Textify();
+  
+  animations.onRefresh();
 ```
 
-By default AOS is watching for DOM changes and if there are any new elements loaded asynchronously or when something is removed from DOM it calls `refreshHard` automatically. In browsers that don't support `MutationObserver` like IE you might need to call `AOS.refreshHard()` by yourself.
+By default Textify.js is watching for DOM changes and if there are any new elements loaded asynchronously or when something is removed from DOM it calls `onRefresh` automatically. In browsers that don't support `MutationObserver` like IE you might need to call `onRefresh()` by yourself.
 
-`refresh` method is called on window resize and so on, as it doesn't require to build new store with AOS elements and should be as light as possible.
+`onRefresh` method is called on window resize and so on, as it doesn't require to build new store with Textify.js elements and should be as light as possible.
 
 ---
 
