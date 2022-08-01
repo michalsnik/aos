@@ -72,8 +72,7 @@ const initializeScroll = function initializeScroll() {
  */
 const refresh = function refresh(initialize = false) {
   // Allow refresh only when it was first initialized on startEvent
-  if (initialize) initialized = true;
-  if (initialized) initializeScroll();
+  initialize && (initialized = true) && initializeScroll();
 };
 
 /**
