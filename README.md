@@ -98,7 +98,7 @@ These settings can be set both on certain elements, or as default while initiali
 | *`data-aos-delay`* | Delay animation (ms) | 300 | 0 |
 | *`data-aos-anchor`* | Anchor element, whose offset will be counted to trigger animation instead of actual elements offset | #selector | null |
 | *`data-aos-anchor-placement`* | Anchor placement - which one position of element on the screen should trigger animation | top-center | top-bottom |
-| *`data-aos-once`* | Choose wheter animation should fire once, or every time you scroll up/down to element | true | false |
+| *`data-aos-once`* | Choose whether animation should fire once, or every time you scroll up/down to element | true | false |
 
 *Duration accept values from 50 to 3000, with step 50ms, it's because duration of animation is handled by css, and to not make css longer than it is already I created implementations only in this range. I think this should be good for almost all cases.
 
