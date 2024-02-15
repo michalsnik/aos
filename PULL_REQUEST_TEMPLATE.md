@@ -5,7 +5,7 @@
 <!--- Please link to the issue here: -->
 
 ## Your solution
-<!--- Plese describe your solution, have you encountered any issues along the way? -->
+<!--- Please describe your solution, have you encountered any issues along the way? -->
 
 ## How Has This Been Tested?
 <!--- Please describe in detail how you tested your changes. -->
