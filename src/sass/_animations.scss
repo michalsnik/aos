@@ -8,6 +8,7 @@ $aos-distance: 100px !default;
     * fade
     * fade-up, fade-down, fade-left, fade-right
     * fade-up-right, fade-up-left, fade-down-right, fade-down-left
+    * pop-in, pop-out, glow, ripple, wave, drift
     */
 
     [data-aos^='fade'][data-aos^='fade'] {
@@ -51,8 +52,29 @@ $aos-distance: 100px !default;
     [data-aos='fade-down-left'] {
       transform: translate3d($aos-distance, -$aos-distance, 0);
     }
+    [data-aos="pop-in"] {
+      transform: scale(0);
+    }
 
+    [data-aos="pop-out"] {
+      transform: scale(1);
+    }
 
+    [data-aos="glow"] {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    }
+
+    [data-aos="ripple"] {
+      transform: scale(0);
+    }
+
+    [data-aos="wave"] {
+      transform: translateX(0);
+    }
+
+    [data-aos="drift"] {
+      transform: translateY(0);
+    }
 
 
     /**
@@ -176,5 +198,30 @@ $aos-distance: 100px !default;
       transform: perspective(2500px) rotateX(100deg);
       &.aos-animate {transform: perspective(2500px) rotateX(0);}
     }
+  }
+}
+
+    /**
+    * Some popular animations:
+    * parallax, sticky, reveal, 
+    */
+
+[data-aos='parallax'] {
+  transform: translate3d(0, 50%, 0);
+}
+
+[data-aos='sticky'] {
+  position: sticky;
+  top: 0;
+}
+
+[data-aos='reveal'] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
